@@ -3,16 +3,16 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
 import { CanvasText } from "@/components/ui/canvas-text";
 import { Highlighter } from "@/components/ui/highlighter";
-import { TwistedArrow } from "@/components/ui/twisted-arrow";
 import { AssessmentCard } from "@/features/landing/components/assesment-card";
 import { LineByLineAssessmentCard } from "@/features/landing/components/line-by-line-assessment";
 import { ProgressCard } from "@/features/landing/components/progress-card";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen w-full font-vazirmatn rounded-md bg-stone-900 relative flex flex-col items-center justify-center antialiased overflow-hidden"
+      className="min-h-screen w-full font-vazirmatn  bg-stone-900 relative flex flex-col items-center justify-center antialiased overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-6 mt-20 sm:px-4 flex flex-col items-center z-10 relative">
         <div dir="rtl" className="relative z-20 px-4 sm:px-6">
@@ -74,12 +74,14 @@ export default function Home() {
           همین حالا با ثبت نام ، اولین متن خود را بدون هزینه برای تحلیل به هوش
           مصنوعی بسپارید.
         </h4>
-        <Button
-          variant={"outline"}
-          className="bg-transparent w-sm mt-2 text-white md:w-sm mx-auto cursor-pointer"
-        >
-          ثبت نام
-        </Button>
+        <Link href={"/login"}>
+          <Button
+            variant={"outline"}
+            className="bg-transparent w-sm mt-2 text-white md:w-sm mx-auto cursor-pointer"
+          >
+            ثبت نام
+          </Button>
+        </Link>
 
         <div className="relative w-full h-auto md:h-[420px] flex flex-col md:flex-row items-center justify-center py-10 md:py-0 -space-y-[10%] md:-space-y-0">
           {/* Left card - Top on mobile, rotated left on desktop */}
