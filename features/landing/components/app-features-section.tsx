@@ -1,4 +1,6 @@
+import { BentoGrid } from "@/components/ui/bento-grid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FeaturesBento } from "./bento-grid";
 const AppFeatures = () => {
   return (
     <div className="bg-linear-to-b from-primary-background font-vazirmatn to-primary-container w-full">
@@ -29,7 +31,9 @@ const AppFeatures = () => {
             گزارش پیشرفت
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="overview">heloo</TabsContent>
+        <TabsContent dir="rtl" value="overview" className="px-6 pb-10">
+          <FeaturesBento />
+        </TabsContent>
       </Tabs>
     </div>
   );
