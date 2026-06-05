@@ -29,6 +29,7 @@ const AppFeatures = () => {
             گزارش پیشرفت
           </TabsTrigger>
         </TabsList>
+        <TabsContent value="overview">heloo</TabsContent>
       </Tabs>
     </div>
   );

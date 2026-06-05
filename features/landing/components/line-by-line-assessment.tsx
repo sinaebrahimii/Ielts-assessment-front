@@ -2,8 +2,15 @@
 
 import { motion } from "framer-motion";
 import { FileSearch } from "lucide-react";
+import React from "react";
 
-const CustomHighlight = ({ children, color }) => {
+const CustomHighlight = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
   return (
     <span className="relative inline-block mx-1">
       <motion.span
@@ -23,12 +30,18 @@ const CustomHighlight = ({ children, color }) => {
   );
 };
 
-const CustomUnderline = ({ children, color }) => {
+const CustomUnderline = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
   return (
     <span className="relative inline-block mx-1">
       {children}
       <motion.span
-        className="absolute -bottom-1 left-0 h-[2px] rounded-full"
+        className="absolute -bottom-1 left-0 h-0.5 rounded-full"
         style={{ backgroundColor: color }}
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
@@ -46,7 +59,7 @@ const CustomUnderline = ({ children, color }) => {
 export function LineByLineAssessmentCard() {
   return (
     <div
-      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2563eb]/20 bg-gradient-to-br from-[#0f172a] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2563eb]/20 bg-linear-to-br from-[#0f172a] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
       dir="rtl"
     >
       {/* Decorative background glow (Dark Blue Tone) */}
