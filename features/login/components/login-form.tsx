@@ -11,7 +11,7 @@ const LoginForm = () => {
 
   return (
     <div
-      className="w-full max-w-sm rounded-xl border bg-primary-container p-8 shadow-sm text-white"
+      className="w-full max-w-sm rounded-xl border bg-bg -container p-8 shadow-sm text-white"
       dir="rtl"
     >
       <div className="mb-6 text-center">
@@ -28,7 +28,7 @@ const LoginForm = () => {
             id="phone"
             type="tel"
             placeholder="۰۹۱۲۳۴۵۶۷۸۹"
-            className="text-right bg-[#64748B] placeholder:text-[#B1BED1] border-none text-white "
+            className="text-right bg-bg-light placeholder:text-[#B1BED1] border-none text-white "
             required
           />
         </div>
@@ -40,7 +40,7 @@ const LoginForm = () => {
             id="password"
             type="password"
             placeholder="رمز عبور"
-            className="bg-[#64748B]  placeholder:text-[#B1BED1] border-none text-white "
+            className="bg-bg-light  placeholder:text-[#B1BED1] border-none text-white "
             required
           />
         </div>
@@ -48,7 +48,7 @@ const LoginForm = () => {
         {/* دکمه فرم */}
         <Button
           type="submit"
-          className="w-full bg-primary-main text-white hover:bg-purple-800 cursor-pointer border border-purple-600"
+          className="w-full  bg-primary-600 text-white hover:bg-primary-700 cursor-pointer border border-primary-600"
         >
           {isLogin ? "ورود" : "ثبت‌نام"}
         </Button>
@@ -62,7 +62,7 @@ const LoginForm = () => {
             <button
               type="button"
               onClick={() => setIsLogin(false)}
-              className="text-purple-400 hover:text-purple-300 underline underline-offset-4"
+              className="text-primary-400 hover:text-primary-300 cursor-pointer underline underline-offset-4"
             >
               می‌خواهم ثبت‌نام کنم
             </button>

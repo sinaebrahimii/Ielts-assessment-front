@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <div
       dir="rtl"
-      className="min-h-screen w-full font-vazirmatn  bg-primary-background relative flex flex-col items-center justify-center antialiased overflow-hidden"
+      className="min-h-screen w-full font-vazirmatn bg-bg-dark relative flex flex-col items-center justify-center antialiased overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-6 mt-20 sm:px-4 flex flex-col items-center z-10 relative">
         <div dir="rtl" className="relative z-20 px-4 sm:px-6">
@@ -100,7 +100,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <BackgroundBeams className="bg-primary-background" />
+      <BackgroundBeams className="bg-bg-dark" />
     </div>
   );
 };

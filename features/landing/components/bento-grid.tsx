@@ -22,7 +22,7 @@ export function FeaturesBento() {
           description={item.description}
           header={item.header}
           icon={item.icon}
-          className={`${i === 3 || i === 6 ? "md:col-span-3" : ""} bg-indigo-800/20 text-white`}
+          className={`${i === 3 || i === 6 ? "md:col-span-3" : ""} bg-bg-light text-white`}
         />
       ))}
     </BentoGrid>

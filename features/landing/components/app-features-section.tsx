@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FeaturesBento } from "./bento-grid";
 const AppFeatures = () => {
   return (
-    <div className="bg-linear-to-b from-primary-background font-vazirmatn to-primary-container w-full">
+    <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full">
       <h4
         dir="rtl "
         className="text-gray-200 font-black text-4xl text-center mt-5"
@@ -11,7 +11,7 @@ const AppFeatures = () => {
         AIelts امکانات
       </h4>
       <Tabs defaultValue="overview" className="w-full ">
-        <TabsList className="mx-auto bg-[#64748B] gap-4 flex justify-center my-5">
+        <TabsList className="mx-auto bg-bg-light gap-4 flex justify-center my-5">
           <TabsTrigger
             className="cursor-pointer data-[state=active]:text-primary-background text-[#F8FBFE]"
             value="overview"
