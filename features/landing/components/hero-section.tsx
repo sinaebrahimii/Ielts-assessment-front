@@ -1,4 +1,5 @@
 "use client";
+
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
 import { CanvasText } from "@/components/ui/canvas-text";
@@ -7,94 +8,87 @@ import { AssessmentCard } from "@/features/landing/components/assesment-card";
 import { LineByLineAssessmentCard } from "@/features/landing/components/line-by-line-assessment";
 import { ProgressCard } from "@/features/landing/components/progress-card";
 import Link from "next/link";
+import { Sparkles, ArrowLeft } from "lucide-react";
+
 const HeroSection = () => {
   return (
     <div
       dir="rtl"
-      className="min-h-screen w-full font-vazirmatn bg-bg-dark relative flex flex-col items-center justify-center antialiased overflow-hidden"
+      className="min-h-screen w-full font-vazirmatn bg-bg-dark relative flex flex-col items-center justify-center antialiased overflow-hidden py-16 sm:py-24"
     >
-      <div className="max-w-4xl mx-auto px-6 mt-20 sm:px-4 flex flex-col items-center z-10 relative">
-        <div dir="rtl" className="relative z-20 px-4 sm:px-6">
-          {/* Main heading - centered (wraps nicely on mobile) */}
-          <h1
-            className="text-center font-sans font-extrabold tracking-tight leading-[1.35] sm:leading-[1.6] md:leading-[1.8]
-                 text-2xl sm:text-4xl md:text-5xl xl::text-9xl
-                 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400"
-          >
-            <span className="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-2 gap-y-2">
-              <span className="whitespace-nowrap flex-1 text-nowrap">
-                تقویت مهارت های نوشتار آیلتس با
-              </span>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center z-10 relative">
+        {/* Top Agent Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-200 text-xs sm:text-sm backdrop-blur-md">
+          <Sparkles size={14} className="text-purple-400 animate-pulse" />
+          <span>نسل جدید اگزمینر هوشمند با مدل‌های استدلال عمیق</span>
+        </div>
 
-              {/* Keep "هوش مصنوعی" as a single chunk; allow line-break before it on mobile */}
-              <span className="shrink-0 whitespace-nowrap">
-                <CanvasText
-                  text="هوش مصنوعی"
-                  className="font-extrabold inline-block"
-                  backgroundClassName="bg-purple-500 dark:bg-purple-700"
-                  colors={[
-                    "rgba(88, 28, 135, 1)",
-                    "rgba(88, 28, 135, 0.9)",
-                    "rgba(88, 28, 135, 0.8)",
-                    "rgba(88, 28, 135, 0.7)",
-                    "rgba(88, 28, 135, 0.6)",
-                    "rgba(88, 28, 135, 0.5)",
-                    "rgba(88, 28, 135, 0.4)",
-                    "rgba(88, 28, 135, 0.3)",
-                    "rgba(88, 28, 135, 0.2)",
-                    "rgba(88, 28, 135, 0.1)",
-                  ]}
-                  lineGap={4}
-                  animationDuration={20}
-                />
-              </span>
+        {/* Heading */}
+        <div className="relative z-20 w-full text-center">
+          <h1 className="font-sans font-extrabold tracking-tight leading-[1.3] sm:leading-[1.5] text-3xl sm:text-5xl md:text-6xl text-white">
+            تقویت مهارت‌های رایتینگ آیلتس با{" "}
+            <span className="inline-block mt-2 sm:mt-0">
+              <CanvasText
+                text="هوش مصنوعی"
+                className="font-extrabold inline-block"
+                backgroundClassName="bg-purple-600 dark:bg-purple-800"
+                colors={[
+                  "rgba(168, 85, 247, 1)",
+                  "rgba(147, 51, 234, 0.9)",
+                  "rgba(126, 34, 206, 0.8)",
+                  "rgba(192, 132, 252, 0.7)",
+                ]}
+                lineGap={5}
+                animationDuration={15}
+              />
             </span>
           </h1>
 
-          {/* Secondary content - right aligned; better sizing/leading on mobile */}
-          <div className="mt-6 sm:mt-8 max-w-3xl mx-auto text-center space-y-3 sm:space-y-4">
-            <h2 className="text-base sm:text-xl md:text-2xl   xl:leading-relaxed font-medium leading-7 sm:leading-9 text-gray-300">
-              رایتینگ خود را بنویسید و در لحظه نمره بگیرید. با فیدبک دقیق هوش
-              مصنوعی، اشتباه هایتان را قبل از آزمون اصلی برطرف کنید.
+          <div className="mt-6 max-w-2xl mx-auto space-y-4">
+            <h2 className="text-base sm:text-xl text-neutral-300 leading-relaxed font-normal">
+              رایتینگ بنویسید، در لحظه نمره رسمی آزمون را دریافت کنید و با فیدبک
+              اختصاصی ایجنت‌ها، اشتباهات ساختاری و گرامری خود را برطرف کنید.
             </h2>
 
-            <h3 className="text-lg sm:text-2xl md:text-3xl font-light  text-white">
+            <h3 className="text-lg sm:text-2xl font-light text-white">
               <Highlighter action="highlight" color="#413185">
-                هوشمندانه
+                هدفمند و هوشمند
               </Highlighter>
               <span className="mx-2">تمرین کنید،</span>
               <Highlighter action="underline" color="#E09779">
-                نه بیشتر!
+                نه در تاریکی!
               </Highlighter>
             </h3>
           </div>
         </div>
-        <h4 className="my-5 text-sm text-center md:text-2xl  text-gray-300">
-          همین حالا با ثبت نام ، اولین متن خود را بدون هزینه برای تحلیل به هوش
-          مصنوعی بسپارید.
-        </h4>
-        <Link href={"/login"}>
-          <Button
-            variant={"outline"}
-            className="bg-transparent w-sm mt-2 text-white md:w-sm mx-auto cursor-pointer"
-          >
-            ثبت نام
-          </Button>
-        </Link>
 
-        <div className="relative w-full h-auto md:h-[420px] flex flex-col md:flex-row items-center justify-center py-10 md:py-0 -space-y-[10%] md:-space-y-0">
-          {/* Left card - Top on mobile, rotated left on desktop */}
-          <div className="relative md:absolute z-10 md:-translate-x-80 md:rotate-[-8deg] scale-90 opacity-90 shadow-xl">
+        {/* Action Button */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none">
+          <Link href="/login" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full sm:w-60 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold h-12 rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>ارزیابی رایگان اولین متن</span>
+              <ArrowLeft size={18} />
+            </Button>
+          </Link>
+        </div>
+
+        {/* Interactive Floating / Layered Cards Showcase */}
+        <div className="relative w-full mt-12 sm:mt-16 flex flex-col items-center justify-center gap-6 lg:gap-0 lg:h-[420px]">
+          {/* Card 1 */}
+          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-10 lg:-translate-x-72 lg:rotate-[-6deg] lg:hover:rotate-0 lg:hover:z-40 transition-transform duration-300">
             <AssessmentCard />
           </div>
 
-          {/* Center card - Middle on mobile, front and center on desktop */}
-          <div className="relative md:absolute z-30 shadow-2xl scale-95">
+          {/* Center Card */}
+          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-30 lg:hover:scale-105 transition-transform duration-300">
             <ProgressCard />
           </div>
 
-          {/* Right card - Bottom on mobile, rotated right on desktop */}
-          <div className="relative md:absolute z-20 md:translate-x-76 md:translate-y-5 md:rotate-[10deg] scale-85 opacity-90 shadow-xl">
+          {/* Card 3 */}
+          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-20 lg:translate-x-72 lg:translate-y-4 lg:rotate-[6deg] lg:hover:rotate-0 lg:hover:z-40 transition-transform duration-300">
             <LineByLineAssessmentCard />
           </div>
         </div>
