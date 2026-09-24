@@ -40,6 +40,11 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
+.agents/
+  skills/
+    frontend-design/
+      LICENSE.txt
+      SKILL.md
 app/
   (root)/
     layout.tsx
@@ -58,6 +63,7 @@ components/
     highlighter.tsx
     input.tsx
     label.tsx
+    modern-hero-background.tsx
     tabs.tsx
     twisted-arrow.tsx
     typing-animation.tsx
@@ -72,10 +78,11 @@ features/
       login-form.tsx
   landing/
     components/
-      agent-architecture-section.tsx.tsx
+      agent-architecture-section.tsx
       app-features-section.tsx
       assesment-card.tsx
       bento-grid.tsx
+      hero-examiner-studio.tsx
       hero-section.tsx
       interactive-feedback-demo.tsx
       line-by-line-assessment.tsx
@@ -113,445 +120,580 @@ next.config.ts
 package.json
 postcss.config.mjs
 README.md
+skills-lock.json
 tsconfig.json
 </directory_structure>
 
 <files>
 This section contains the contents of the repository's files.
 
-<file path="features/landing/components/agent-architecture-section.tsx.tsx">
+<file path=".agents/skills/frontend-design/LICENSE.txt">
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+</file>
+
+<file path=".agents/skills/frontend-design/SKILL.md">
+---
+name: frontend-design
+description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+license: Complete terms in LICENSE.txt
+---
+
+# Frontend Design
+
+Approach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejected proposals that felt cliché or templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take aesthetic risk if justified.
+
+## Ground your designs in the subject matter
+
+If the brief does not identify what the product or subject matter is, identify it yourself before designing, and confirm with the client. You can come up with one concrete subject, the design's audience, and the design's primary job, as a proposal. If there's any information in your memory about the client's preferences or context about what they're building, use that as a hint. The subject's industry, subject matter, materials, and vernacular are where distinctive visual choices come from — a design for a toy for girls aged 8–11 will be very aesthetically different from a dashboard for financial analysts. Build with the brief's real content and subject matter throughout.
+
+## Design principles
+
+For web designs, the hero is the first thing viewers will see. Open with the most characteristic thing in the subject's world, in the form that is most appropriate: a headline, an image, an animation, a live demo, an interactive moment, or other treatments. Be deliberate with your choice: a big number with a small label, supporting stats, and a gradient accent is the default treatment, so only use it if that's truly the best option.
+
+Typography carries the personality of the page. You don't need a different typeface for display or headline text and body content: use one family or two, and if two, make them clearly distinct.
+
+Choose your typefaces deliberately, not the default families you would reach for on any other project, and set a clear type scale following the default guidance of The Elements of Typographic Style with intentional weights, widths, and spacing. When type is used as a headline or visual element, use the type treatment itself as an active part of the design, not a neutral delivery vehicle for the content.
+
+Default to line lengths of less than 80 characters. Serif typefaces can have slightly longer line lengths; give serif body text slightly more line-height than a sans-serif.
+
+Avoid these default typographic treatments; they are the commonest tells of a generated page:
+- Accenting just a single word or phrase in a headline, like putting one word in italic/bold or a different color.
+- Using all caps for labels.
+- Adding unnecessary typographic labels above content.
+
+Visual structure is information. Structural devices like outlines, borders, numbering, eyebrows, dividers, labels, etc., encode useful information about the content rather than decorate it. Many generic designs use numbered markers (01 / 02 / 03), but that's only appropriate if the content actually is a sequence — like a stepped process or a timeline. Before adding numbered markers, check the content really is a sequence.
+
+Use non-user-triggered motion sparingly and deliberately, only to draw attention. A single orchestrated moment — one page-load sequence or one reveal — lands better than scattered effects; fade-and-slide-up entrances on each section and hover transitions on every card are the generic default and read as AI-generated. Motion that answers a person's action (opening, expanding, confirming) is welcome when it shows what changed.
+
+Consider written content carefully. Often a design brief may not contain real content, and it's up to you to come up with copy and placeholder content. Copy can make a design feel as templated as the design itself. See the below section on writing for more guidance.
+
+## Process: plan, review against the brief, build, critique
+
+For calibration, AI-generated design right now clusters around some traits:
+1. a warm cream background (near #F4F1EA) with a high-contrast serif display and a terracotta or warm-clay accent (often near #D97757 — Anthropic's own Claude-interaction accent, so on a user's brief it reads as a tell);
+2. a near-black background with a single bright acid-green or vermilion accent;
+3. a broadsheet-style layout with hairline rules, zero border-radius, and dense newspaper-like columns;
+4. the SaaS-card kit: content chopped into identical rounded cards, one border-radius on everything regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each, and gradient washes as decoration;
+5. template chrome that appears whatever the subject: a tracked-out ALL-CAPS eyebrow label above every heading; meta strings joined with middle dots ('A · B · C'); labels built as 'WORD — fragment' with a spaced em dash; tinted near-black (#0B0B0B, #111) standing in for black; a monospace face for small data labels; a '→' appended to link and button text.
+
+All traits are legitimate for some briefs, but they are defaults rather than choices, and they appear regardless of subject. Where the brief pins down a visual direction, follow it exactly — the brief's own words always win, including when it asks for one of these looks. Where it leaves an axis free, don't spend that freedom on one of these defaults. As with a hired human designer, there's often a careful balance between doing what you're good at and taking each project as a chance to experiment and learn.
+
+Work in two passes. First, brainstorm a short design plan based on the client's design brief: create a compact token system with color, type, layout, and principles.
+- Color: describe the core base palette as 4–6 named hex values.
+- Type: the typefaces and their roles.
+- Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Include alignment guidance; should the content be left aligned, center aligned, justified?
+- Principles: the high-level guidance for what makes this page unique.
+
+Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan.
+
+When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections.
+
+## Restraint and self-critique
+
+Spend your boldness in one place. Let one element be the memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected, visually accessible, harmonious color palettes. Critique your own work as you build, taking screenshots to review if your environment supports it — a picture is worth 1000 tokens. Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creatives have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
+
+## More on writing in design
+
+Words appear in a design for one reason: to make it easier to understand and use. They are design content, not decoration. Bring the same intentionality and minimalism to copywriting that you would bring to spacing and color. Before writing anything, ask what the design needs to say, and how it can best be said to help the person navigate the experience.
+
+Write from the end user's perspective. Name things by what users will understand in simple language, not by how the system is built. A user manages notifications, not webhook config. Describe what something is or does in plain terms rather than selling it. Being specific and legible to new users is always better than being clever.
+
+Use active voice as default. A CTA says exactly what happens when it is used: "Save changes," not "Submit." An action keeps the same name through the whole flow, so the button that says "Publish" produces a toast that says "Published." The vocabulary of an interface is the signposting for someone navigating the product. Cohesion and consistency are how people learn their way around.
+
+Treat failure and emptiness as moments for direction, not mood. Explain what went wrong and how to fix it, in the interface's voice rather than a person's. Errors don't apologize, and they are never vague about what happened. An empty screen is an invitation to act.
+
+Keep the tone conversational: plain verbs, sentence case, no filler, with tone matched to the brand and the audience. Let each written element do exactly one job.
+</file>
+
+<file path="components/ui/modern-hero-background.tsx">
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-  Bot,
-  Cpu,
-  Sparkles,
-  ShieldCheck,
-  Terminal,
-  Flame,
-  CheckCircle2,
-} from "lucide-react";
+import React from "react";
+import { motion } from "motion/react";
 
-interface Agent {
-  id: string;
-  name: string;
-  role: string;
-  enRole: string;
-  color: string;
-  accentBorder: string;
-  badgeBg: string;
-  description: string;
-  liveOutput: string;
-  metrics: { label: string; val: string }[];
-}
-
-const agents: Agent[] = [
-  {
-    id: "orchestrator",
-    name: "Master Examiner Agent",
-    role: "سنجش معیار Task Response و مدیریت بازخورد",
-    enRole: "TR & Flow Evaluator",
-    color: "#a855f7",
-    accentBorder: "border-purple-500/40",
-    badgeBg: "bg-purple-500/10 text-purple-300 border-purple-500/30",
-    description:
-      "تطابق کامل ساختار استدلال با صورت سوال، انسجام ایده و بررسی پاسخگویی کامل به تمام بخش‌های موضوع تسک.",
-    liveOutput:
-      "Agent[TaskResponse]:: Analysis finished. Topic coverage: 98.4%. Counter-arguments resolved cleanly.",
-    metrics: [
-      { label: "Target Band", val: "8.5+" },
-      { label: "Response Latency", val: "320ms" },
-    ],
-  },
-  {
-    id: "linguist",
-    name: "Lexical & Collocation Agent",
-    role: "تحلیل دایره لغات تخصصی و ترکیب‌های طبیعی",
-    enRole: "Lexical Resource Expert",
-    color: "#38bdf8",
-    accentBorder: "border-sky-500/40",
-    badgeBg: "bg-sky-500/10 text-sky-300 border-sky-500/30",
-    description:
-      "جایگزینی عبارات تکراری و ابتدایی با Academic Collocations و اصطلاحات متناسب با سطح Band 8+.",
-    liveOutput:
-      "Agent[Lexical]:: Replaced 'important problem' with 'pressing conundrum'. Collocation naturalness 94%.",
-    metrics: [
-      { label: "Vocabulary Density", val: "C1/C2" },
-      { label: "Uniqueness", val: "91%" },
-    ],
-  },
-  {
-    id: "grammar",
-    name: "Grammar & Syntax Sentinel",
-    role: "ردیابی ریزساختارهای گرامری و تنوع جملات",
-    enRole: "GRA Syntactic Engine",
-    color: "#34d399",
-    accentBorder: "border-emerald-500/40",
-    badgeBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
-    description:
-      "سنجش تعادل میان Complex Sentences و Compound Sentences به همراه حذف خطاهای ریز گرامری و نشانه‌گذاری.",
-    liveOutput:
-      "Agent[Grammar]:: Inversion verified ('Rarely do we witness...'). Zero punctuation slippage.",
-    metrics: [
-      { label: "Syntax Variety", val: "Complex 76%" },
-      { label: "Accuracy", val: "99.8%" },
-    ],
-  },
-];
-
-export function AgentArchitectureSection() {
-  const [selectedAgent, setSelectedAgent] = useState<Agent>(agents[0]);
-
+export function ModernHeroBackground() {
   return (
-    <section
-      dir="rtl"
-      className="w-full relative py-20 px-4 sm:px-6 md:px-12 bg-bg-dark font-vazirmatn overflow-hidden border-t border-white/5"
-    >
-      {/* Dynamic ambient background glow */}
+    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none -z-10">
+      {/* Subtle Grid Pattern */}
       <div
-        className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full opacity-20 blur-[130px] pointer-events-none transition-colors duration-700"
-        style={{ backgroundColor: selectedAgent.color }}
+        className="absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/30 text-purple-300 text-xs font-semibold"
-          >
-            <Bot size={15} className="animate-pulse" />
-            <span>معماری چندعاملی تخصصی (Multi-Agent System)</span>
-          </motion.div>
+      {/* Primary Hardware-Accelerated Ambient Glows */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.35, 0.5, 0.35],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-tr from-purple-600/30 via-indigo-600/25 to-pink-500/20 blur-[130px] transform-gpu will-change-transform"
+      />
 
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-2xl sm:text-4xl font-black text-white leading-tight"
-          >
-            نه یک پرامپت ساده، بلکه ارتشی از{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300 bg-clip-text text-transparent">
-              ایجنت‌های مستقل ارزیاب
-            </span>
-          </motion.h2>
+      {/* Secondary Dynamic Spotlight Accent */}
+      <motion.div
+        animate={{
+          x: [-20, 20, -20],
+          y: [-10, 15, -10],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-24 right-1/4 w-[450px] h-[300px] rounded-full bg-indigo-500/20 blur-[110px] transform-gpu will-change-transform"
+      />
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base text-neutral-400 leading-relaxed"
-          >
-            هر معیار چهارگانه آیلتس توسط یک ایجنت هوشمند و متمرکز پردازش می‌شود
-            تا نمره نهایی شما کاملاً دقیق، مستند و قابل اتکا باشد.
-          </motion.p>
-        </div>
-
-        {/* Agent Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          {agents.map((agent) => {
-            const isSelected = selectedAgent.id === agent.id;
-            return (
-              <motion.div
-                key={agent.id}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                onClick={() => setSelectedAgent(agent)}
-                className={`cursor-pointer relative rounded-2xl p-6 transition-all duration-300 backdrop-blur-md border ${
-                  isSelected
-                    ? `${agent.accentBorder} bg-gradient-to-b from-white/[0.08] to-white/[0.02] shadow-[0_0_25px_rgba(0,0,0,0.5)]`
-                    : "border-white/5 bg-white/[0.02] hover:border-white/15"
-                }`}
-              >
-                {/* Active Indicator Pillar */}
-                {isSelected && (
-                  <motion.div
-                    layoutId="activePill"
-                    className="absolute top-0 right-6 left-6 h-0.5 rounded-full"
-                    style={{ backgroundColor: agent.color }}
-                  />
-                )}
-
-                <div className="flex items-center justify-between mb-4">
-                  <div
-                    className="p-3 rounded-xl border flex items-center justify-center"
-                    style={{
-                      backgroundColor: `${agent.color}15`,
-                      borderColor: `${agent.color}35`,
-                      color: agent.color,
-                    }}
-                  >
-                    <Cpu size={22} />
-                  </div>
-                  <span
-                    className={`text-[11px] px-2.5 py-0.5 rounded-full border font-mono tracking-wider ${agent.badgeBg}`}
-                  >
-                    {agent.enRole}
-                  </span>
-                </div>
-
-                <h3 className="text-lg font-bold text-neutral-100 mb-1">
-                  {agent.name}
-                </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed min-h-[48px]">
-                  {agent.role}
-                </p>
-
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
-                  <span className="flex items-center gap-1.5">
-                    <span className="relative flex h-2 w-2">
-                      <span
-                        className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                        style={{ backgroundColor: agent.color }}
-                      ></span>
-                      <span
-                        className="relative inline-flex rounded-full h-2 w-2"
-                        style={{ backgroundColor: agent.color }}
-                      ></span>
-                    </span>
-                    Agent Active
-                  </span>
-                  <span className="text-neutral-500 font-mono">
-                    Telemetry OK
-                  </span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Live Agent Terminal Console Display */}
-        <motion.div
-          dir="ltr"
-          layout
-          className="w-full rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-5 sm:p-6 text-left shadow-2xl relative overflow-hidden"
-        >
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-            <div className="flex items-center gap-2">
-              <Terminal size={18} className="text-neutral-400" />
-              <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
-                Agent Inference Stream // {selectedAgent.id}
-              </span>
-            </div>
-            <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/60 inline-block" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60 inline-block" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60 inline-block" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-            <div className="md:col-span-2 space-y-3 font-mono text-xs sm:text-sm">
-              <p className="text-neutral-500 leading-relaxed">
-                <span className="text-neutral-300">{`>`}</span> System: Agent
-                handoff initiated for essay tokens...
-              </p>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={selectedAgent.id}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-emerald-400 font-medium leading-relaxed bg-emerald-950/20 p-3 rounded-lg border border-emerald-500/20"
-                >
-                  {selectedAgent.liveOutput}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-
-            <div className="border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-6 grid grid-cols-2 gap-4">
-              {selectedAgent.metrics.map((m, idx) => (
-                <div key={idx} className="space-y-1">
-                  <span className="text-[11px] text-neutral-400 block">
-                    {m.label}
-                  </span>
-                  <span className="text-lg font-bold font-mono text-neutral-100">
-                    {m.val}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+      {/* Bottom Fade to blend seamlessly with next section */}
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-dark to-transparent" />
+    </div>
   );
 }
 </file>
 
-<file path="features/landing/components/interactive-feedback-demo.tsx">
+<file path="features/landing/components/hero-examiner-studio.tsx">
 "use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  CheckCheck,
   Sparkles,
-  Zap,
-  Layers,
-  ArrowRightLeft,
+  Award,
+  BookOpen,
+  SpellCheck,
+  Compass,
+  ArrowUpRight,
+  TrendingUp,
 } from "lucide-react";
 
-type CriterionKey = "all" | "lexical" | "cohesion" | "grammar";
+type ActiveCriterion = "tr" | "lr" | "gra";
 
-export function InteractiveFeedbackDemo() {
-  const [activeCriterion, setActiveCriterion] = useState<CriterionKey>("all");
+interface CriterionData {
+  id: ActiveCriterion;
+  titleFa: string;
+  nameEn: string;
+  score: string;
+  color: string;
+  borderClass: string;
+  bgBadgeClass: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  original: string;
+  enhanced: string;
+  examinerNote: string;
+}
 
-  const criteriaFilters: { id: CriterionKey; label: string }[] = [
-    { id: "all", label: "تمام اصلاحات" },
-    { id: "lexical", label: "ارتقای واژگان (Band 8+)" },
-    { id: "cohesion", label: "انسجام و پیوستگی (Cohesion)" },
-    { id: "grammar", label: "ساختارهای پیچیده گرامری" },
-  ];
+const criteriaList: CriterionData[] = [
+  {
+    id: "lr",
+    titleFa: "دایره واژگان آکادمیک",
+    nameEn: "Lexical Resource",
+    score: "8.5",
+    color: "#f472b6", // pink-400
+    borderClass: "border-pink-500/40",
+    bgBadgeClass: "bg-pink-500/10 text-pink-300 border-pink-500/30",
+    icon: BookOpen,
+    original: "is a very big issue for modern countries",
+    enhanced: "constitutes a formidable impediment to sustainable growth",
+    examinerNote:
+      "جایگزینی عبارت محاوره‌ای 'big issue' با کالوکیشن آکادمیک و ساختار دقیق.",
+  },
+  {
+    id: "tr",
+    titleFa: "استدلال و پاسخ به سوال",
+    nameEn: "Task Response",
+    score: "8.0",
+    color: "#818cf8", // indigo-400
+    borderClass: "border-indigo-500/40",
+    bgBadgeClass: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
+    icon: Compass,
+    original: "I think that both opinions have good points.",
+    enhanced:
+      "While merit exists in both perspectives, empirical evidence favors the latter.",
+    examinerNote:
+      "ارائه بیانیه تز شفاف (Clear Thesis) و پرهیز از لحن غیررسمی شخصی.",
+  },
+  {
+    id: "gra",
+    titleFa: "تنوع گرامر و صحت ساختاری",
+    nameEn: "Grammatical Range",
+    score: "8.0",
+    color: "#34d399", // emerald-400
+    borderClass: "border-emerald-500/40",
+    bgBadgeClass: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    icon: SpellCheck,
+    original: "Cities become crowded and people get late.",
+    enhanced:
+      "Urban centers become congested, precipitating extensive commuting delays.",
+    examinerNote:
+      "کاربرد ساختار مجهز به Participle Clause و پیوستگی بی‌نقص ایده.",
+  },
+];
+
+export function HeroExaminerStudio() {
+  const [selectedCriterion, setSelectedCriterion] =
+    useState<ActiveCriterion>("lr");
+  const current =
+    criteriaList.find((c) => c.id === selectedCriterion) ?? criteriaList[0];
 
   return (
-    <section
+    <div
       dir="rtl"
-      className="w-full py-20 px-4 sm:px-6 md:px-12 bg-linear-to-b from-bg to-bg-dark font-vazirmatn relative border-t border-white/5"
+      className="w-full max-w-4xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-vazirmatn text-right"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
-            <Sparkles size={14} />
-            <span>مشاهده زنده نحوه عملکرد ایجنت</span>
+      {/* Header bar / Window Chrome */}
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-white/[0.02]">
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 ml-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-            تبدیل رایتینگ Band 6 به شاهکار Band 8.5
-          </h2>
-          <p className="text-sm sm:text-base text-neutral-400">
-            تغییرات هوشمند ایجنت را بر اساس فیلترهای استاندارد اگزمینر بررسی
-            کنید.
-          </p>
+          <span className="text-xs font-semibold text-neutral-300 flex items-center gap-1.5">
+            <Sparkles size={14} className="text-purple-400" />
+            شبیه‌ساز ارزیابی زنده اگزمینر رسمی آیلتس
+          </span>
         </div>
 
-        {/* Filter Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {criteriaFilters.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveCriterion(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border ${
-                activeCriterion === tab.id
-                  ? "bg-primary-600 text-white border-primary-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-neutral-200 hover:border-white/20"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Before vs After Dual Pane */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" dir="ltr">
-          {/* Original Text Pane */}
-          <div className="rounded-2xl border border-red-500/20 bg-red-950/[0.06] p-6 backdrop-blur-md relative flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-red-500/10 mb-4">
-                <span className="text-xs font-mono tracking-wider uppercase text-red-400 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-red-400" />
-                  Original Submission (Estimated 6.0)
-                </span>
-                <span className="text-xs bg-red-500/10 text-red-300 px-2 py-0.5 rounded border border-red-500/20 font-mono">
-                  Repetitive Lexis
-                </span>
-              </div>
-              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base font-sans">
-                Nowadays, pollution is a{" "}
-                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
-                  big problem
-                </span>{" "}
-                for big cities. Government{" "}
-                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
-                  should make strict rules
-                </span>{" "}
-                because people keep driving their personal cars everywhere and
-                this{" "}
-                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
-                  makes the air very dirty
-                </span>
-                .
-              </p>
-            </div>
-
-            <div
-              className="mt-6 pt-4 border-t border-white/5 text-xs text-neutral-400 flex items-center justify-between"
-              dir="rtl"
-            >
-              <span>
-                ایرادات: واژگان عمومی، افعال ضعیف و عدم ترکیب‌های آکادمیک.
-              </span>
-            </div>
-          </div>
-
-          {/* AI Enhanced Pane */}
-          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/[0.08] p-6 backdrop-blur-md relative flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-emerald-500/10 mb-4">
-                <span className="text-xs font-mono tracking-wider uppercase text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Agent Refactored (Estimated 8.5)
-                </span>
-                <span className="text-xs bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
-                  Lexical Precision
-                </span>
-              </div>
-
-              <p className="text-neutral-100 leading-relaxed text-sm sm:text-base font-sans">
-                In the contemporary era, environmental degradation represents a{" "}
-                <span
-                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
-                    activeCriterion === "all" || activeCriterion === "lexical"
-                      ? "bg-purple-500/30 text-purple-200 border border-purple-500/50 shadow-xs"
-                      : "text-neutral-100"
-                  }`}
-                >
-                  pressing dilemma
-                </span>{" "}
-                plaguing metropolitan hubs. Authorities must{" "}
-                <span
-                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
-                    activeCriterion === "all" || activeCriterion === "grammar"
-                      ? "bg-emerald-500/30 text-emerald-200 border border-emerald-500/50 shadow-xs"
-                      : "text-neutral-100"
-                  }`}
-                >
-                  implement stringent statutory frameworks
-                </span>
-                , given that commuter dependence on private transit{" "}
-                <span
-                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
-                    activeCriterion === "all" || activeCriterion === "cohesion"
-                      ? "bg-sky-500/30 text-sky-200 border border-sky-500/50 shadow-xs"
-                      : "text-neutral-100"
-                  }`}
-                >
-                  exacerbates atmospheric contamination exponentially
-                </span>
-                .
-              </p>
-            </div>
-
-            <div
-              className="mt-6 pt-4 border-t border-white/5 text-xs text-emerald-300 flex items-center justify-between"
-              dir="rtl"
-            >
-              <span className="flex items-center gap-1">
-                <CheckCheck size={16} className="text-emerald-400" />
-                افزایش دامنه واژگان دانشگاهی و استفاده از افعال قوی
-                (Collocations).
-              </span>
-            </div>
-          </div>
+        {/* Live Score Counter Card */}
+        <div className="flex items-center gap-2 bg-purple-500/15 border border-purple-500/30 px-3 py-1 rounded-full">
+          <TrendingUp size={13} className="text-purple-300" />
+          <span className="text-xs text-purple-200 font-medium">
+            نمره پیش‌بینی شده:
+          </span>
+          <span className="text-xs font-black font-mono text-white bg-purple-600 px-1.5 py-0.2 rounded">
+            Band 8.5
+          </span>
         </div>
       </div>
-    </section>
+
+      {/* Main Content: Split Studio */}
+      <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        {/* Left Side (Rubrics Controller) */}
+        <div className="lg:col-span-4 space-y-2.5">
+          <span className="text-[11px] font-semibold text-neutral-400 block mb-1">
+            معیارهای رسمی ارزیابی (کلیک کنید):
+          </span>
+          {criteriaList.map((criterion) => {
+            const isSelected = selectedCriterion === criterion.id;
+            const Icon = criterion.icon;
+
+            return (
+              <button
+                key={criterion.id}
+                type="button"
+                onClick={() => setSelectedCriterion(criterion.id)}
+                className={`w-full p-3 rounded-xl border text-right transition-colors cursor-pointer flex items-center justify-between ${
+                  isSelected
+                    ? "border-purple-500/50 bg-white/[0.06] shadow-sm"
+                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04] text-neutral-400"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center border"
+                    style={{
+                      backgroundColor: `${criterion.color}15`,
+                      borderColor: `${criterion.color}35`,
+                      color: criterion.color,
+                    }}
+                  >
+                    <Icon size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-100">
+                      {criterion.titleFa}
+                    </h4>
+                    <span className="text-[10px] text-neutral-400 font-mono block">
+                      {criterion.nameEn}
+                    </span>
+                  </div>
+                </div>
+
+                <span
+                  className="text-xs font-mono font-bold px-2 py-0.5 rounded border"
+                  style={{
+                    color: criterion.color,
+                    borderColor: `${criterion.color}35`,
+                    backgroundColor: `${criterion.color}10`,
+                  }}
+                >
+                  {criterion.score}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right Side (Active Inspection Box) */}
+        <div className="lg:col-span-8 flex flex-col gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+              className="space-y-3.5"
+            >
+              {/* English Essay Passage LTR */}
+              <div
+                dir="ltr"
+                className="p-4 sm:p-5 rounded-2xl bg-white/[0.025] border border-white/10 space-y-3 font-sans"
+              >
+                <div className="flex items-center justify-between text-xs pb-2 border-b border-white/5">
+                  <span className="font-mono text-neutral-400 text-[11px] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Student Submission (Task 2 Sample)
+                  </span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-md border font-mono ${current.bgBadgeClass}`}
+                  >
+                    {current.nameEn}
+                  </span>
+                </div>
+
+                <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <span>
+                    It is widely argued that environmental degradation{" "}
+                  </span>
+                  <span className="bg-red-500/20 text-red-300 px-1 py-0.5 rounded line-through decoration-red-400 font-normal">
+                    {current.original}
+                  </span>
+                  <span>.</span>
+                </div>
+
+                {/* Refined Band 8.5 Snippet */}
+                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-start gap-2">
+                  <Award
+                    size={16}
+                    className="text-purple-400 shrink-0 mt-0.5"
+                  />
+                  <div className="text-xs sm:text-[13px] text-purple-100 font-medium leading-relaxed">
+                    <span className="text-purple-300 text-[11px] uppercase tracking-wider block font-mono">
+                      Refined by Examiner Agent:
+                    </span>
+                    &ldquo;{current.enhanced}&rdquo;
+                  </div>
+                </div>
+              </div>
+
+              {/* Teaching Explanatory Note RTL */}
+              <div className="p-3 sm:p-3.5 rounded-xl border border-white/5 bg-white/[0.015] flex items-center justify-between text-xs text-neutral-300">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: current.color }}
+                  />
+                  <span>{current.examinerNote}</span>
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium">
+                  افزایش تراز
+                  <ArrowUpRight size={13} />
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
   );
+}
+</file>
+
+<file path="skills-lock.json">
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+    }
+  }
 }
 </file>
 
@@ -1669,174 +1811,359 @@ export const signIn = async (payload: UserSignIn) => {
 };
 </file>
 
-<file path="features/auth/components/login-form.tsx">
+<file path="features/landing/components/agent-architecture-section.tsx">
 "use client";
 
-import { useState } from "react";
-import { useForm } from "@tanstack/react-form";
-import { useRouter } from "next/navigation";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { signIn } from "../api/auth-api";
-import { storeToken } from "../action/auth-actions";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  GraduationCap,
+  BookOpen,
+  Sparkles,
+  CheckCircle2,
+  Compass,
+  SpellCheck,
+  Award,
+  ArrowLeft,
+  Quote,
+} from "lucide-react";
 
-const LoginForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
+interface Agent {
+  id: string;
+  badge: string;
+  name: string;
+  mentorTitle: string;
+  themeColor: string;
+  glowColor: string;
+  lightBg: string;
+  borderColor: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  summary: string;
+  focusAreas: string[];
+  feedbackExample: {
+    studentText: string;
+    highlightedPart: string;
+    suggestion: string;
+    mentorNote: string;
+  };
+}
 
-  const form = useForm({
-    defaultValues: {
-      username: "",
-      password: "",
+const agents: Agent[] = [
+  {
+    id: "task-response",
+    badge: "پاسخ به سوال (Task Response)",
+    name: "استاد راهنمای ساختار و استدلال",
+    mentorTitle: "راهنمای منطق و شفافیت ایده",
+    themeColor: "#818cf8", // indigo-400
+    glowColor: "rgba(129, 140, 248, 0.15)",
+    lightBg: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
+    borderColor: "border-indigo-500/40",
+    icon: Compass,
+    summary:
+      "مطمئن می‌شود که دقیقا به صورت سوال پاسخ داده‌اید، پاراگراف‌ها با مثال‌های ملموس پشتیبانی شده‌اند و دیدگاه شما در سراسر متن شفاف و پایدار است.",
+    focusAreas: [
+      "بررسی تک‌تک بخش‌های سوال تسک ۲",
+      "پرهیز از کلی‌گویی و ارائه دلایل منسجم",
+      "شفافیت دیدگاه و نتیجه‌گیری روشن",
+    ],
+    feedbackExample: {
+      studentText:
+        "Many people believe technology makes life easier. However, I think it has negative sides too.",
+      highlightedPart: "However, I think it has negative sides too.",
+      suggestion:
+        "Nevertheless, its adverse ramifications on human interaction cannot be overlooked.",
+      mentorNote:
+        "موضع خود را از ابتدا با یک بیانیه شفاف (Clear Thesis Statement) بیان کنید تا ممتحن بداند چه روندی را قرار است اثبات کنید.",
     },
-    onSubmit: async ({ value }) => {
-      setError(null);
-      try {
-        const data = await signIn({
-          username: value.username,
-          password: value.password,
-        });
-
-        await storeToken(data.access_token);
-
-        router.push("/");
-      } catch {
-        setError("نام کاربری یا رمز عبور اشتباه است");
-      }
+  },
+  {
+    id: "lexical-resource",
+    badge: "دایره واژگان (Lexical Resource)",
+    name: "مربی واژگان آکادمیک و کالوکیشن",
+    mentorTitle: "مشاور زبان طبیعی و لحن دانشگاهی",
+    themeColor: "#f472b6", // pink-400
+    glowColor: "rgba(244, 114, 182, 0.15)",
+    lightBg: "bg-pink-500/10 text-pink-300 border-pink-500/20",
+    borderColor: "border-pink-500/40",
+    icon: BookOpen,
+    summary:
+      "عبارات روزمره و تکراری را به ترکیب‌های طبیعی (Collocations) و اصطلاحات متناسب با مقالات آکادمیک ارتقا می‌دهد، بدون آنکه جمله مصنوعی یا ثقیل شود.",
+    focusAreas: [
+      "کالوکیشن‌های طبیعی به سبک افراد بومی (Native-like)",
+      "جلوگیری از تکرار چندباره کلمات کلیدی",
+      "دقت مفهومی در انتخاب صفت‌ها و افعال قوی",
+    ],
+    feedbackExample: {
+      studentText:
+        "Air pollution is a very serious problem that brings severe danger to health.",
+      highlightedPart: "very serious problem that brings severe danger",
+      suggestion:
+        "pressing dilemma that poses substantial threats to public well-being",
+      mentorNote:
+        "به جای صفت‌های عمومی مثل 'serious problem'، ترکیب 'pressing dilemma' و کالوکیشن 'poses threats' امتیاز شما را در این بخش تا نمره ۸ ارتقا می‌دهد.",
     },
-  });
+  },
+  {
+    id: "cohesion-grammar",
+    badge: "دستور زبان و اتصال جملات (GRA & CC)",
+    name: "ویراستار گرامر و جریان پیوسته متن",
+    mentorTitle: "کنترل روانی خواندن و تنوع ساختاری",
+    themeColor: "#34d399", // emerald-400
+    glowColor: "rgba(52, 211, 153, 0.15)",
+    lightBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
+    borderColor: "border-emerald-500/40",
+    icon: SpellCheck,
+    summary:
+      "متن شما را از نظر روانی خوانش، تعادل میان جملات ساده و مرکب، و سلامت علائم نگارشی صیقل داده تا ایده شما نرم و بدون لکنت جریان یابد.",
+    focusAreas: [
+      "استفاده صحیح از حروف ربط و رابط‌های پیوستگی (Cohesive Devices)",
+      "ساختارهای پیچیده ایمن (Inversion, Conditionals, Relative clauses)",
+      "اصلاح نشانه‌گذاری و فاصله‌گذاری‌های نگارشی",
+    ],
+    feedbackExample: {
+      studentText:
+        "People drive cars every day. Therefore traffic increases and this makes delay.",
+      highlightedPart: "Therefore traffic increases and this makes delay.",
+      suggestion:
+        "Consequently, traffic congestion intensifies, leading to widespread commuting delays.",
+      mentorNote:
+        "با ترکیب دو جمله کوتاه به یک جمله مجهز به participle clause (leading to...)، مهارت خود را در ایجاد ساختارهای مرکب نشان می‌دهید.",
+    },
+  },
+];
+
+export function AgentArchitectureSection() {
+  const [activeAgent, setActiveAgent] = useState<Agent>(agents[0]);
 
   return (
-    <div
-      className="w-full max-w-sm rounded-xl border bg-bg-container p-8 shadow-sm text-white"
+    <section
       dir="rtl"
+      className="w-full relative py-20 px-4 sm:px-6 md:px-12 bg-bg-dark font-vazirmatn overflow-hidden border-t border-white/5"
     >
-      <div className="mb-6 text-center">
-        <h2 className="text-xl font-bold">
-          {isLogin ? "ورود به حساب" : "ثبت‌نام حساب جدید"}
-        </h2>
-      </div>
+      {/* Subtle academic ambient light */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 opacity-25"
+        style={{ backgroundColor: activeAgent.themeColor }}
+      />
 
-      <form
-        className="space-y-5"
-        onSubmit={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          form.handleSubmit();
-        }}
-      >
-        {/* شماره تلفن */}
-        <form.Field
-          name="username"
-          validators={{
-            onChange: ({ value }) =>
-              !value ? "شماره تلفن الزامی است" : undefined,
-          }}
-        >
-          {(field) => (
-            <div className="space-y-2">
-              <Label htmlFor={field.name}>شماره تلفن</Label>
-              <Input
-                id={field.name}
-                name={field.name}
-                type="tel"
-                placeholder="۰۹۱۲۳۴۵۶۷۸۹"
-                className="text-right bg-bg-light placeholder:text-[#B1BED1] border-none text-white"
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-              />
-              {field.state.meta.errors.length > 0 && (
-                <p className="text-sm text-red-400">
-                  {field.state.meta.errors.join("، ")}
-                </p>
-              )}
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-purple-400/20 bg-purple-900/20 text-purple-200 text-xs sm:text-sm font-medium backdrop-blur-sm"
+          >
+            <GraduationCap size={16} className="text-purple-300" />
+            <span>تیم منتورهای تخصصی برای هر معیار آیلتس</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl sm:text-4xl font-extrabold text-white leading-snug"
+          >
+            یک دستیار کلی‌گو نه، بلکه{" "}
+            <span className="bg-linear-to-r from-purple-300 via-pink-300 to-indigo-300 bg-clip-text text-transparent">
+              ۳ متخصص همراه
+            </span>{" "}
+            برای بازخورد به متن شما
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-sm sm:text-base text-neutral-300 leading-relaxed"
+          >
+            همانند میز تصحیح اساتید باسابقه، متن شما تفکیک شده و هر بخش بر اساس
+            معیارهای رسمی جدول نمره‌دهی ممتحن (IELTS Band Descriptors) تحلیل
+            آموزشی می‌شود.
+          </motion.p>
+        </div>
+
+        {/* 3 Academic Persona Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          {agents.map((agent) => {
+            const isSelected = activeAgent.id === agent.id;
+            const IconComponent = agent.icon;
+
+            return (
+              <motion.div
+                key={agent.id}
+                whileHover={{ y: -3 }}
+                onClick={() => setActiveAgent(agent)}
+                className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 backdrop-blur-sm border flex flex-col justify-between relative ${
+                  isSelected
+                    ? `${agent.borderColor} bg-white/[0.05] shadow-lg`
+                    : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.03]"
+                }`}
+                style={{
+                  boxShadow: isSelected
+                    ? `0 10px 30px -10px ${agent.glowColor}`
+                    : undefined,
+                }}
+              >
+                {/* Active Indicator Line */}
+                {isSelected && (
+                  <motion.div
+                    layoutId="cathovenActiveLine"
+                    className="absolute top-0 right-8 left-8 h-1 rounded-b-md"
+                    style={{ backgroundColor: agent.themeColor }}
+                  />
+                )}
+
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className="p-3 rounded-xl border flex items-center justify-center transition-colors"
+                      style={{
+                        backgroundColor: `${agent.themeColor}15`,
+                        borderColor: `${agent.themeColor}35`,
+                        color: agent.themeColor,
+                      }}
+                    >
+                      <IconComponent size={22} />
+                    </div>
+
+                    <span
+                      className={`text-[11px] px-2.5 py-0.5 rounded-full border font-medium ${agent.lightBg}`}
+                    >
+                      {agent.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-neutral-100 mb-1">
+                    {agent.name}
+                  </h3>
+                  <span className="text-xs text-neutral-400 font-normal block mb-3">
+                    {agent.mentorTitle}
+                  </span>
+
+                  <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                    {agent.summary}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 space-y-1.5">
+                  {agent.focusAreas.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs text-neutral-300"
+                    >
+                      <CheckCircle2
+                        size={13}
+                        style={{ color: agent.themeColor }}
+                        className="shrink-0"
+                      />
+                      <span className="truncate">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Cathoven-style Interactive Teaching Sandbox */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeAgent.id}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8"
+          >
+            {/* Box Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <Award size={20} style={{ color: activeAgent.themeColor }} />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  نمونه یادداشت آموزشی و اصلاحی {activeAgent.name}
+                </h4>
+              </div>
+              <span className="text-xs text-neutral-400">
+                بر اساس نمره‌دهی رسمی Cambridge IELTS
+              </span>
             </div>
-          )}
-        </form.Field>
 
-        {/* رمز عبور */}
-        <form.Field
-          name="password"
-          validators={{
-            onChange: ({ value }) =>
-              !value ? "رمز عبور الزامی است" : undefined,
-          }}
-        >
-          {(field) => (
-            <div className="space-y-2">
-              <Label htmlFor={field.name}>رمز عبور</Label>
-              <Input
-                id={field.name}
-                name={field.name}
-                type="password"
-                placeholder="رمز عبور"
-                className="bg-bg-light placeholder:text-[#B1BED1] border-none text-white"
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
-              />
-              {field.state.meta.errors.length > 0 && (
-                <p className="text-sm text-red-400">
-                  {field.state.meta.errors.join("، ")}
-                </p>
-              )}
+            {/* Split Classroom View */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-start">
+              {/* Left Column (Student Text & Enhancement) */}
+              <div className="lg:col-span-7 space-y-4" dir="ltr">
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Original Draft
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                    {activeAgent.feedbackExample.studentText.replace(
+                      activeAgent.feedbackExample.highlightedPart,
+                      "",
+                    )}
+                    <span className="text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border-b-2 border-amber-400/60 font-medium">
+                      {activeAgent.feedbackExample.highlightedPart}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-2">
+                  <span
+                    className="text-[11px] uppercase tracking-wider font-mono flex items-center gap-1.5"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    <Sparkles size={13} />
+                    Academic Refinement
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-100 font-sans font-medium leading-relaxed">
+                    &quot;{activeAgent.feedbackExample.suggestion}&quot;
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column (Mentor Teaching Note) */}
+              <div
+                className="lg:col-span-5 flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-white/[0.015]"
+                dir="rtl"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Quote
+                      size={18}
+                      style={{ color: activeAgent.themeColor }}
+                    />
+                    <span className="text-xs font-bold text-neutral-200">
+                      چرا این تغییر نمره شما را بالاتر می‌برد؟
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    {activeAgent.feedbackExample.mentorNote}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
+                  <span>تأثیر در کارنامه آزمون</span>
+                  <span
+                    className="font-bold flex items-center gap-1"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    ارتقا به سطح Band 8+
+                    <ArrowLeft size={13} />
+                  </span>
+                </div>
+              </div>
             </div>
-          )}
-        </form.Field>
-
-        {/* خطای عمومی */}
-        {error && <p className="text-sm text-red-400 text-center">{error}</p>}
-
-        {/* دکمه فرم */}
-        <form.Subscribe
-          selector={(state) => [state.canSubmit, state.isSubmitting]}
-        >
-          {([canSubmit, isSubmitting]) => (
-            <Button
-              type="submit"
-              disabled={!canSubmit || isSubmitting}
-              className="w-full bg-primary-600 text-white hover:bg-primary-700 cursor-pointer border border-primary-600 disabled:opacity-50"
-            >
-              {isSubmitting ? "در حال ورود..." : isLogin ? "ورود" : "ثبت‌نام"}
-            </Button>
-          )}
-        </form.Subscribe>
-      </form>
-
-      {/* متن تغییر حالت (Toggle) */}
-      <div className="mt-4 text-center text-sm text-stone-300">
-        {isLogin ? (
-          <p>
-            حساب کاربری ندارید؟{" "}
-            <button
-              type="button"
-              onClick={() => setIsLogin(false)}
-              className="text-primary-400 hover:text-primary-300 cursor-pointer underline underline-offset-4"
-            >
-              می‌خواهم ثبت‌نام کنم
-            </button>
-          </p>
-        ) : (
-          <p>
-            حساب کاربری دارید؟{" "}
-            <button
-              type="button"
-              onClick={() => setIsLogin(true)}
-              className="text-purple-400 hover:text-purple-300 underline underline-offset-4"
-            >
-              وارد شوید
-            </button>
-          </p>
-        )}
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default LoginForm;
+}
 </file>
 
 <file path="features/landing/components/assesment-card.tsx">
@@ -1899,6 +2226,176 @@ export function AssessmentCard() {
         ))}
       </div>
     </div>
+  );
+}
+</file>
+
+<file path="features/landing/components/interactive-feedback-demo.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  CheckCheck,
+  Sparkles,
+  Zap,
+  Layers,
+  ArrowRightLeft,
+} from "lucide-react";
+
+type CriterionKey = "all" | "lexical" | "cohesion" | "grammar";
+
+export function InteractiveFeedbackDemo() {
+  const [activeCriterion, setActiveCriterion] = useState<CriterionKey>("all");
+
+  const criteriaFilters: { id: CriterionKey; label: string }[] = [
+    { id: "all", label: "تمام اصلاحات" },
+    { id: "lexical", label: "ارتقای واژگان (Band 8+)" },
+    { id: "cohesion", label: "انسجام و پیوستگی (Cohesion)" },
+    { id: "grammar", label: "ساختارهای پیچیده گرامری" },
+  ];
+
+  return (
+    <section
+      dir="rtl"
+      className="w-full py-20 px-4 sm:px-6 md:px-12 bg-linear-to-b from-bg to-bg-dark font-vazirmatn relative border-t border-white/5"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
+            <Sparkles size={14} />
+            <span>مشاهده زنده نحوه عملکرد ایجنت</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+            تبدیل رایتینگ Band 6 به شاهکار Band 8.5
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-400">
+            تغییرات هوشمند ایجنت را بر اساس فیلترهای استاندارد اگزمینر بررسی
+            کنید.
+          </p>
+        </div>
+
+        {/* Filter Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {criteriaFilters.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveCriterion(tab.id)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border ${
+                activeCriterion === tab.id
+                  ? "bg-primary-600 text-white border-primary-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-neutral-200 hover:border-white/20"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Before vs After Dual Pane */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" dir="ltr">
+          {/* Original Text Pane */}
+          <div className="rounded-2xl border border-red-500/20 bg-red-950/[0.06] p-6 backdrop-blur-md relative flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-red-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-red-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-400" />
+                  Original Submission (Estimated 6.0)
+                </span>
+                <span className="text-xs bg-red-500/10 text-red-300 px-2 py-0.5 rounded border border-red-500/20 font-mono">
+                  Repetitive Lexis
+                </span>
+              </div>
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base font-sans">
+                Nowadays, pollution is a{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  big problem
+                </span>{" "}
+                for big cities. Government{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  should make strict rules
+                </span>{" "}
+                because people keep driving their personal cars everywhere and
+                this{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  makes the air very dirty
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-neutral-400 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span>
+                ایرادات: واژگان عمومی، افعال ضعیف و عدم ترکیب‌های آکادمیک.
+              </span>
+            </div>
+          </div>
+
+          {/* AI Enhanced Pane */}
+          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/[0.08] p-6 backdrop-blur-md relative flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-emerald-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Agent Refactored (Estimated 8.5)
+                </span>
+                <span className="text-xs bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+                  Lexical Precision
+                </span>
+              </div>
+
+              <p className="text-neutral-100 leading-relaxed text-sm sm:text-base font-sans">
+                In the contemporary era, environmental degradation represents a{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "lexical"
+                      ? "bg-purple-500/30 text-purple-200 border border-purple-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  pressing dilemma
+                </span>{" "}
+                plaguing metropolitan hubs. Authorities must{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "grammar"
+                      ? "bg-emerald-500/30 text-emerald-200 border border-emerald-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  implement stringent statutory frameworks
+                </span>
+                , given that commuter dependence on private transit{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "cohesion"
+                      ? "bg-sky-500/30 text-sky-200 border border-sky-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  exacerbates atmospheric contamination exponentially
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-emerald-300 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span className="flex items-center gap-1">
+                <CheckCheck size={16} className="text-emerald-400" />
+                افزایش دامنه واژگان دانشگاهی و استفاده از افعال قوی
+                (Collocations).
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 </file>
@@ -2229,23 +2726,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 }
 </file>
 
-<file path="app/login/page.tsx">
-"use client";
-
-import LoginForm from "@/features/auth/components/login-form";
-
-export default function LoginPage() {
-  return (
-    <div
-      className="flex min-h-screen items-center text-white justify-center w-full p-4"
-      dir="rtl"
-    >
-      <LoginForm />
-    </div>
-  );
-}
-</file>
-
 <file path="components/ui/bento-grid.tsx">
 import { cn } from "@/lib/utils";
 
@@ -2301,6 +2781,434 @@ export const BentoGridItem = ({
     </div>
   );
 };
+</file>
+
+<file path="features/auth/components/login-form.tsx">
+"use client";
+
+import { useState } from "react";
+import { useForm } from "@tanstack/react-form";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Phone,
+  Lock,
+  User,
+  ArrowLeft,
+  Eye,
+  EyeOff,
+  CheckCircle2,
+  ShieldCheck,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { signIn } from "../api/auth-api";
+import { storeToken } from "../action/auth-actions";
+import Link from "next/link";
+
+type AuthMode = "login" | "signup";
+
+export default function LoginForm() {
+  const [mode, setMode] = useState<AuthMode>("login");
+  const [showPassword, setShowPassword] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const form = useForm({
+    defaultValues: {
+      fullName: "",
+      username: "",
+      password: "",
+    },
+    onSubmit: async ({ value }) => {
+      setApiError(null);
+      try {
+        const data = await signIn({
+          username: value.username,
+          password: value.password,
+        });
+
+        await storeToken(data.access_token);
+        router.push("/");
+      } catch {
+        setApiError(
+          mode === "login"
+            ? "شماره تلفن یا رمز عبور اشتباه است."
+            : "خطا در ثبت‌نام، لطفاً مجدداً تلاش کنید.",
+        );
+      }
+    },
+  });
+
+  return (
+    <div
+      dir="rtl"
+      className="relative w-full max-w-5xl mx-auto min-h-[620px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.6)] overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+    >
+      {/* Dynamic Background Light Accent */}
+      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-purple-600/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-indigo-600/20 blur-[100px] pointer-events-none" />
+
+      {/* -------------------- LEFT BRANDING / SHOWCASE (Tablet & Desktop) -------------------- */}
+      <div className="hidden lg:flex lg:col-span-5 flex-col justify-between p-10 border-l border-white/5 bg-gradient-to-br from-white/[0.04] via-transparent to-purple-950/20">
+        <div>
+          {/* Logo / Brand Header */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2.5 group mb-10"
+          >
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:scale-105 transition-transform duration-200">
+              <Sparkles size={20} className="text-white" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-black tracking-tight text-white">
+                AIelts
+              </span>
+              <span className="text-[10px] text-purple-300 font-mono">
+                NEXT-GEN EXAMINER
+              </span>
+            </div>
+          </Link>
+
+          {/* Value Prop */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-300 text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>ارزیابی استاندارد با دقت اگزمینر Band 9</span>
+            </div>
+
+            <h2 className="text-2xl xl:text-3xl font-black text-white leading-snug">
+              نوشته‌های خود را هوشمندانه بسنجید و به نمره دلخواه برسید.
+            </h2>
+
+            <p className="text-sm text-neutral-400 leading-relaxed">
+              دسترسی لحظه‌ای به فیدبک هوش مصنوعی، تحلیل خط‌به‌خط گرامر و افزایش
+              دامنه واژگان آکادمیک در چند ثانیه.
+            </p>
+          </div>
+        </div>
+
+        {/* Live Mini Preview Metric */}
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md space-y-3">
+          <div className="flex items-center justify-between text-xs">
+            <span className="text-neutral-400 flex items-center gap-1.5 font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              ایجنت‌های آنلاین
+            </span>
+            <span className="font-mono text-emerald-400">
+              99.4% دقت ارزیابی
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[11px] text-neutral-400">
+            <span>میانگین ارتقای نمره داوطلبان</span>
+            <span className="font-bold text-white font-mono">+1.5 Band</span>
+          </div>
+        </div>
+      </div>
+
+      {/* -------------------- RIGHT INTERACTIVE FORM CONTAINER -------------------- */}
+      <div className="col-span-1 lg:col-span-7 flex flex-col justify-center px-6 py-10 sm:px-12 md:px-16 z-10">
+        {/* Mobile Header */}
+        <div className="lg:hidden flex items-center justify-between mb-8">
+          <Link href="/" className="inline-flex items-center gap-2">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center">
+              <Sparkles size={16} className="text-white" />
+            </div>
+            <span className="text-base font-black text-white">AIelts</span>
+          </Link>
+          <span className="text-xs text-neutral-400 font-mono">
+            Band 8.5 Engine
+          </span>
+        </div>
+
+        {/* Segmented Mode Switcher */}
+        <div className="relative flex items-center p-1 bg-white/[0.04] border border-white/10 rounded-2xl mb-8">
+          <button
+            type="button"
+            onClick={() => {
+              setMode("login");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "login"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "login" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ورود به حساب</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMode("signup");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "signup"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "signup" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ثبت‌ نام جدید</span>
+          </button>
+        </div>
+
+        {/* Title & Subtitle */}
+        <div className="mb-6 space-y-1">
+          <h1 className="text-2xl sm:text-3xl font-black text-white">
+            {mode === "login" ? "خوش آمدید " : "شروع سفر تسلط بر رایتینگ "}
+          </h1>
+          <p className="text-xs sm:text-sm text-neutral-400">
+            {mode === "login"
+              ? "اطلاعات حساب خود را جهت ورود وارد کنید."
+              : "حساب کاربری خود را بسازید و اولین ارزیابی را رایگان بگیرید."}
+          </p>
+        </div>
+
+        {/* Form Container */}
+        <form
+          className="space-y-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            form.handleSubmit();
+          }}
+        >
+          <AnimatePresence mode="wait">
+            {/* Sign Up: Full Name Input */}
+            {mode === "signup" && (
+              <motion.div
+                key="name-field"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                <form.Field
+                  name="fullName"
+                  validators={{
+                    onChange: ({ value }) =>
+                      mode === "signup" && !value
+                        ? "نام و نام خانوادگی الزامی است"
+                        : undefined,
+                  }}
+                >
+                  {(field) => (
+                    <div className="space-y-1.5 pb-1">
+                      <label className="text-xs font-semibold text-neutral-300">
+                        نام و نام خانوادگی
+                      </label>
+                      <div className="relative flex items-center">
+                        <User
+                          className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                          size={18}
+                        />
+                        <input
+                          id={field.name}
+                          type="text"
+                          placeholder="مثلاً: علی رضایی"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                        />
+                      </div>
+                      {field.state.meta.errors.length > 0 && (
+                        <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                          <AlertCircle size={12} />
+                          {field.state.meta.errors.join("، ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </form.Field>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Phone Number Field */}
+          <form.Field
+            name="username"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "شماره همراه الزامی است";
+                if (!/^09\d{9}$/.test(value))
+                  return "شماره همراه باید ۱۱ رقم و با ۰۹ شروع شود";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-neutral-300">
+                  شماره موبایل
+                </label>
+                <div className="relative flex items-center">
+                  <Phone
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type="tel"
+                    dir="ltr"
+                    placeholder="09123456789"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm tracking-widest text-right focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* Password Field */}
+          <form.Field
+            name="password"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "رمز عبور الزامی است";
+                if (value.length < 6)
+                  return "رمز عبور باید حداقل ۶ کاراکتر باشد";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-neutral-300">
+                    رمز عبور
+                  </label>
+                  {mode === "login" && (
+                    <button
+                      type="button"
+                      className="text-[11px] text-purple-400 hover:text-purple-300 transition-colors cursor-pointer"
+                    >
+                      رمز عبور را فراموش کرده‌اید؟
+                    </button>
+                  )}
+                </div>
+                <div className="relative flex items-center">
+                  <Lock
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type={showPassword ? "text" : "password"}
+                    dir="ltr"
+                    placeholder="••••••••"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-11 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute left-3.5 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* API Server Error Display */}
+          {apiError && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center gap-2"
+            >
+              <AlertCircle size={16} className="shrink-0" />
+              <span>{apiError}</span>
+            </motion.div>
+          )}
+
+          {/* Submit Action */}
+          <form.Subscribe
+            selector={(state) => [state.canSubmit, state.isSubmitting]}
+          >
+            {([canSubmit, isSubmitting]) => (
+              <Button
+                type="submit"
+                disabled={!canSubmit || isSubmitting}
+                className="w-full h-11 mt-2 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>در حال پردازش...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      {mode === "login"
+                        ? "ورود به داشبورد"
+                        : "ایجاد حساب کاربری"}
+                    </span>
+                    <ArrowLeft size={16} />
+                  </>
+                )}
+              </Button>
+            )}
+          </form.Subscribe>
+        </form>
+
+        {/* Footer legal notes */}
+        <p className="mt-8 text-center text-[11px] text-neutral-500 leading-relaxed">
+          با ورود یا ثبت‌نام در سامانه،{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            قوانین و شرایط استفاده
+          </a>{" "}
+          و{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            حفظ حریم خصوصی
+          </a>{" "}
+          AIelts را می‌پذیرید.
+        </p>
+      </div>
+    </div>
+  );
+}
 </file>
 
 <file path="features/landing/components/bento-grid.tsx">
@@ -2398,111 +3306,6 @@ const items = [
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
 ];
-</file>
-
-<file path="features/landing/components/hero-section.tsx">
-"use client";
-
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { Button } from "@/components/ui/button";
-import { CanvasText } from "@/components/ui/canvas-text";
-import { Highlighter } from "@/components/ui/highlighter";
-import { AssessmentCard } from "@/features/landing/components/assesment-card";
-import { LineByLineAssessmentCard } from "@/features/landing/components/line-by-line-assessment";
-import { ProgressCard } from "@/features/landing/components/progress-card";
-import Link from "next/link";
-import { Sparkles, ArrowLeft } from "lucide-react";
-
-const HeroSection = () => {
-  return (
-    <div
-      dir="rtl"
-      className="min-h-screen w-full font-vazirmatn bg-bg-dark relative flex flex-col items-center justify-center antialiased overflow-hidden py-16 sm:py-24"
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center z-10 relative">
-        {/* Top Agent Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-200 text-xs sm:text-sm backdrop-blur-md">
-          <Sparkles size={14} className="text-purple-400 animate-pulse" />
-          <span>نسل جدید اگزمینر هوشمند با مدل‌های استدلال عمیق</span>
-        </div>
-
-        {/* Heading */}
-        <div className="relative z-20 w-full text-center">
-          <h1 className="font-sans font-extrabold tracking-tight leading-[1.3] sm:leading-[1.5] text-3xl sm:text-5xl md:text-6xl text-white">
-            تقویت مهارت‌های رایتینگ آیلتس با{" "}
-            <span className="inline-block mt-2 sm:mt-0">
-              <CanvasText
-                text="هوش مصنوعی"
-                className="font-extrabold inline-block"
-                backgroundClassName="bg-purple-600 dark:bg-purple-800"
-                colors={[
-                  "rgba(168, 85, 247, 1)",
-                  "rgba(147, 51, 234, 0.9)",
-                  "rgba(126, 34, 206, 0.8)",
-                  "rgba(192, 132, 252, 0.7)",
-                ]}
-                lineGap={5}
-                animationDuration={15}
-              />
-            </span>
-          </h1>
-
-          <div className="mt-6 max-w-2xl mx-auto space-y-4">
-            <h2 className="text-base sm:text-xl text-neutral-300 leading-relaxed font-normal">
-              رایتینگ بنویسید، در لحظه نمره رسمی آزمون را دریافت کنید و با فیدبک
-              اختصاصی ایجنت‌ها، اشتباهات ساختاری و گرامری خود را برطرف کنید.
-            </h2>
-
-            <h3 className="text-lg sm:text-2xl font-light text-white">
-              <Highlighter action="highlight" color="#413185">
-                هدفمند و هوشمند
-              </Highlighter>
-              <span className="mx-2">تمرین کنید،</span>
-              <Highlighter action="underline" color="#E09779">
-                نه در تاریکی!
-              </Highlighter>
-            </h3>
-          </div>
-        </div>
-
-        {/* Action Button */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none">
-          <Link href="/login" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="w-full sm:w-60 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold h-12 rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>ارزیابی رایگان اولین متن</span>
-              <ArrowLeft size={18} />
-            </Button>
-          </Link>
-        </div>
-
-        {/* Interactive Floating / Layered Cards Showcase */}
-        <div className="relative w-full mt-12 sm:mt-16 flex flex-col items-center justify-center gap-6 lg:gap-0 lg:h-[420px]">
-          {/* Card 1 */}
-          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-10 lg:-translate-x-72 lg:rotate-[-6deg] lg:hover:rotate-0 lg:hover:z-40 transition-transform duration-300">
-            <AssessmentCard />
-          </div>
-
-          {/* Center Card */}
-          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-30 lg:hover:scale-105 transition-transform duration-300">
-            <ProgressCard />
-          </div>
-
-          {/* Card 3 */}
-          <div className="w-full max-w-sm lg:max-w-none lg:w-auto lg:absolute lg:z-20 lg:translate-x-72 lg:translate-y-4 lg:rotate-[6deg] lg:hover:rotate-0 lg:hover:z-40 transition-transform duration-300">
-            <LineByLineAssessmentCard />
-          </div>
-        </div>
-      </div>
-
-      <BackgroundBeams className="bg-bg-dark" />
-    </div>
-  );
-};
-
-export default HeroSection;
 </file>
 
 <file path="features/landing/components/line-by-line-assessment.tsx">
@@ -2646,24 +3449,6 @@ export default function RootLayout({
 }
 </file>
 
-<file path="app/(root)/page.tsx">
-import HeroSection from "@/features/landing/components/hero-section";
-import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section.tsx";
-import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
-import AppFeatures from "@/features/landing/components/app-features-section";
-
-export default function Home() {
-  return (
-    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
-      <HeroSection />
-      <AgentArchitectureSection />
-      <InteractiveFeedbackDemo />
-      <AppFeatures />
-    </main>
-  );
-}
-</file>
-
 <file path="app/login/layout.tsx">
 import type { Metadata } from "next";
 import "../globals.css";
@@ -2684,6 +3469,27 @@ export default function RootLayout({
         {children}
       </body>
     </html>
+  );
+}
+</file>
+
+<file path="app/login/page.tsx">
+"use client";
+
+import LoginForm from "@/features/auth/components/login-form";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+
+export default function LoginPage() {
+  return (
+    <main className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-10 bg-bg-dark font-vazirmatn overflow-hidden">
+      {/* Interactive Form Card */}
+      <div className="relative z-10 w-full flex items-center justify-center">
+        <LoginForm />
+      </div>
+
+      {/* Ambient Neural Background Mesh */}
+      <BackgroundBeams className="bg-bg-dark opacity-40 pointer-events-none" />
+    </main>
   );
 }
 </file>
@@ -2892,6 +3698,82 @@ export default function RootLayout({
 }
 </file>
 
+<file path="features/landing/components/hero-section.tsx">
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModernHeroBackground } from "@/components/ui/modern-hero-background";
+import { HeroExaminerStudio } from "@/features/landing/components/hero-examiner-studio";
+
+export default function HeroSection() {
+  return (
+    <section
+      dir="rtl"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center font-vazirmatn bg-bg-dark overflow-hidden pt-20 pb-16 sm:py-24 px-4 sm:px-6 md:px-12"
+    >
+      {/* 60fps Hardware-Accelerated Modern Background */}
+      <ModernHeroBackground />
+
+      <div className="max-w-5xl mx-auto flex flex-col items-center z-10 relative text-center">
+        {/* Top Tagline Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-200 text-xs sm:text-sm backdrop-blur-md">
+          <Sparkles size={14} className="text-purple-400" />
+          <span>پلتفرم تخصصی تصحیح و شبیه‌سازی نمره رایتینگ آیلتس</span>
+        </div>
+
+        {/* Hero Title */}
+        <h1 className="font-extrabold tracking-tight text-3xl sm:text-5xl md:text-6xl text-white leading-tight sm:leading-snug max-w-4xl">
+          رایتینگ خود را با دقت ممتحن رسمی بسنجید و به{" "}
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300 bg-clip-text text-transparent">
+            Band 8.5
+          </span>{" "}
+          برسید
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 max-w-2xl text-sm sm:text-lg text-neutral-300 font-normal leading-relaxed">
+          تحلیل خط‌به‌خط مقالات Task 1 و Task 2، ارتقای واژگان عمومی به ترکیبات
+          آکادمیک و تصحیح ساختارهای گرامری بر پایه استانداردهای رسمی کمبریج.
+        </p>
+
+        {/* CTA & Trust Badges */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none">
+          <Link href="/login" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full sm:w-64 h-12 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>شروع ارزیابی رایگان مقاله</span>
+              <ArrowLeft size={18} />
+            </Button>
+          </Link>
+        </div>
+
+        {/* Micro-props List */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-neutral-400">
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck size={14} className="text-emerald-400" />
+            منطبق با جدول نمره‌دهی ممتحن
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 size={14} className="text-purple-400" />
+            تحلیل فوری در کمتر از ۳۰ ثانیه
+          </span>
+        </div>
+
+        {/* Modern Live Examiner Studio Preview */}
+        <div className="w-full mt-12 sm:mt-16">
+          <HeroExaminerStudio />
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
 <file path="package.json">
 {
   "name": "ielts-app",
@@ -2931,6 +3813,24 @@ export default function RootLayout({
     "tailwindcss": "^4",
     "typescript": "^5"
   }
+}
+</file>
+
+<file path="app/(root)/page.tsx">
+import HeroSection from "@/features/landing/components/hero-section";
+import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section";
+import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
+import AppFeatures from "@/features/landing/components/app-features-section";
+
+export default function Home() {
+  return (
+    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
+      <HeroSection />
+      <AgentArchitectureSection />
+      <InteractiveFeedbackDemo />
+      <AppFeatures />
+    </main>
+  );
 }
 </file>
 
