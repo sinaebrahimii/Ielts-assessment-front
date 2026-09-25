@@ -60,6 +60,7 @@ components/
     bento-grid.tsx
     button.tsx
     canvas-text.tsx
+    chart.tsx
     highlighter.tsx
     input.tsx
     label.tsx
@@ -87,6 +88,7 @@ features/
       interactive-feedback-demo.tsx
       line-by-line-assessment.tsx
       progress-card.tsx
+      progress-report-showcase.tsx
 lib/
   utils.ts
 public/
@@ -378,323 +380,6 @@ Use active voice as default. A CTA says exactly what happens when it is used: "S
 Treat failure and emptiness as moments for direction, not mood. Explain what went wrong and how to fix it, in the interface's voice rather than a person's. Errors don't apologize, and they are never vague about what happened. An empty screen is an invitation to act.
 
 Keep the tone conversational: plain verbs, sentence case, no filler, with tone matched to the brand and the audience. Let each written element do exactly one job.
-</file>
-
-<file path="components/ui/modern-hero-background.tsx">
-"use client";
-
-import React from "react";
-import { motion } from "motion/react";
-
-export function ModernHeroBackground() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none -z-10">
-      {/* Subtle Grid Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-                            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* Primary Hardware-Accelerated Ambient Glows */}
-      <motion.div
-        animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.35, 0.5, 0.35],
-        }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-tr from-purple-600/30 via-indigo-600/25 to-pink-500/20 blur-[130px] transform-gpu will-change-transform"
-      />
-
-      {/* Secondary Dynamic Spotlight Accent */}
-      <motion.div
-        animate={{
-          x: [-20, 20, -20],
-          y: [-10, 15, -10],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute -top-24 right-1/4 w-[450px] h-[300px] rounded-full bg-indigo-500/20 blur-[110px] transform-gpu will-change-transform"
-      />
-
-      {/* Bottom Fade to blend seamlessly with next section */}
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-dark to-transparent" />
-    </div>
-  );
-}
-</file>
-
-<file path="features/landing/components/hero-examiner-studio.tsx">
-"use client";
-
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-  Sparkles,
-  Award,
-  BookOpen,
-  SpellCheck,
-  Compass,
-  ArrowUpRight,
-  TrendingUp,
-} from "lucide-react";
-
-type ActiveCriterion = "tr" | "lr" | "gra";
-
-interface CriterionData {
-  id: ActiveCriterion;
-  titleFa: string;
-  nameEn: string;
-  score: string;
-  color: string;
-  borderClass: string;
-  bgBadgeClass: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-  original: string;
-  enhanced: string;
-  examinerNote: string;
-}
-
-const criteriaList: CriterionData[] = [
-  {
-    id: "lr",
-    titleFa: "دایره واژگان آکادمیک",
-    nameEn: "Lexical Resource",
-    score: "8.5",
-    color: "#f472b6", // pink-400
-    borderClass: "border-pink-500/40",
-    bgBadgeClass: "bg-pink-500/10 text-pink-300 border-pink-500/30",
-    icon: BookOpen,
-    original: "is a very big issue for modern countries",
-    enhanced: "constitutes a formidable impediment to sustainable growth",
-    examinerNote:
-      "جایگزینی عبارت محاوره‌ای 'big issue' با کالوکیشن آکادمیک و ساختار دقیق.",
-  },
-  {
-    id: "tr",
-    titleFa: "استدلال و پاسخ به سوال",
-    nameEn: "Task Response",
-    score: "8.0",
-    color: "#818cf8", // indigo-400
-    borderClass: "border-indigo-500/40",
-    bgBadgeClass: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
-    icon: Compass,
-    original: "I think that both opinions have good points.",
-    enhanced:
-      "While merit exists in both perspectives, empirical evidence favors the latter.",
-    examinerNote:
-      "ارائه بیانیه تز شفاف (Clear Thesis) و پرهیز از لحن غیررسمی شخصی.",
-  },
-  {
-    id: "gra",
-    titleFa: "تنوع گرامر و صحت ساختاری",
-    nameEn: "Grammatical Range",
-    score: "8.0",
-    color: "#34d399", // emerald-400
-    borderClass: "border-emerald-500/40",
-    bgBadgeClass: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
-    icon: SpellCheck,
-    original: "Cities become crowded and people get late.",
-    enhanced:
-      "Urban centers become congested, precipitating extensive commuting delays.",
-    examinerNote:
-      "کاربرد ساختار مجهز به Participle Clause و پیوستگی بی‌نقص ایده.",
-  },
-];
-
-export function HeroExaminerStudio() {
-  const [selectedCriterion, setSelectedCriterion] =
-    useState<ActiveCriterion>("lr");
-  const current =
-    criteriaList.find((c) => c.id === selectedCriterion) ?? criteriaList[0];
-
-  return (
-    <div
-      dir="rtl"
-      className="w-full max-w-4xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-vazirmatn text-right"
-    >
-      {/* Header bar / Window Chrome */}
-      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-white/[0.02]">
-        <div className="flex items-center gap-2.5">
-          <div className="flex items-center gap-1.5 ml-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
-          </div>
-          <span className="text-xs font-semibold text-neutral-300 flex items-center gap-1.5">
-            <Sparkles size={14} className="text-purple-400" />
-            شبیه‌ساز ارزیابی زنده اگزمینر رسمی آیلتس
-          </span>
-        </div>
-
-        {/* Live Score Counter Card */}
-        <div className="flex items-center gap-2 bg-purple-500/15 border border-purple-500/30 px-3 py-1 rounded-full">
-          <TrendingUp size={13} className="text-purple-300" />
-          <span className="text-xs text-purple-200 font-medium">
-            نمره پیش‌بینی شده:
-          </span>
-          <span className="text-xs font-black font-mono text-white bg-purple-600 px-1.5 py-0.2 rounded">
-            Band 8.5
-          </span>
-        </div>
-      </div>
-
-      {/* Main Content: Split Studio */}
-      <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-        {/* Left Side (Rubrics Controller) */}
-        <div className="lg:col-span-4 space-y-2.5">
-          <span className="text-[11px] font-semibold text-neutral-400 block mb-1">
-            معیارهای رسمی ارزیابی (کلیک کنید):
-          </span>
-          {criteriaList.map((criterion) => {
-            const isSelected = selectedCriterion === criterion.id;
-            const Icon = criterion.icon;
-
-            return (
-              <button
-                key={criterion.id}
-                type="button"
-                onClick={() => setSelectedCriterion(criterion.id)}
-                className={`w-full p-3 rounded-xl border text-right transition-colors cursor-pointer flex items-center justify-between ${
-                  isSelected
-                    ? "border-purple-500/50 bg-white/[0.06] shadow-sm"
-                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04] text-neutral-400"
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center border"
-                    style={{
-                      backgroundColor: `${criterion.color}15`,
-                      borderColor: `${criterion.color}35`,
-                      color: criterion.color,
-                    }}
-                  >
-                    <Icon size={16} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-neutral-100">
-                      {criterion.titleFa}
-                    </h4>
-                    <span className="text-[10px] text-neutral-400 font-mono block">
-                      {criterion.nameEn}
-                    </span>
-                  </div>
-                </div>
-
-                <span
-                  className="text-xs font-mono font-bold px-2 py-0.5 rounded border"
-                  style={{
-                    color: criterion.color,
-                    borderColor: `${criterion.color}35`,
-                    backgroundColor: `${criterion.color}10`,
-                  }}
-                >
-                  {criterion.score}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right Side (Active Inspection Box) */}
-        <div className="lg:col-span-8 flex flex-col gap-4">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current.id}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.18 }}
-              className="space-y-3.5"
-            >
-              {/* English Essay Passage LTR */}
-              <div
-                dir="ltr"
-                className="p-4 sm:p-5 rounded-2xl bg-white/[0.025] border border-white/10 space-y-3 font-sans"
-              >
-                <div className="flex items-center justify-between text-xs pb-2 border-b border-white/5">
-                  <span className="font-mono text-neutral-400 text-[11px] flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
-                    Student Submission (Task 2 Sample)
-                  </span>
-                  <span
-                    className={`text-[11px] px-2 py-0.5 rounded-md border font-mono ${current.bgBadgeClass}`}
-                  >
-                    {current.nameEn}
-                  </span>
-                </div>
-
-                <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                  <span>
-                    It is widely argued that environmental degradation{" "}
-                  </span>
-                  <span className="bg-red-500/20 text-red-300 px-1 py-0.5 rounded line-through decoration-red-400 font-normal">
-                    {current.original}
-                  </span>
-                  <span>.</span>
-                </div>
-
-                {/* Refined Band 8.5 Snippet */}
-                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-start gap-2">
-                  <Award
-                    size={16}
-                    className="text-purple-400 shrink-0 mt-0.5"
-                  />
-                  <div className="text-xs sm:text-[13px] text-purple-100 font-medium leading-relaxed">
-                    <span className="text-purple-300 text-[11px] uppercase tracking-wider block font-mono">
-                      Refined by Examiner Agent:
-                    </span>
-                    &ldquo;{current.enhanced}&rdquo;
-                  </div>
-                </div>
-              </div>
-
-              {/* Teaching Explanatory Note RTL */}
-              <div className="p-3 sm:p-3.5 rounded-xl border border-white/5 bg-white/[0.015] flex items-center justify-between text-xs text-neutral-300">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ backgroundColor: current.color }}
-                  />
-                  <span>{current.examinerNote}</span>
-                </div>
-                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium">
-                  افزایش تراز
-                  <ArrowUpRight size={13} />
-                </span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
-  );
-}
-</file>
-
-<file path="skills-lock.json">
-{
-  "version": 1,
-  "skills": {
-    "frontend-design": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/frontend-design/SKILL.md",
-      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
-    }
-  }
-}
 </file>
 
 <file path="components/ui/background-beams.tsx">
@@ -1129,6 +814,381 @@ export function CanvasText({
 }
 </file>
 
+<file path="components/ui/chart.tsx">
+"use client"
+
+import * as React from "react"
+import { cn } from "cn"
+import * as RechartsPrimitive from "recharts"
+import type { TooltipValueType } from "recharts"
+
+// Format: { THEME_NAME: CSS_SELECTOR }
+const THEMES = { light: "", dark: ".dark" } as const
+
+const INITIAL_DIMENSION = { width: 320, height: 200 } as const
+type TooltipNameType = number | string
+
+export type ChartConfig = Record<
+  string,
+  {
+    label?: React.ReactNode
+    icon?: React.ComponentType
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<keyof typeof THEMES, string> }
+  )
+>
+
+type ChartContextProps = {
+  config: ChartConfig
+}
+
+const ChartContext = React.createContext<ChartContextProps | null>(null)
+
+function useChart() {
+  const context = React.useContext(ChartContext)
+
+  if (!context) {
+    throw new Error("useChart must be used within a <ChartContainer />")
+  }
+
+  return context
+}
+
+function ChartContainer({
+  id,
+  className,
+  children,
+  config,
+  initialDimension = INITIAL_DIMENSION,
+  ...props
+}: React.ComponentProps<"div"> & {
+  config: ChartConfig
+  children: React.ComponentProps<
+    typeof RechartsPrimitive.ResponsiveContainer
+  >["children"]
+  initialDimension?: {
+    width: number
+    height: number
+  }
+}) {
+  const uniqueId = React.useId()
+  const chartId = `chart-${id ?? uniqueId.replace(/:/g, "")}`
+
+  return (
+    <ChartContext.Provider value={{ config }}>
+      <div
+        data-slot="chart"
+        data-chart={chartId}
+        className={cn(
+          "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
+          className
+        )}
+        {...props}
+      >
+        <ChartStyle id={chartId} config={config} />
+        <RechartsPrimitive.ResponsiveContainer
+          initialDimension={initialDimension}
+        >
+          {children}
+        </RechartsPrimitive.ResponsiveContainer>
+      </div>
+    </ChartContext.Provider>
+  )
+}
+
+const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
+  const colorConfig = Object.entries(config).filter(
+    ([, config]) => config.theme ?? config.color
+  )
+
+  if (!colorConfig.length) {
+    return null
+  }
+
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: Object.entries(THEMES)
+          .map(
+            ([theme, prefix]) => `
+${prefix} [data-chart=${id}] {
+${colorConfig
+  .map(([key, itemConfig]) => {
+    const color =
+      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ??
+      itemConfig.color
+    return color ? `  --color-${key}: ${color};` : null
+  })
+  .join("\n")}
+}
+`
+          )
+          .join("\n"),
+      }}
+    />
+  )
+}
+
+const ChartTooltip = RechartsPrimitive.Tooltip
+
+function ChartTooltipContent({
+  active,
+  payload,
+  className,
+  indicator = "dot",
+  hideLabel = false,
+  hideIndicator = false,
+  label,
+  labelFormatter,
+  labelClassName,
+  formatter,
+  color,
+  nameKey,
+  labelKey,
+}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
+  React.ComponentProps<"div"> & {
+    hideLabel?: boolean
+    hideIndicator?: boolean
+    indicator?: "line" | "dot" | "dashed"
+    nameKey?: string
+    labelKey?: string
+  } & Omit<
+    RechartsPrimitive.DefaultTooltipContentProps<
+      TooltipValueType,
+      TooltipNameType
+    >,
+    "accessibilityLayer"
+  >) {
+  const { config } = useChart()
+
+  const tooltipLabel = React.useMemo(() => {
+    if (hideLabel || !payload?.length) {
+      return null
+    }
+
+    const [item] = payload
+    const key = `${labelKey ?? item?.dataKey ?? item?.name ?? "value"}`
+    const itemConfig = getPayloadConfigFromPayload(config, item, key)
+    const value =
+      !labelKey && typeof label === "string"
+        ? (config[label]?.label ?? label)
+        : itemConfig?.label
+
+    if (labelFormatter) {
+      return (
+        <div className={cn("font-medium", labelClassName)}>
+          {labelFormatter(value, payload)}
+        </div>
+      )
+    }
+
+    if (!value) {
+      return null
+    }
+
+    return <div className={cn("font-medium", labelClassName)}>{value}</div>
+  }, [
+    label,
+    labelFormatter,
+    payload,
+    hideLabel,
+    labelClassName,
+    config,
+    labelKey,
+  ])
+
+  if (!active || !payload?.length) {
+    return null
+  }
+
+  const nestLabel = payload.length === 1 && indicator !== "dot"
+
+  return (
+    <div
+      className={cn(
+        "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+        className
+      )}
+    >
+      {!nestLabel ? tooltipLabel : null}
+      <div className="grid gap-1.5">
+        {payload
+          .filter((item) => item.type !== "none")
+          .map((item, index) => {
+            const key = `${nameKey ?? item.name ?? item.dataKey ?? "value"}`
+            const itemConfig = getPayloadConfigFromPayload(config, item, key)
+            const indicatorColor = color ?? item.payload?.fill ?? item.color
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
+                  indicator === "dot" && "items-center"
+                )}
+              >
+                {formatter && item?.value !== undefined && item.name ? (
+                  formatter(item.value, item.name, item, index, item.payload)
+                ) : (
+                  <>
+                    {itemConfig?.icon ? (
+                      <itemConfig.icon />
+                    ) : (
+                      !hideIndicator && (
+                        <div
+                          className={cn(
+                            "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+                            {
+                              "h-2.5 w-2.5": indicator === "dot",
+                              "w-1": indicator === "line",
+                              "w-0 border-[1.5px] border-dashed bg-transparent":
+                                indicator === "dashed",
+                              "my-0.5": nestLabel && indicator === "dashed",
+                            }
+                          )}
+                          style={
+                            {
+                              "--color-bg": indicatorColor,
+                              "--color-border": indicatorColor,
+                            } as React.CSSProperties
+                          }
+                        />
+                      )
+                    )}
+                    <div
+                      className={cn(
+                        "flex flex-1 justify-between leading-none",
+                        nestLabel ? "items-end" : "items-center"
+                      )}
+                    >
+                      <div className="grid gap-1.5">
+                        {nestLabel ? tooltipLabel : null}
+                        <span className="text-muted-foreground">
+                          {itemConfig?.label ?? item.name}
+                        </span>
+                      </div>
+                      {item.value != null && (
+                        <span className="font-mono font-medium text-foreground tabular-nums">
+                          {typeof item.value === "number"
+                            ? item.value.toLocaleString()
+                            : String(item.value)}
+                        </span>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            )
+          })}
+      </div>
+    </div>
+  )
+}
+
+const ChartLegend = RechartsPrimitive.Legend
+
+function ChartLegendContent({
+  className,
+  hideIcon = false,
+  payload,
+  verticalAlign = "bottom",
+  nameKey,
+}: React.ComponentProps<"div"> & {
+  hideIcon?: boolean
+  nameKey?: string
+} & RechartsPrimitive.DefaultLegendContentProps) {
+  const { config } = useChart()
+
+  if (!payload?.length) {
+    return null
+  }
+
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center gap-4",
+        verticalAlign === "top" ? "pb-3" : "pt-3",
+        className
+      )}
+    >
+      {payload
+        .filter((item) => item.type !== "none")
+        .map((item, index) => {
+          const key = `${nameKey ?? item.dataKey ?? "value"}`
+          const itemConfig = getPayloadConfigFromPayload(config, item, key)
+
+          return (
+            <div
+              key={index}
+              className={cn(
+                "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
+              )}
+            >
+              {itemConfig?.icon && !hideIcon ? (
+                <itemConfig.icon />
+              ) : (
+                <div
+                  className="h-2 w-2 shrink-0 rounded-[2px]"
+                  style={{
+                    backgroundColor: item.color,
+                  }}
+                />
+              )}
+              {itemConfig?.label}
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+function getPayloadConfigFromPayload(
+  config: ChartConfig,
+  payload: unknown,
+  key: string
+) {
+  if (typeof payload !== "object" || payload === null) {
+    return undefined
+  }
+
+  const payloadPayload =
+    "payload" in payload &&
+    typeof payload.payload === "object" &&
+    payload.payload !== null
+      ? payload.payload
+      : undefined
+
+  let configLabelKey: string = key
+
+  if (
+    key in payload &&
+    typeof payload[key as keyof typeof payload] === "string"
+  ) {
+    configLabelKey = payload[key as keyof typeof payload] as string
+  } else if (
+    payloadPayload &&
+    key in payloadPayload &&
+    typeof payloadPayload[key as keyof typeof payloadPayload] === "string"
+  ) {
+    configLabelKey = payloadPayload[
+      key as keyof typeof payloadPayload
+    ] as string
+  }
+
+  return configLabelKey in config ? config[configLabelKey] : config[key]
+}
+
+export {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+}
+</file>
+
 <file path="components/ui/highlighter.tsx">
 "use client"
 
@@ -1281,6 +1341,60 @@ function Label({
 }
 
 export { Label }
+</file>
+
+<file path="components/ui/modern-hero-background.tsx">
+"use client";
+
+import React from "react";
+import { motion } from "motion/react";
+
+export function ModernHeroBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none -z-10">
+      {/* Subtle Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* Primary Hardware-Accelerated Ambient Glows */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.35, 0.5, 0.35],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-tr from-purple-600/30 via-indigo-600/25 to-pink-500/20 blur-[130px] transform-gpu will-change-transform"
+      />
+
+      {/* Secondary Dynamic Spotlight Accent */}
+      <motion.div
+        animate={{
+          x: [-20, 20, -20],
+          y: [-10, 15, -10],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-24 right-1/4 w-[450px] h-[300px] rounded-full bg-indigo-500/20 blur-[110px] transform-gpu will-change-transform"
+      />
+
+      {/* Bottom Fade to blend seamlessly with next section */}
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-dark to-transparent" />
+    </div>
+  );
+}
 </file>
 
 <file path="components/ui/tabs.tsx">
@@ -2230,6 +2344,255 @@ export function AssessmentCard() {
 }
 </file>
 
+<file path="features/landing/components/hero-examiner-studio.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Award,
+  BookOpen,
+  SpellCheck,
+  Compass,
+  ArrowUpRight,
+  TrendingUp,
+} from "lucide-react";
+
+type ActiveCriterion = "tr" | "lr" | "gra";
+
+interface CriterionData {
+  id: ActiveCriterion;
+  titleFa: string;
+  nameEn: string;
+  score: string;
+  color: string;
+  borderClass: string;
+  bgBadgeClass: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  original: string;
+  enhanced: string;
+  examinerNote: string;
+}
+
+const criteriaList: CriterionData[] = [
+  {
+    id: "lr",
+    titleFa: "دایره واژگان آکادمیک",
+    nameEn: "Lexical Resource",
+    score: "8.5",
+    color: "#f472b6", // pink-400
+    borderClass: "border-pink-500/40",
+    bgBadgeClass: "bg-pink-500/10 text-pink-300 border-pink-500/30",
+    icon: BookOpen,
+    original: "is a very big issue for modern countries",
+    enhanced: "constitutes a formidable impediment to sustainable growth",
+    examinerNote:
+      "جایگزینی عبارت محاوره‌ای 'big issue' با کالوکیشن آکادمیک و ساختار دقیق.",
+  },
+  {
+    id: "tr",
+    titleFa: "استدلال و پاسخ به سوال",
+    nameEn: "Task Response",
+    score: "8.0",
+    color: "#818cf8", // indigo-400
+    borderClass: "border-indigo-500/40",
+    bgBadgeClass: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
+    icon: Compass,
+    original: "I think that both opinions have good points.",
+    enhanced:
+      "While merit exists in both perspectives, empirical evidence favors the latter.",
+    examinerNote:
+      "ارائه بیانیه تز شفاف (Clear Thesis) و پرهیز از لحن غیررسمی شخصی.",
+  },
+  {
+    id: "gra",
+    titleFa: "تنوع گرامر و صحت ساختاری",
+    nameEn: "Grammatical Range",
+    score: "8.0",
+    color: "#34d399", // emerald-400
+    borderClass: "border-emerald-500/40",
+    bgBadgeClass: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    icon: SpellCheck,
+    original: "Cities become crowded and people get late.",
+    enhanced:
+      "Urban centers become congested, precipitating extensive commuting delays.",
+    examinerNote:
+      "کاربرد ساختار مجهز به Participle Clause و پیوستگی بی‌نقص ایده.",
+  },
+];
+
+export function HeroExaminerStudio() {
+  const [selectedCriterion, setSelectedCriterion] =
+    useState<ActiveCriterion>("lr");
+  const current =
+    criteriaList.find((c) => c.id === selectedCriterion) ?? criteriaList[0];
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-4xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-vazirmatn text-right"
+    >
+      {/* Header bar / Window Chrome */}
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-white/[0.02]">
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 ml-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
+          </div>
+          <span className="text-xs font-semibold text-neutral-300 flex items-center gap-1.5">
+            <Sparkles size={14} className="text-purple-400" />
+            شبیه‌ساز ارزیابی زنده اگزمینر رسمی آیلتس
+          </span>
+        </div>
+
+        {/* Live Score Counter Card */}
+        <div className="flex items-center gap-2 bg-purple-500/15 border border-purple-500/30 px-3 py-1 rounded-full">
+          <TrendingUp size={13} className="text-purple-300" />
+          <span className="text-xs text-purple-200 font-medium">
+            نمره پیش‌بینی شده:
+          </span>
+          <span className="text-xs font-black font-mono text-white bg-purple-600 px-1.5 py-0.2 rounded">
+            Band 8.5
+          </span>
+        </div>
+      </div>
+
+      {/* Main Content: Split Studio */}
+      <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        {/* Left Side (Rubrics Controller) */}
+        <div className="lg:col-span-4 space-y-2.5">
+          <span className="text-[11px] font-semibold text-neutral-400 block mb-1">
+            معیارهای رسمی ارزیابی (کلیک کنید):
+          </span>
+          {criteriaList.map((criterion) => {
+            const isSelected = selectedCriterion === criterion.id;
+            const Icon = criterion.icon;
+
+            return (
+              <button
+                key={criterion.id}
+                type="button"
+                onClick={() => setSelectedCriterion(criterion.id)}
+                className={`w-full p-3 rounded-xl border text-right transition-colors cursor-pointer flex items-center justify-between ${
+                  isSelected
+                    ? "border-purple-500/50 bg-white/[0.06] shadow-sm"
+                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04] text-neutral-400"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center border"
+                    style={{
+                      backgroundColor: `${criterion.color}15`,
+                      borderColor: `${criterion.color}35`,
+                      color: criterion.color,
+                    }}
+                  >
+                    <Icon size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-100">
+                      {criterion.titleFa}
+                    </h4>
+                    <span className="text-[10px] text-neutral-400 font-mono block">
+                      {criterion.nameEn}
+                    </span>
+                  </div>
+                </div>
+
+                <span
+                  className="text-xs font-mono font-bold px-2 py-0.5 rounded border"
+                  style={{
+                    color: criterion.color,
+                    borderColor: `${criterion.color}35`,
+                    backgroundColor: `${criterion.color}10`,
+                  }}
+                >
+                  {criterion.score}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right Side (Active Inspection Box) */}
+        <div className="lg:col-span-8 flex flex-col gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+              className="space-y-3.5"
+            >
+              {/* English Essay Passage LTR */}
+              <div
+                dir="ltr"
+                className="p-4 sm:p-5 rounded-2xl bg-white/[0.025] border border-white/10 space-y-3 font-sans"
+              >
+                <div className="flex items-center justify-between text-xs pb-2 border-b border-white/5">
+                  <span className="font-mono text-neutral-400 text-[11px] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Student Submission (Task 2 Sample)
+                  </span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-md border font-mono ${current.bgBadgeClass}`}
+                  >
+                    {current.nameEn}
+                  </span>
+                </div>
+
+                <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <span>
+                    It is widely argued that environmental degradation{" "}
+                  </span>
+                  <span className="bg-red-500/20 text-red-300 px-1 py-0.5 rounded line-through decoration-red-400 font-normal">
+                    {current.original}
+                  </span>
+                  <span>.</span>
+                </div>
+
+                {/* Refined Band 8.5 Snippet */}
+                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-start gap-2">
+                  <Award
+                    size={16}
+                    className="text-purple-400 shrink-0 mt-0.5"
+                  />
+                  <div className="text-xs sm:text-[13px] text-purple-100 font-medium leading-relaxed">
+                    <span className="text-purple-300 text-[11px] uppercase tracking-wider block font-mono">
+                      Refined by Examiner Agent:
+                    </span>
+                    &ldquo;{current.enhanced}&rdquo;
+                  </div>
+                </div>
+              </div>
+
+              {/* Teaching Explanatory Note RTL */}
+              <div className="p-3 sm:p-3.5 rounded-xl border border-white/5 bg-white/[0.015] flex items-center justify-between text-xs text-neutral-300">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: current.color }}
+                  />
+                  <span>{current.examinerNote}</span>
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium">
+                  افزایش تراز
+                  <ArrowUpRight size={13} />
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
 <file path="features/landing/components/interactive-feedback-demo.tsx">
 "use client";
 
@@ -2502,6 +2865,447 @@ export function ProgressCard() {
 }
 </file>
 
+<file path="features/landing/components/progress-report-showcase.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  Flame,
+  BookOpen,
+  Sparkles,
+  TrendingUp,
+  Award,
+  CheckCircle2,
+  CalendarCheck,
+  Zap,
+} from "lucide-react";
+
+// Mock Progress Data across 6 consecutive evaluation essays
+const scoreHistoryData = [
+  { essay: "مقاله ۱", overall: 6.0, tr: 6.0, lr: 5.5, gra: 6.0, cc: 6.5 },
+  { essay: "مقاله ۲", overall: 6.5, tr: 6.5, lr: 6.0, gra: 6.5, cc: 6.5 },
+  { essay: "مقاله ۳", overall: 6.5, tr: 6.5, lr: 6.5, gra: 6.5, cc: 7.0 },
+  { essay: "مقاله ۴", overall: 7.0, tr: 7.0, lr: 7.0, gra: 7.0, cc: 7.0 },
+  { essay: "مقاله ۵", overall: 7.5, tr: 7.5, lr: 7.5, gra: 7.0, cc: 7.5 },
+  { essay: "مقاله ۶", overall: 8.0, tr: 8.0, lr: 8.5, gra: 7.5, cc: 8.0 },
+];
+
+const vocabularyGrowthData = [
+  { week: "هفته ۱", collocations: 18, c1Words: 12 },
+  { week: "هفته ۲", collocations: 34, c1Words: 26 },
+  { week: "هفته ۳", collocations: 58, c1Words: 44 },
+  { week: "هفته ۴", collocations: 89, c1Words: 72 },
+  { week: "هفته ۵", collocations: 124, c1Words: 98 },
+  { week: "هفته ۶", collocations: 168, c1Words: 135 },
+];
+
+const scoreChartConfig = {
+  overall: {
+    label: "نمره کلی (Overall Band)",
+    color: "#a855f7", // purple-500
+  },
+  lr: {
+    label: "واژگان (Lexical Resource)",
+    color: "#f472b6", // pink-400
+  },
+  tr: {
+    label: "استدلال (Task Response)",
+    color: "#818cf8", // indigo-400
+  },
+} satisfies ChartConfig;
+
+const vocabChartConfig = {
+  collocations: {
+    label: "کالوکیشن‌های فعال آکادمیک",
+    color: "#a855f7",
+  },
+  c1Words: {
+    label: "لغات سطح C1/C2 ثبت‌شده",
+    color: "#34d399", // emerald-400
+  },
+} satisfies ChartConfig;
+
+export function ProgressReportShowcase() {
+  const [metricView, setMetricView] = useState<"overall" | "criteria">(
+    "overall",
+  );
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-6xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 sm:p-8 space-y-8 font-vazirmatn text-right shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+    >
+      {/* Top Banner: Quick User Metric KPIs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        {/* Metric 1: Streak */}
+        <div className="p-4 rounded-2xl border border-amber-500/20 bg-amber-500/[0.04] backdrop-blur-sm relative overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-amber-200/80 font-medium">
+              استمرار تمرین
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <Flame size={17} className="animate-pulse" />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۲۱
+              </span>
+              <span className="text-xs text-amber-300">روز پیوسته</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رتبه برتر ۷٪ داوطلبان منظم
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 2: Mastered Collocations */}
+        <div className="p-4 rounded-2xl border border-purple-500/20 bg-purple-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-purple-200/80 font-medium">
+              کالوکیشن‌های ملکه شده
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <BookOpen size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۱۶۸
+              </span>
+              <span className="text-xs text-emerald-400 font-mono font-bold">
+                +۳۸ این هفته
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              استفاده طبیعی در ۴ مقاله اخیر
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 3: Score Progress */}
+        <div className="p-4 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-indigo-200/80 font-medium">
+              جهش نمره تخمینی
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <TrendingUp size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                8.0
+              </span>
+              <span className="text-xs text-purple-300 font-mono">
+                از 6.0 اولیه
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رشد +۲.۰ نمره در ۶ مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 4: Grammar Accuracy */}
+        <div className="p-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-emerald-200/80 font-medium">
+              کاهش خطاهای گرامری
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <Zap size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۸۲٪
+              </span>
+              <span className="text-xs text-emerald-300">دقت ساختاری</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              میانگین کمتر از ۲ خطا در هر تسک
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Visuals Grid: Area Chart + Bar Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Primary Chart: Score Progression Area Chart */}
+        <div className="lg:col-span-7 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/5">
+            <div>
+              <div className="flex items-center gap-2">
+                <Award size={18} className="text-purple-400" />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  تحلیل صعود نمره در طول زمان
+                </h4>
+              </div>
+              <p className="text-xs text-neutral-400 mt-0.5">
+                تغییرات مرحله‌به‌مرحله نمره بر اساس استانداردهای رسمی کمبریج
+              </p>
+            </div>
+
+            {/* Toggle Filters */}
+            <div className="flex items-center gap-1 p-1 bg-white/[0.04] rounded-lg border border-white/5 self-start sm:self-center">
+              <button
+                type="button"
+                onClick={() => setMetricView("overall")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "overall"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                نمره کل
+              </button>
+              <button
+                type="button"
+                onClick={() => setMetricView("criteria")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "criteria"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                معیارهای تفکیکی
+              </button>
+            </div>
+          </div>
+
+          {/* shadcn Area Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={scoreChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <AreaChart
+                data={scoreHistoryData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <defs>
+                  <linearGradient
+                    id="scoreOverallGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#a855f7" stopOpacity={0.45} />
+                    <stop offset="95%" stopColor="#a855f7" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreLrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#f472b6" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#f472b6" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreTrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#818cf8" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#818cf8" stopOpacity={0.0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="essay"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  domain={[5.0, 9.0]}
+                  ticks={[5.0, 6.0, 7.0, 8.0, 9.0]}
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+
+                {metricView === "overall" ? (
+                  <Area
+                    type="natural"
+                    dataKey="overall"
+                    stroke="#a855f7"
+                    strokeWidth={2.5}
+                    fillOpacity={1}
+                    fill="url(#scoreOverallGradient)"
+                    dot={{
+                      fill: "#a855f7",
+                      stroke: "#000",
+                      strokeWidth: 2,
+                      r: 4,
+                    }}
+                    activeDot={{ r: 6, fill: "#c084fc", stroke: "#fff" }}
+                  />
+                ) : (
+                  <>
+                    <Area
+                      type="natural"
+                      dataKey="lr"
+                      stroke="#f472b6"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreLrGradient)"
+                    />
+                    <Area
+                      type="natural"
+                      dataKey="tr"
+                      stroke="#818cf8"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreTrGradient)"
+                    />
+                  </>
+                )}
+              </AreaChart>
+            </ChartContainer>
+          </div>
+
+          <div className="pt-2 flex flex-wrap items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500" />
+              پیش‌بینی اگزمینر برای آزمون نهایی:{" "}
+              <strong className="text-white font-mono">Band 7.5 - 8.0</strong>
+            </span>
+            <span className="text-[11px] text-neutral-500">
+              به‌روزرسانی خودکار پس از هر ثبت مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Secondary Chart: Vocabulary & Collocation Accumulation */}
+        <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="pb-3 border-b border-white/5">
+            <div className="flex items-center gap-2">
+              <Sparkles size={18} className="text-pink-400" />
+              <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                گنجینه واژگان و کالوکیشن‌ها
+              </h4>
+            </div>
+            <p className="text-xs text-neutral-400 mt-0.5">
+              تعداد عبارات آکادمیک که به شکل فعال در رایتینگ‌ها به کار گرفته‌اید
+            </p>
+          </div>
+
+          {/* Bar Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={vocabChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <BarChart
+                data={vocabularyGrowthData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="week"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Bar
+                  dataKey="collocations"
+                  fill="#a855f7"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+                <Bar
+                  dataKey="c1Words"
+                  fill="#34d399"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+              </BarChart>
+            </ChartContainer>
+          </div>
+
+          {/* Legend */}
+          <div className="pt-2 flex items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-purple-500" />
+                کالوکیشن آکادمیک
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400" />
+                واژگان پیشرفته (C1/C2)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Insights Note */}
+      <div className="rounded-xl border border-purple-500/20 bg-purple-500/[0.05] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-300">
+        <div className="flex items-center gap-2.5">
+          <CalendarCheck size={18} className="text-purple-300 shrink-0" />
+          <span>
+            سیستم گزارش‌دهی هوشمند پس از هر مقاله، تکرار اشتباهات گذشته را رصد
+            کرده و برای تسک بعدی تمرین اختصاصی پیشنهاد می‌دهد.
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 text-purple-300 font-bold shrink-0">
+          <CheckCircle2 size={15} />
+          <span>هماهنگ با فرمت آزمون کامپیوتری و کاغذی</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
 <file path="public/file.svg">
 <svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
 </file>
@@ -2687,6 +3491,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="skills-lock.json">
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+    }
+  }
+}
 </file>
 
 <file path="tsconfig.json">
@@ -3698,6 +4516,24 @@ export default function LoginPage() {
 }
 </file>
 
+<file path="app/(root)/page.tsx">
+import HeroSection from "@/features/landing/components/hero-section";
+import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section";
+import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
+import AppFeatures from "@/features/landing/components/app-features-section";
+
+export default function Home() {
+  return (
+    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
+      <HeroSection />
+      <AgentArchitectureSection />
+      <InteractiveFeedbackDemo />
+      <AppFeatures />
+    </main>
+  );
+}
+</file>
+
 <file path="features/landing/components/hero-section.tsx">
 "use client";
 
@@ -3792,12 +4628,14 @@ export default function HeroSection() {
     "axios": "^1.18.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cn": "^0.4.0",
     "lucide-react": "^1.17.0",
     "motion": "^12.40.0",
     "next": "16.2.6",
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "recharts": "^3.8.0",
     "rough-notation": "^0.5.1",
     "shadcn": "^4.8.2",
     "tailwind-merge": "^3.6.0",
@@ -3816,62 +4654,53 @@ export default function HeroSection() {
 }
 </file>
 
-<file path="app/(root)/page.tsx">
-import HeroSection from "@/features/landing/components/hero-section";
-import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section";
-import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
-import AppFeatures from "@/features/landing/components/app-features-section";
-
-export default function Home() {
-  return (
-    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
-      <HeroSection />
-      <AgentArchitectureSection />
-      <InteractiveFeedbackDemo />
-      <AppFeatures />
-    </main>
-  );
-}
-</file>
-
 <file path="features/landing/components/app-features-section.tsx">
+// features/landing/components/app-features-section.tsx
 import { BentoGrid } from "@/components/ui/bento-grid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FeaturesBento } from "./bento-grid";
+import { ProgressReportShowcase } from "./progress-report-showcase";
+
 const AppFeatures = () => {
   return (
-    <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full">
-      <h4
-        dir="rtl "
-        className="text-gray-200 font-black text-4xl text-center mt-5"
-      >
-        AIelts امکانات
-      </h4>
-      <Tabs defaultValue="overview" className="w-full ">
-        <TabsList className="mx-auto bg-bg-light gap-4 flex justify-center my-5">
-          <TabsTrigger
-            className="cursor-pointer data-[state=active]:text-primary-background text-[#F8FBFE]"
-            value="overview"
-          >
-            بازخورد هوشمند
-          </TabsTrigger>
-          <TabsTrigger
-            className="cursor-pointer data-[state=active]:text-primary-background text-[#F8FBFE]"
-            value="analytics"
-          >
-            برنامه درسی شخصی
-          </TabsTrigger>
-          <TabsTrigger
-            className="cursor-pointer data-[state=active]:text-primary-background text-[#F8FBFE]"
-            value="reports"
-          >
-            گزارش پیشرفت
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent dir="rtl" value="overview" className="px-6 pb-10">
-          <FeaturesBento />
-        </TabsContent>
-      </Tabs>
+    <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h4
+          dir="rtl"
+          className="text-gray-100 font-black text-3xl sm:text-4xl text-center mb-3"
+        >
+          امکانات و ابزارهای هوشمند AIelts
+        </h4>
+        <p className="text-center text-neutral-400 text-sm max-w-xl mx-auto mb-8">
+          مسیر تحلیلی و گام‌به‌گام برای رسیدن به بالاترین نمره رایتینگ با
+          بازخورد تخصصی
+        </p>
+
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="mx-auto bg-bg-light gap-2 sm:gap-4 flex justify-center mb-8 p-1.5 rounded-2xl border border-white/5">
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="overview"
+            >
+              بازخورد هوشمند
+            </TabsTrigger>
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="reports"
+            >
+              گزارش پیشرفت
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent dir="rtl" value="overview" className="pb-10">
+            <FeaturesBento />
+          </TabsContent>
+
+          <TabsContent dir="rtl" value="reports" className="pb-10">
+            <ProgressReportShowcase />
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 };

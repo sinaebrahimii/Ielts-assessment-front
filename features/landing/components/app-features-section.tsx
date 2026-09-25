@@ -3,7 +3,7 @@ import { BentoGrid } from "@/components/ui/bento-grid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FeaturesBento } from "./bento-grid";
 import { ProgressReportShowcase } from "./progress-report-showcase";
-
+import PersonalStudyPlanTab from "./study-plan-showcase";
 const AppFeatures = () => {
   return (
     <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full py-12">
@@ -33,6 +33,12 @@ const AppFeatures = () => {
             >
               گزارش پیشرفت
             </TabsTrigger>
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="curriculum"
+            >
+              برنامه درسی شخصی
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent dir="rtl" value="overview" className="pb-10">
@@ -41,6 +47,9 @@ const AppFeatures = () => {
 
           <TabsContent dir="rtl" value="reports" className="pb-10">
             <ProgressReportShowcase />
+          </TabsContent>
+          <TabsContent value="curriculum" dir="rtl">
+            <PersonalStudyPlanTab />
           </TabsContent>
         </Tabs>
       </div>

@@ -1,0 +1,9468 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+# File Summary
+
+## Purpose
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+
+## File Format
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  a. A header with the file path (## File: path/to/file)
+  b. The full contents of the file in a code block
+
+## Usage Guidelines
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+## Notes
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+
+# Directory Structure
+````
+.agents/
+  skills/
+    frontend-design/
+      LICENSE.txt
+      SKILL.md
+app/
+  (root)/
+    layout.tsx
+    page.tsx
+  login/
+    layout.tsx
+    page.tsx
+  favicon.ico
+  globals.css
+components/
+  ui/
+    background-beams.tsx
+    bento-grid.tsx
+    button.tsx
+    canvas-text.tsx
+    chart.tsx
+    highlighter.tsx
+    input.tsx
+    label.tsx
+    modern-hero-background.tsx
+    tabs.tsx
+    twisted-arrow.tsx
+    typing-animation.tsx
+  bento-grid-demo.tsx
+features/
+  auth/
+    action/
+      auth-actions.tsx
+    api/
+      auth-api.tsx
+    components/
+      login-form.tsx
+  landing/
+    components/
+      agent-architecture-section.tsx
+      app-features-section.tsx
+      assesment-card.tsx
+      bento-grid.tsx
+      hero-examiner-studio.tsx
+      hero-section.tsx
+      interactive-feedback-demo.tsx
+      line-by-line-assessment.tsx
+      progress-card.tsx
+      progress-report-showcase.tsx
+lib/
+  utils.ts
+public/
+  fonts/
+    Vazirmatn-Black.woff2
+    Vazirmatn-Bold.woff2
+    Vazirmatn-ExtraBold.woff2
+    Vazirmatn-ExtraLight.woff2
+    Vazirmatn-Light.woff2
+    Vazirmatn-Medium.woff2
+    Vazirmatn-Regular.woff2
+    Vazirmatn-SemiBold.woff2
+    Vazirmatn-Thin.woff2
+    Vazirmatn[wght].woff2
+  images/
+    enhance.webp
+    ielts_score.webp
+    rubrics.webp
+    writing_closeup.webp
+  file.svg
+  globe.svg
+  next.svg
+  vercel.svg
+  window.svg
+.gitignore
+AGENTS.md
+CLAUDE.md
+components.json
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+repomix-output.xml
+skills-lock.json
+tsconfig.json
+````
+
+# Files
+
+## File: .agents/skills/frontend-design/LICENSE.txt
+````
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+````
+
+## File: .agents/skills/frontend-design/SKILL.md
+````markdown
+---
+name: frontend-design
+description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+license: Complete terms in LICENSE.txt
+---
+
+# Frontend Design
+
+Approach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejected proposals that felt cliché or templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take aesthetic risk if justified.
+
+## Ground your designs in the subject matter
+
+If the brief does not identify what the product or subject matter is, identify it yourself before designing, and confirm with the client. You can come up with one concrete subject, the design's audience, and the design's primary job, as a proposal. If there's any information in your memory about the client's preferences or context about what they're building, use that as a hint. The subject's industry, subject matter, materials, and vernacular are where distinctive visual choices come from — a design for a toy for girls aged 8–11 will be very aesthetically different from a dashboard for financial analysts. Build with the brief's real content and subject matter throughout.
+
+## Design principles
+
+For web designs, the hero is the first thing viewers will see. Open with the most characteristic thing in the subject's world, in the form that is most appropriate: a headline, an image, an animation, a live demo, an interactive moment, or other treatments. Be deliberate with your choice: a big number with a small label, supporting stats, and a gradient accent is the default treatment, so only use it if that's truly the best option.
+
+Typography carries the personality of the page. You don't need a different typeface for display or headline text and body content: use one family or two, and if two, make them clearly distinct.
+
+Choose your typefaces deliberately, not the default families you would reach for on any other project, and set a clear type scale following the default guidance of The Elements of Typographic Style with intentional weights, widths, and spacing. When type is used as a headline or visual element, use the type treatment itself as an active part of the design, not a neutral delivery vehicle for the content.
+
+Default to line lengths of less than 80 characters. Serif typefaces can have slightly longer line lengths; give serif body text slightly more line-height than a sans-serif.
+
+Avoid these default typographic treatments; they are the commonest tells of a generated page:
+- Accenting just a single word or phrase in a headline, like putting one word in italic/bold or a different color.
+- Using all caps for labels.
+- Adding unnecessary typographic labels above content.
+
+Visual structure is information. Structural devices like outlines, borders, numbering, eyebrows, dividers, labels, etc., encode useful information about the content rather than decorate it. Many generic designs use numbered markers (01 / 02 / 03), but that's only appropriate if the content actually is a sequence — like a stepped process or a timeline. Before adding numbered markers, check the content really is a sequence.
+
+Use non-user-triggered motion sparingly and deliberately, only to draw attention. A single orchestrated moment — one page-load sequence or one reveal — lands better than scattered effects; fade-and-slide-up entrances on each section and hover transitions on every card are the generic default and read as AI-generated. Motion that answers a person's action (opening, expanding, confirming) is welcome when it shows what changed.
+
+Consider written content carefully. Often a design brief may not contain real content, and it's up to you to come up with copy and placeholder content. Copy can make a design feel as templated as the design itself. See the below section on writing for more guidance.
+
+## Process: plan, review against the brief, build, critique
+
+For calibration, AI-generated design right now clusters around some traits:
+1. a warm cream background (near #F4F1EA) with a high-contrast serif display and a terracotta or warm-clay accent (often near #D97757 — Anthropic's own Claude-interaction accent, so on a user's brief it reads as a tell);
+2. a near-black background with a single bright acid-green or vermilion accent;
+3. a broadsheet-style layout with hairline rules, zero border-radius, and dense newspaper-like columns;
+4. the SaaS-card kit: content chopped into identical rounded cards, one border-radius on everything regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each, and gradient washes as decoration;
+5. template chrome that appears whatever the subject: a tracked-out ALL-CAPS eyebrow label above every heading; meta strings joined with middle dots ('A · B · C'); labels built as 'WORD — fragment' with a spaced em dash; tinted near-black (#0B0B0B, #111) standing in for black; a monospace face for small data labels; a '→' appended to link and button text.
+
+All traits are legitimate for some briefs, but they are defaults rather than choices, and they appear regardless of subject. Where the brief pins down a visual direction, follow it exactly — the brief's own words always win, including when it asks for one of these looks. Where it leaves an axis free, don't spend that freedom on one of these defaults. As with a hired human designer, there's often a careful balance between doing what you're good at and taking each project as a chance to experiment and learn.
+
+Work in two passes. First, brainstorm a short design plan based on the client's design brief: create a compact token system with color, type, layout, and principles.
+- Color: describe the core base palette as 4–6 named hex values.
+- Type: the typefaces and their roles.
+- Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Include alignment guidance; should the content be left aligned, center aligned, justified?
+- Principles: the high-level guidance for what makes this page unique.
+
+Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan.
+
+When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections.
+
+## Restraint and self-critique
+
+Spend your boldness in one place. Let one element be the memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected, visually accessible, harmonious color palettes. Critique your own work as you build, taking screenshots to review if your environment supports it — a picture is worth 1000 tokens. Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creatives have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
+
+## More on writing in design
+
+Words appear in a design for one reason: to make it easier to understand and use. They are design content, not decoration. Bring the same intentionality and minimalism to copywriting that you would bring to spacing and color. Before writing anything, ask what the design needs to say, and how it can best be said to help the person navigate the experience.
+
+Write from the end user's perspective. Name things by what users will understand in simple language, not by how the system is built. A user manages notifications, not webhook config. Describe what something is or does in plain terms rather than selling it. Being specific and legible to new users is always better than being clever.
+
+Use active voice as default. A CTA says exactly what happens when it is used: "Save changes," not "Submit." An action keeps the same name through the whole flow, so the button that says "Publish" produces a toast that says "Published." The vocabulary of an interface is the signposting for someone navigating the product. Cohesion and consistency are how people learn their way around.
+
+Treat failure and emptiness as moments for direction, not mood. Explain what went wrong and how to fix it, in the interface's voice rather than a person's. Errors don't apologize, and they are never vague about what happened. An empty screen is an invitation to act.
+
+Keep the tone conversational: plain verbs, sentence case, no filler, with tone matched to the brand and the audience. Let each written element do exactly one job.
+````
+
+## File: components/ui/background-beams.tsx
+````typescript
+"use client";
+import React from "react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+
+export const BackgroundBeams = React.memo(
+  ({ className }: { className?: string }) => {
+    const paths = [
+      "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
+      "M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867",
+      "M-366 -205C-366 -205 -298 200 166 327C630 454 698 859 698 859",
+      "M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851",
+      "M-352 -221C-352 -221 -284 184 180 311C644 438 712 843 712 843",
+      "M-345 -229C-345 -229 -277 176 187 303C651 430 719 835 719 835",
+      "M-338 -237C-338 -237 -270 168 194 295C658 422 726 827 726 827",
+      "M-331 -245C-331 -245 -263 160 201 287C665 414 733 819 733 819",
+      "M-324 -253C-324 -253 -256 152 208 279C672 406 740 811 740 811",
+      "M-317 -261C-317 -261 -249 144 215 271C679 398 747 803 747 803",
+      "M-310 -269C-310 -269 -242 136 222 263C686 390 754 795 754 795",
+      "M-303 -277C-303 -277 -235 128 229 255C693 382 761 787 761 787",
+      "M-296 -285C-296 -285 -228 120 236 247C700 374 768 779 768 779",
+      "M-289 -293C-289 -293 -221 112 243 239C707 366 775 771 775 771",
+      "M-282 -301C-282 -301 -214 104 250 231C714 358 782 763 782 763",
+      "M-275 -309C-275 -309 -207 96 257 223C721 350 789 755 789 755",
+      "M-268 -317C-268 -317 -200 88 264 215C728 342 796 747 796 747",
+      "M-261 -325C-261 -325 -193 80 271 207C735 334 803 739 803 739",
+      "M-254 -333C-254 -333 -186 72 278 199C742 326 810 731 810 731",
+      "M-247 -341C-247 -341 -179 64 285 191C749 318 817 723 817 723",
+      "M-240 -349C-240 -349 -172 56 292 183C756 310 824 715 824 715",
+      "M-233 -357C-233 -357 -165 48 299 175C763 302 831 707 831 707",
+      "M-226 -365C-226 -365 -158 40 306 167C770 294 838 699 838 699",
+      "M-219 -373C-219 -373 -151 32 313 159C777 286 845 691 845 691",
+      "M-212 -381C-212 -381 -144 24 320 151C784 278 852 683 852 683",
+      "M-205 -389C-205 -389 -137 16 327 143C791 270 859 675 859 675",
+      "M-198 -397C-198 -397 -130 8 334 135C798 262 866 667 866 667",
+      "M-191 -405C-191 -405 -123 0 341 127C805 254 873 659 873 659",
+      "M-184 -413C-184 -413 -116 -8 348 119C812 246 880 651 880 651",
+      "M-177 -421C-177 -421 -109 -16 355 111C819 238 887 643 887 643",
+      "M-170 -429C-170 -429 -102 -24 362 103C826 230 894 635 894 635",
+      "M-163 -437C-163 -437 -95 -32 369 95C833 222 901 627 901 627",
+      "M-156 -445C-156 -445 -88 -40 376 87C840 214 908 619 908 619",
+      "M-149 -453C-149 -453 -81 -48 383 79C847 206 915 611 915 611",
+      "M-142 -461C-142 -461 -74 -56 390 71C854 198 922 603 922 603",
+      "M-135 -469C-135 -469 -67 -64 397 63C861 190 929 595 929 595",
+      "M-128 -477C-128 -477 -60 -72 404 55C868 182 936 587 936 587",
+      "M-121 -485C-121 -485 -53 -80 411 47C875 174 943 579 943 579",
+      "M-114 -493C-114 -493 -46 -88 418 39C882 166 950 571 950 571",
+      "M-107 -501C-107 -501 -39 -96 425 31C889 158 957 563 957 563",
+      "M-100 -509C-100 -509 -32 -104 432 23C896 150 964 555 964 555",
+      "M-93 -517C-93 -517 -25 -112 439 15C903 142 971 547 971 547",
+      "M-86 -525C-86 -525 -18 -120 446 7C910 134 978 539 978 539",
+      "M-79 -533C-79 -533 -11 -128 453 -1C917 126 985 531 985 531",
+      "M-72 -541C-72 -541 -4 -136 460 -9C924 118 992 523 992 523",
+      "M-65 -549C-65 -549 3 -144 467 -17C931 110 999 515 999 515",
+      "M-58 -557C-58 -557 10 -152 474 -25C938 102 1006 507 1006 507",
+      "M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499",
+      "M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491",
+      "M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483",
+    ];
+    return (
+      <div
+        className={cn(
+          "absolute inset-0 flex h-full w-full items-center justify-center [mask-repeat:no-repeat] [mask-size:40px]",
+          className,
+        )}
+      >
+        <svg
+          className="pointer-events-none absolute z-0 h-full w-full"
+          width="100%"
+          height="100%"
+          viewBox="0 0 696 316"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867M-366 -205C-366 -205 -298 200 166 327C630 454 698 859 698 859M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851M-352 -221C-352 -221 -284 184 180 311C644 438 712 843 712 843M-345 -229C-345 -229 -277 176 187 303C651 430 719 835 719 835M-338 -237C-338 -237 -270 168 194 295C658 422 726 827 726 827M-331 -245C-331 -245 -263 160 201 287C665 414 733 819 733 819M-324 -253C-324 -253 -256 152 208 279C672 406 740 811 740 811M-317 -261C-317 -261 -249 144 215 271C679 398 747 803 747 803M-310 -269C-310 -269 -242 136 222 263C686 390 754 795 754 795M-303 -277C-303 -277 -235 128 229 255C693 382 761 787 761 787M-296 -285C-296 -285 -228 120 236 247C700 374 768 779 768 779M-289 -293C-289 -293 -221 112 243 239C707 366 775 771 775 771M-282 -301C-282 -301 -214 104 250 231C714 358 782 763 782 763M-275 -309C-275 -309 -207 96 257 223C721 350 789 755 789 755M-268 -317C-268 -317 -200 88 264 215C728 342 796 747 796 747M-261 -325C-261 -325 -193 80 271 207C735 334 803 739 803 739M-254 -333C-254 -333 -186 72 278 199C742 326 810 731 810 731M-247 -341C-247 -341 -179 64 285 191C749 318 817 723 817 723M-240 -349C-240 -349 -172 56 292 183C756 310 824 715 824 715M-233 -357C-233 -357 -165 48 299 175C763 302 831 707 831 707M-226 -365C-226 -365 -158 40 306 167C770 294 838 699 838 699M-219 -373C-219 -373 -151 32 313 159C777 286 845 691 845 691M-212 -381C-212 -381 -144 24 320 151C784 278 852 683 852 683M-205 -389C-205 -389 -137 16 327 143C791 270 859 675 859 675M-198 -397C-198 -397 -130 8 334 135C798 262 866 667 866 667M-191 -405C-191 -405 -123 0 341 127C805 254 873 659 873 659M-184 -413C-184 -413 -116 -8 348 119C812 246 880 651 880 651M-177 -421C-177 -421 -109 -16 355 111C819 238 887 643 887 643M-170 -429C-170 -429 -102 -24 362 103C826 230 894 635 894 635M-163 -437C-163 -437 -95 -32 369 95C833 222 901 627 901 627M-156 -445C-156 -445 -88 -40 376 87C840 214 908 619 908 619M-149 -453C-149 -453 -81 -48 383 79C847 206 915 611 915 611M-142 -461C-142 -461 -74 -56 390 71C854 198 922 603 922 603M-135 -469C-135 -469 -67 -64 397 63C861 190 929 595 929 595M-128 -477C-128 -477 -60 -72 404 55C868 182 936 587 936 587M-121 -485C-121 -485 -53 -80 411 47C875 174 943 579 943 579M-114 -493C-114 -493 -46 -88 418 39C882 166 950 571 950 571M-107 -501C-107 -501 -39 -96 425 31C889 158 957 563 957 563M-100 -509C-100 -509 -32 -104 432 23C896 150 964 555 964 555M-93 -517C-93 -517 -25 -112 439 15C903 142 971 547 971 547M-86 -525C-86 -525 -18 -120 446 7C910 134 978 539 978 539M-79 -533C-79 -533 -11 -128 453 -1C917 126 985 531 985 531M-72 -541C-72 -541 -4 -136 460 -9C924 118 992 523 992 523M-65 -549C-65 -549 3 -144 467 -17C931 110 999 515 999 515M-58 -557C-58 -557 10 -152 474 -25C938 102 1006 507 1006 507M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483M-30 -589C-30 -589 38 -184 502 -57C966 70 1034 475 1034 475M-23 -597C-23 -597 45 -192 509 -65C973 62 1041 467 1041 467M-16 -605C-16 -605 52 -200 516 -73C980 54 1048 459 1048 459M-9 -613C-9 -613 59 -208 523 -81C987 46 1055 451 1055 451M-2 -621C-2 -621 66 -216 530 -89C994 38 1062 443 1062 443M5 -629C5 -629 73 -224 537 -97C1001 30 1069 435 1069 435M12 -637C12 -637 80 -232 544 -105C1008 22 1076 427 1076 427M19 -645C19 -645 87 -240 551 -113C1015 14 1083 419 1083 419"
+            stroke="url(#paint0_radial_242_278)"
+            strokeOpacity="0.05"
+            strokeWidth="0.5"
+          ></path>
+
+          {paths.map((path, index) => (
+            <motion.path
+              key={`path-` + index}
+              d={path}
+              stroke={`url(#linearGradient-${index})`}
+              strokeOpacity="0.4"
+              strokeWidth="0.5"
+            ></motion.path>
+          ))}
+          <defs>
+            {paths.map((path, index) => (
+              <motion.linearGradient
+                id={`linearGradient-${index}`}
+                key={`gradient-${index}`}
+                initial={{
+                  x1: "0%",
+                  x2: "0%",
+                  y1: "0%",
+                  y2: "0%",
+                }}
+                animate={{
+                  x1: ["0%", "100%"],
+                  x2: ["0%", "95%"],
+                  y1: ["0%", "100%"],
+                  y2: ["0%", `${93 + Math.random() * 8}%`],
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 10,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  delay: Math.random() * 10,
+                }}
+              >
+                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
+                <stop stopColor="#18CCFC"></stop>
+                <stop offset="32.5%" stopColor="#6344F5"></stop>
+                <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+              </motion.linearGradient>
+            ))}
+
+            <radialGradient
+              id="paint0_radial_242_278"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(352 34) rotate(90) scale(555 1560.62)"
+            >
+              <stop offset="0.0666667" stopColor="#d4d4d4"></stop>
+              <stop offset="0.243243" stopColor="#d4d4d4"></stop>
+              <stop offset="0.43594" stopColor="white" stopOpacity="0"></stop>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    );
+  },
+);
+
+BackgroundBeams.displayName = "BackgroundBeams";
+````
+
+## File: components/ui/button.tsx
+````typescript
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        outline:
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
+
+export { Button, buttonVariants }
+````
+
+## File: components/ui/canvas-text.tsx
+````typescript
+"use client";
+import { cn } from "@/lib/utils";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+
+interface CanvasTextProps {
+  text: string;
+  className?: string;
+  backgroundClassName?: string;
+  colors?: string[];
+  animationDuration?: number;
+  lineWidth?: number;
+  lineGap?: number;
+  curveIntensity?: number;
+  overlay?: boolean;
+}
+
+function resolveColor(color: string): string {
+  if (color.startsWith("var(")) {
+    const varName = color.slice(4, -1).trim();
+    const resolved = getComputedStyle(document.documentElement)
+      .getPropertyValue(varName)
+      .trim();
+    return resolved || color;
+  }
+  return color;
+}
+
+export function CanvasText({
+  text,
+  className = "",
+  backgroundClassName = "bg-white dark:bg-neutral-950",
+  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7", "#dfe6e9"],
+  animationDuration = 5,
+  lineWidth = 1.5,
+  lineGap = 10,
+  curveIntensity = 60,
+  overlay = false,
+}: CanvasTextProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+  const bgRef = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
+  const [bgColor, setBgColor] = useState("#0a0a0a");
+  const [resolvedColors, setResolvedColors] = useState<string[]>([]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [font, setFont] = useState("");
+
+  const updateColors = useCallback(() => {
+    if (bgRef.current) {
+      const computed = window.getComputedStyle(bgRef.current);
+      setBgColor(computed.backgroundColor);
+    }
+    const resolved = colors.map(resolveColor);
+    setResolvedColors(resolved);
+  }, [colors]);
+
+  useEffect(() => {
+    updateColors();
+
+    const observer = new MutationObserver(updateColors);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [updateColors]);
+
+  useEffect(() => {
+    const textEl = textRef.current;
+    if (!textEl) return;
+
+    const updateDimensions = () => {
+      const rect = textEl.getBoundingClientRect();
+      const computed = window.getComputedStyle(textEl);
+      setDimensions({
+        width: Math.ceil(rect.width) || 400,
+        height: Math.ceil(rect.height) || 200,
+      });
+      setFont(
+        `${computed.fontWeight} ${computed.fontSize} ${computed.fontFamily}`,
+      );
+    };
+
+    updateDimensions();
+
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(textEl);
+
+    return () => resizeObserver.disconnect();
+  }, [text, className]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (
+      !canvas ||
+      resolvedColors.length === 0 ||
+      dimensions.width === 0 ||
+      !font
+    )
+      return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    const { width, height } = dimensions;
+    const dpr = window.devicePixelRatio || 1;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    ctx.font = font;
+    const metrics = ctx.measureText(text);
+    const ascent = metrics.actualBoundingBoxAscent;
+    const descent = metrics.actualBoundingBoxDescent;
+    const baselineY = (height + ascent - descent) / 2;
+
+    const numLines = Math.floor(height / lineGap) + 10;
+    startTimeRef.current = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = (currentTime - startTimeRef.current) / 1000;
+      const phase = (elapsed / animationDuration) * Math.PI * 2;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.font = font;
+      ctx.textBaseline = "alphabetic";
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#000";
+      ctx.fillText(text, 0, baselineY);
+
+      ctx.globalCompositeOperation = "source-in";
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "source-atop";
+      for (let i = 0; i < numLines; i++) {
+        const y = i * lineGap;
+
+        const curve1 = Math.sin(phase) * curveIntensity;
+        const curve2 = Math.sin(phase + 0.5) * curveIntensity * 0.6;
+
+        const colorIndex = i % resolvedColors.length;
+        ctx.strokeStyle = resolvedColors[colorIndex];
+        ctx.lineWidth = lineWidth;
+
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.bezierCurveTo(
+          width * 0.33,
+          y + curve1,
+          width * 0.66,
+          y + curve2,
+          width,
+          y,
+        );
+        ctx.stroke();
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [
+    text,
+    font,
+    bgColor,
+    resolvedColors,
+    animationDuration,
+    lineWidth,
+    lineGap,
+    curveIntensity,
+    dimensions,
+  ]);
+
+  return (
+    <span
+      className={cn(
+        "relative inline-block",
+        overlay && "absolute inset-0",
+        className,
+      )}
+    >
+      <span
+        ref={bgRef}
+        className={cn(
+          "pointer-events-none absolute h-0 w-0 opacity-0",
+          backgroundClassName,
+        )}
+        aria-hidden="true"
+      />
+      <span ref={textRef} className="invisible inline-block" aria-hidden="true">
+        {text}
+      </span>
+      <canvas
+        ref={canvasRef}
+        className="pointer-events-none absolute top-0 left-0"
+        style={{
+          width: dimensions.width || "auto",
+          height: dimensions.height || "auto",
+        }}
+        aria-label={text}
+        role="img"
+      />
+    </span>
+  );
+}
+````
+
+## File: components/ui/chart.tsx
+````typescript
+"use client"
+
+import * as React from "react"
+import { cn } from "cn"
+import * as RechartsPrimitive from "recharts"
+import type { TooltipValueType } from "recharts"
+
+// Format: { THEME_NAME: CSS_SELECTOR }
+const THEMES = { light: "", dark: ".dark" } as const
+
+const INITIAL_DIMENSION = { width: 320, height: 200 } as const
+type TooltipNameType = number | string
+
+export type ChartConfig = Record<
+  string,
+  {
+    label?: React.ReactNode
+    icon?: React.ComponentType
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<keyof typeof THEMES, string> }
+  )
+>
+
+type ChartContextProps = {
+  config: ChartConfig
+}
+
+const ChartContext = React.createContext<ChartContextProps | null>(null)
+
+function useChart() {
+  const context = React.useContext(ChartContext)
+
+  if (!context) {
+    throw new Error("useChart must be used within a <ChartContainer />")
+  }
+
+  return context
+}
+
+function ChartContainer({
+  id,
+  className,
+  children,
+  config,
+  initialDimension = INITIAL_DIMENSION,
+  ...props
+}: React.ComponentProps<"div"> & {
+  config: ChartConfig
+  children: React.ComponentProps<
+    typeof RechartsPrimitive.ResponsiveContainer
+  >["children"]
+  initialDimension?: {
+    width: number
+    height: number
+  }
+}) {
+  const uniqueId = React.useId()
+  const chartId = `chart-${id ?? uniqueId.replace(/:/g, "")}`
+
+  return (
+    <ChartContext.Provider value={{ config }}>
+      <div
+        data-slot="chart"
+        data-chart={chartId}
+        className={cn(
+          "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
+          className
+        )}
+        {...props}
+      >
+        <ChartStyle id={chartId} config={config} />
+        <RechartsPrimitive.ResponsiveContainer
+          initialDimension={initialDimension}
+        >
+          {children}
+        </RechartsPrimitive.ResponsiveContainer>
+      </div>
+    </ChartContext.Provider>
+  )
+}
+
+const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
+  const colorConfig = Object.entries(config).filter(
+    ([, config]) => config.theme ?? config.color
+  )
+
+  if (!colorConfig.length) {
+    return null
+  }
+
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: Object.entries(THEMES)
+          .map(
+            ([theme, prefix]) => `
+${prefix} [data-chart=${id}] {
+${colorConfig
+  .map(([key, itemConfig]) => {
+    const color =
+      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ??
+      itemConfig.color
+    return color ? `  --color-${key}: ${color};` : null
+  })
+  .join("\n")}
+}
+`
+          )
+          .join("\n"),
+      }}
+    />
+  )
+}
+
+const ChartTooltip = RechartsPrimitive.Tooltip
+
+function ChartTooltipContent({
+  active,
+  payload,
+  className,
+  indicator = "dot",
+  hideLabel = false,
+  hideIndicator = false,
+  label,
+  labelFormatter,
+  labelClassName,
+  formatter,
+  color,
+  nameKey,
+  labelKey,
+}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
+  React.ComponentProps<"div"> & {
+    hideLabel?: boolean
+    hideIndicator?: boolean
+    indicator?: "line" | "dot" | "dashed"
+    nameKey?: string
+    labelKey?: string
+  } & Omit<
+    RechartsPrimitive.DefaultTooltipContentProps<
+      TooltipValueType,
+      TooltipNameType
+    >,
+    "accessibilityLayer"
+  >) {
+  const { config } = useChart()
+
+  const tooltipLabel = React.useMemo(() => {
+    if (hideLabel || !payload?.length) {
+      return null
+    }
+
+    const [item] = payload
+    const key = `${labelKey ?? item?.dataKey ?? item?.name ?? "value"}`
+    const itemConfig = getPayloadConfigFromPayload(config, item, key)
+    const value =
+      !labelKey && typeof label === "string"
+        ? (config[label]?.label ?? label)
+        : itemConfig?.label
+
+    if (labelFormatter) {
+      return (
+        <div className={cn("font-medium", labelClassName)}>
+          {labelFormatter(value, payload)}
+        </div>
+      )
+    }
+
+    if (!value) {
+      return null
+    }
+
+    return <div className={cn("font-medium", labelClassName)}>{value}</div>
+  }, [
+    label,
+    labelFormatter,
+    payload,
+    hideLabel,
+    labelClassName,
+    config,
+    labelKey,
+  ])
+
+  if (!active || !payload?.length) {
+    return null
+  }
+
+  const nestLabel = payload.length === 1 && indicator !== "dot"
+
+  return (
+    <div
+      className={cn(
+        "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+        className
+      )}
+    >
+      {!nestLabel ? tooltipLabel : null}
+      <div className="grid gap-1.5">
+        {payload
+          .filter((item) => item.type !== "none")
+          .map((item, index) => {
+            const key = `${nameKey ?? item.name ?? item.dataKey ?? "value"}`
+            const itemConfig = getPayloadConfigFromPayload(config, item, key)
+            const indicatorColor = color ?? item.payload?.fill ?? item.color
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
+                  indicator === "dot" && "items-center"
+                )}
+              >
+                {formatter && item?.value !== undefined && item.name ? (
+                  formatter(item.value, item.name, item, index, item.payload)
+                ) : (
+                  <>
+                    {itemConfig?.icon ? (
+                      <itemConfig.icon />
+                    ) : (
+                      !hideIndicator && (
+                        <div
+                          className={cn(
+                            "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+                            {
+                              "h-2.5 w-2.5": indicator === "dot",
+                              "w-1": indicator === "line",
+                              "w-0 border-[1.5px] border-dashed bg-transparent":
+                                indicator === "dashed",
+                              "my-0.5": nestLabel && indicator === "dashed",
+                            }
+                          )}
+                          style={
+                            {
+                              "--color-bg": indicatorColor,
+                              "--color-border": indicatorColor,
+                            } as React.CSSProperties
+                          }
+                        />
+                      )
+                    )}
+                    <div
+                      className={cn(
+                        "flex flex-1 justify-between leading-none",
+                        nestLabel ? "items-end" : "items-center"
+                      )}
+                    >
+                      <div className="grid gap-1.5">
+                        {nestLabel ? tooltipLabel : null}
+                        <span className="text-muted-foreground">
+                          {itemConfig?.label ?? item.name}
+                        </span>
+                      </div>
+                      {item.value != null && (
+                        <span className="font-mono font-medium text-foreground tabular-nums">
+                          {typeof item.value === "number"
+                            ? item.value.toLocaleString()
+                            : String(item.value)}
+                        </span>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            )
+          })}
+      </div>
+    </div>
+  )
+}
+
+const ChartLegend = RechartsPrimitive.Legend
+
+function ChartLegendContent({
+  className,
+  hideIcon = false,
+  payload,
+  verticalAlign = "bottom",
+  nameKey,
+}: React.ComponentProps<"div"> & {
+  hideIcon?: boolean
+  nameKey?: string
+} & RechartsPrimitive.DefaultLegendContentProps) {
+  const { config } = useChart()
+
+  if (!payload?.length) {
+    return null
+  }
+
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center gap-4",
+        verticalAlign === "top" ? "pb-3" : "pt-3",
+        className
+      )}
+    >
+      {payload
+        .filter((item) => item.type !== "none")
+        .map((item, index) => {
+          const key = `${nameKey ?? item.dataKey ?? "value"}`
+          const itemConfig = getPayloadConfigFromPayload(config, item, key)
+
+          return (
+            <div
+              key={index}
+              className={cn(
+                "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
+              )}
+            >
+              {itemConfig?.icon && !hideIcon ? (
+                <itemConfig.icon />
+              ) : (
+                <div
+                  className="h-2 w-2 shrink-0 rounded-[2px]"
+                  style={{
+                    backgroundColor: item.color,
+                  }}
+                />
+              )}
+              {itemConfig?.label}
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+function getPayloadConfigFromPayload(
+  config: ChartConfig,
+  payload: unknown,
+  key: string
+) {
+  if (typeof payload !== "object" || payload === null) {
+    return undefined
+  }
+
+  const payloadPayload =
+    "payload" in payload &&
+    typeof payload.payload === "object" &&
+    payload.payload !== null
+      ? payload.payload
+      : undefined
+
+  let configLabelKey: string = key
+
+  if (
+    key in payload &&
+    typeof payload[key as keyof typeof payload] === "string"
+  ) {
+    configLabelKey = payload[key as keyof typeof payload] as string
+  } else if (
+    payloadPayload &&
+    key in payloadPayload &&
+    typeof payloadPayload[key as keyof typeof payloadPayload] === "string"
+  ) {
+    configLabelKey = payloadPayload[
+      key as keyof typeof payloadPayload
+    ] as string
+  }
+
+  return configLabelKey in config ? config[configLabelKey] : config[key]
+}
+
+export {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+}
+````
+
+## File: components/ui/highlighter.tsx
+````typescript
+"use client"
+
+import { useLayoutEffect, useRef } from "react"
+import type React from "react"
+import { useInView } from "motion/react"
+import { annotate } from "rough-notation"
+import { type RoughAnnotation } from "rough-notation/lib/model"
+
+type AnnotationAction =
+  | "highlight"
+  | "underline"
+  | "box"
+  | "circle"
+  | "strike-through"
+  | "crossed-off"
+  | "bracket"
+
+interface HighlighterProps {
+  children: React.ReactNode
+  action?: AnnotationAction
+  color?: string
+  strokeWidth?: number
+  animationDuration?: number
+  iterations?: number
+  padding?: number
+  multiline?: boolean
+  isView?: boolean
+}
+
+export function Highlighter({
+  children,
+  action = "highlight",
+  color = "#ffd1dc",
+  strokeWidth = 1.5,
+  animationDuration = 600,
+  iterations = 2,
+  padding = 2,
+  multiline = true,
+  isView = false,
+}: HighlighterProps) {
+  const elementRef = useRef<HTMLSpanElement>(null)
+
+  const isInView = useInView(elementRef, {
+    once: true,
+    margin: "-10%",
+  })
+
+  // If isView is false, always show. If isView is true, wait for inView
+  const shouldShow = !isView || isInView
+
+  useLayoutEffect(() => {
+    const element = elementRef.current
+    let annotation: RoughAnnotation | null = null
+    let resizeObserver: ResizeObserver | null = null
+
+    if (shouldShow && element) {
+      const annotationConfig = {
+        type: action,
+        color,
+        strokeWidth,
+        animationDuration,
+        iterations,
+        padding,
+        multiline,
+      }
+
+      const currentAnnotation = annotate(element, annotationConfig)
+      annotation = currentAnnotation
+      currentAnnotation.show()
+
+      resizeObserver = new ResizeObserver(() => {
+        currentAnnotation.hide()
+        currentAnnotation.show()
+      })
+
+      resizeObserver.observe(element)
+      resizeObserver.observe(document.body)
+    }
+
+    return () => {
+      annotation?.remove()
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+    }
+  }, [
+    shouldShow,
+    action,
+    color,
+    strokeWidth,
+    animationDuration,
+    iterations,
+    padding,
+    multiline,
+  ])
+
+  return (
+    <span ref={elementRef} className="relative inline-block bg-transparent">
+      {children}
+    </span>
+  )
+}
+````
+
+## File: components/ui/input.tsx
+````typescript
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Input }
+````
+
+## File: components/ui/label.tsx
+````typescript
+"use client"
+
+import * as React from "react"
+import { Label as LabelPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+function Label({
+  className,
+  ...props
+}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+  return (
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Label }
+````
+
+## File: components/ui/modern-hero-background.tsx
+````typescript
+"use client";
+
+import React from "react";
+import { motion } from "motion/react";
+
+export function ModernHeroBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none -z-10">
+      {/* Subtle Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* Primary Hardware-Accelerated Ambient Glows */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.35, 0.5, 0.35],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-tr from-purple-600/30 via-indigo-600/25 to-pink-500/20 blur-[130px] transform-gpu will-change-transform"
+      />
+
+      {/* Secondary Dynamic Spotlight Accent */}
+      <motion.div
+        animate={{
+          x: [-20, 20, -20],
+          y: [-10, 15, -10],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-24 right-1/4 w-[450px] h-[300px] rounded-full bg-indigo-500/20 blur-[110px] transform-gpu will-change-transform"
+      />
+
+      {/* Bottom Fade to blend seamlessly with next section */}
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-dark to-transparent" />
+    </div>
+  );
+}
+````
+
+## File: components/ui/tabs.tsx
+````typescript
+"use client"
+
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Tabs as TabsPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+function Tabs({
+  className,
+  orientation = "horizontal",
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      data-orientation={orientation}
+      className={cn(
+        "group/tabs flex gap-2 data-horizontal:flex-col",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+const tabsListVariants = cva(
+  "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
+  {
+    variants: {
+      variant: {
+        default: "bg-muted",
+        line: "gap-1 bg-transparent",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+function TabsList({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.List> &
+  VariantProps<typeof tabsListVariants>) {
+  return (
+    <TabsPrimitive.List
+      data-slot="tabs-list"
+      data-variant={variant}
+      className={cn(tabsListVariants({ variant }), className)}
+      {...props}
+    />
+  )
+}
+
+function TabsTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(
+        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium whitespace-nowrap text-foreground/60 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 dark:text-muted-foreground dark:hover:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
+        "data-active:bg-background data-active:text-foreground dark:data-active:border-input dark:data-active:bg-input/30 dark:data-active:text-foreground",
+        "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+  return (
+    <TabsPrimitive.Content
+      data-slot="tabs-content"
+      className={cn("flex-1 text-sm outline-none", className)}
+      {...props}
+    />
+  )
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants }
+````
+
+## File: components/ui/twisted-arrow.tsx
+````typescript
+import { motion } from "framer-motion";
+
+interface TwistedArrowProps {
+  color?: string;
+  position?: { x: number; y: number };
+  rotation?: number;
+  seed?: number;
+}
+
+function randomOffset(seed: number, index: number, range: number): number {
+  const x = Math.sin(seed * 9301 + index * 49297) * 0.5 + 0.5;
+  return (x - 0.5) * range * 2;
+}
+
+export function TwistedArrow({
+  color = "#000",
+  position = { x: 0, y: 0 },
+  rotation = 0,
+  seed = 1,
+}: TwistedArrowProps) {
+  const r = (i: number, range = 6) => randomOffset(seed, i, range);
+
+  const d = `M${10 + r(0)} ${40 + r(1)} Q${25 + r(2)} ${20 + r(3)} ${40 + r(4)} ${40 + r(5)} Q${55 + r(6)} ${60 + r(7)} ${70 + r(8)} ${40 + r(9)}`;
+
+  return (
+    <motion.svg
+      viewBox="0 0 80 80"
+      width="80"
+      height="80"
+      fill="none"
+      style={{
+        position: "absolute",
+        left: position.x,
+        top: position.y,
+        transform: `rotate(${rotation}deg)`,
+        pointerEvents: "none",
+        zIndex: 10,
+      }}
+    >
+      <motion.path
+        d={d}
+        fill="none"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        animate={{ pathLength: [0, 1, 1] }}
+        transition={{
+          duration: 1.5,
+          times: [0, 0.666, 1],
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      />
+    </motion.svg>
+  );
+}
+````
+
+## File: components/ui/typing-animation.tsx
+````typescript
+"use client"
+
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ComponentType,
+  type RefAttributes,
+  type RefObject,
+} from "react"
+import {
+  motion,
+  useInView,
+  type DOMMotionComponents,
+  type HTMLMotionProps,
+  type MotionProps,
+} from "motion/react"
+
+import { cn } from "@/lib/utils"
+
+const motionElements = {
+  article: motion.article,
+  div: motion.div,
+  h1: motion.h1,
+  h2: motion.h2,
+  h3: motion.h3,
+  h4: motion.h4,
+  h5: motion.h5,
+  h6: motion.h6,
+  li: motion.li,
+  p: motion.p,
+  section: motion.section,
+  span: motion.span,
+} as const
+
+type MotionElementType = Extract<
+  keyof DOMMotionComponents,
+  keyof typeof motionElements
+>
+type TypingAnimationMotionComponent = ComponentType<
+  Omit<HTMLMotionProps<"span">, "ref"> & RefAttributes<HTMLElement>
+>
+
+interface TypingAnimationProps extends Omit<MotionProps, "children"> {
+  children?: string
+  words?: string[]
+  className?: string
+  duration?: number
+  typeSpeed?: number
+  deleteSpeed?: number
+  delay?: number
+  pauseDelay?: number
+  loop?: boolean
+  as?: MotionElementType
+  startOnView?: boolean
+  showCursor?: boolean
+  blinkCursor?: boolean
+  cursorStyle?: "line" | "block" | "underscore"
+}
+
+export function TypingAnimation({
+  children,
+  words,
+  className,
+  duration = 100,
+  typeSpeed,
+  deleteSpeed,
+  delay = 0,
+  pauseDelay = 1000,
+  loop = false,
+  as: Component = "span",
+  startOnView = true,
+  showCursor = true,
+  blinkCursor = true,
+  cursorStyle = "line",
+  ...props
+}: TypingAnimationProps) {
+  const MotionComponent = motionElements[
+    Component
+  ] as TypingAnimationMotionComponent
+
+  const [displayedText, setDisplayedText] = useState<string>("")
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentCharIndex, setCurrentCharIndex] = useState(0)
+  const [phase, setPhase] = useState<"typing" | "pause" | "deleting">("typing")
+  const elementRef = useRef<HTMLElement | null>(null)
+  const isInView = useInView(elementRef as RefObject<Element>, {
+    amount: 0.3,
+    once: true,
+  })
+
+  const wordsToAnimate = useMemo(
+    () => words ?? (children ? [children] : []),
+    [words, children]
+  )
+  const hasMultipleWords = wordsToAnimate.length > 1
+
+  const typingSpeed = typeSpeed ?? duration
+  const deletingSpeed = deleteSpeed ?? typingSpeed / 2
+
+  const shouldStart = startOnView ? isInView : true
+  const animationSourceKey = useMemo(
+    () => (words ? words.join("\u0000") : (children ?? "")),
+    [words, children]
+  )
+
+  useEffect(() => {
+    setDisplayedText("")
+    setCurrentWordIndex(0)
+    setCurrentCharIndex(0)
+    setPhase("typing")
+  }, [animationSourceKey])
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | null = null
+
+    if (shouldStart && wordsToAnimate.length > 0) {
+      const timeoutDelay =
+        delay > 0 && displayedText === ""
+          ? delay
+          : phase === "typing"
+            ? typingSpeed
+            : phase === "deleting"
+              ? deletingSpeed
+              : pauseDelay
+
+      timeout = setTimeout(() => {
+        const currentWord = wordsToAnimate[currentWordIndex] || ""
+        const graphemes = Array.from(currentWord)
+
+        switch (phase) {
+          case "typing":
+            if (currentCharIndex < graphemes.length) {
+              setDisplayedText(
+                graphemes.slice(0, currentCharIndex + 1).join("")
+              )
+              setCurrentCharIndex(currentCharIndex + 1)
+            } else {
+              if (hasMultipleWords || loop) {
+                const isLastWord =
+                  currentWordIndex === wordsToAnimate.length - 1
+                if (!isLastWord || loop) {
+                  setPhase("pause")
+                }
+              }
+            }
+            break
+
+          case "pause":
+            setPhase("deleting")
+            break
+
+          case "deleting":
+            if (currentCharIndex > 0) {
+              setDisplayedText(
+                graphemes.slice(0, currentCharIndex - 1).join("")
+              )
+              setCurrentCharIndex(currentCharIndex - 1)
+            } else {
+              const nextIndex = (currentWordIndex + 1) % wordsToAnimate.length
+              setCurrentWordIndex(nextIndex)
+              setPhase("typing")
+            }
+            break
+        }
+      }, timeoutDelay)
+    }
+
+    return () => {
+      if (timeout !== null) {
+        clearTimeout(timeout)
+      }
+    }
+  }, [
+    shouldStart,
+    phase,
+    currentCharIndex,
+    currentWordIndex,
+    displayedText,
+    wordsToAnimate,
+    hasMultipleWords,
+    loop,
+    typingSpeed,
+    deletingSpeed,
+    pauseDelay,
+    delay,
+  ])
+
+  const currentWordGraphemes = Array.from(
+    wordsToAnimate[currentWordIndex] || ""
+  )
+  const isComplete =
+    !loop &&
+    currentWordIndex === wordsToAnimate.length - 1 &&
+    currentCharIndex >= currentWordGraphemes.length &&
+    phase !== "deleting"
+
+  const shouldShowCursor =
+    showCursor &&
+    !isComplete &&
+    (hasMultipleWords || loop || currentCharIndex < currentWordGraphemes.length)
+
+  const getCursorChar = () => {
+    switch (cursorStyle) {
+      case "block":
+        return "▌"
+      case "underscore":
+        return "_"
+      case "line":
+      default:
+        return "|"
+    }
+  }
+
+  return (
+    <MotionComponent
+      ref={elementRef}
+      className={cn(
+        "leading-20 tracking-[-0.02em]",
+        Component === "span" && "inline-block",
+        className
+      )}
+      {...props}
+    >
+      {displayedText}
+      {shouldShowCursor && (
+        <span
+          className={cn("inline-block", blinkCursor && "animate-blink-cursor")}
+        >
+          {getCursorChar()}
+        </span>
+      )}
+    </MotionComponent>
+  )
+}
+````
+
+## File: components/bento-grid-demo.tsx
+````typescript
+import { cn } from "@/lib/utils";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+  IconArrowWaveRightUp,
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+} from "@tabler/icons-react";
+
+export default function BentoGridDemo() {
+  return (
+    <BentoGrid className="max-w-4xl mx-auto">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          header={item.header}
+          icon={item.icon}
+          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+        />
+      ))}
+    </BentoGrid>
+  );
+}
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+);
+const items = [
+  {
+    title: "The Dawn of Innovation",
+    description: "Explore the birth of groundbreaking ideas and inventions.",
+    header: <Skeleton />,
+    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Digital Revolution",
+    description: "Dive into the transformative power of technology.",
+    header: <Skeleton />,
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Art of Design",
+    description: "Discover the beauty of thoughtful and functional design.",
+    header: <Skeleton />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Power of Communication",
+    description:
+      "Understand the impact of effective communication in our lives.",
+    header: <Skeleton />,
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Pursuit of Knowledge",
+    description: "Join the quest for understanding and enlightenment.",
+    header: <Skeleton />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Joy of Creation",
+    description: "Experience the thrill of bringing ideas to life.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Spirit of Adventure",
+    description: "Embark on exciting journeys and thrilling discoveries.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+  },
+];
+````
+
+## File: features/auth/action/auth-actions.tsx
+````typescript
+"use server";
+
+import { cookies } from "next/headers";
+
+const TOKEN_KEY = "auth_token";
+
+export async function getToken(): Promise<string | null> {
+  const cookieStore = await cookies();
+  return cookieStore.get(TOKEN_KEY)?.value ?? null;
+}
+
+export async function storeToken(token: string): Promise<void> {
+  const cookieStore = await cookies();
+  cookieStore.set(TOKEN_KEY, token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
+}
+
+export async function removeToken(): Promise<void> {
+  const cookieStore = await cookies();
+  cookieStore.delete(TOKEN_KEY);
+}
+````
+
+## File: features/auth/api/auth-api.tsx
+````typescript
+import { BASE_URL } from "@/lib/utils";
+
+import axios from "axios";
+interface UserSignIn {
+  username: string;
+  password: string;
+}
+export const signIn = async (payload: UserSignIn) => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "password");
+  params.append("username", payload.username);
+  params.append("password", payload.password);
+  params.append("scope", "");
+
+  const response = await axios.post<{
+    access_token: string;
+    token_type: string;
+  }>(`${BASE_URL}auth/sign-in`, params, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+
+  return response.data;
+};
+````
+
+## File: features/landing/components/agent-architecture-section.tsx
+````typescript
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  GraduationCap,
+  BookOpen,
+  Sparkles,
+  CheckCircle2,
+  Compass,
+  SpellCheck,
+  Award,
+  ArrowLeft,
+  Quote,
+} from "lucide-react";
+
+interface Agent {
+  id: string;
+  badge: string;
+  name: string;
+  mentorTitle: string;
+  themeColor: string;
+  glowColor: string;
+  lightBg: string;
+  borderColor: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  summary: string;
+  focusAreas: string[];
+  feedbackExample: {
+    studentText: string;
+    highlightedPart: string;
+    suggestion: string;
+    mentorNote: string;
+  };
+}
+
+const agents: Agent[] = [
+  {
+    id: "task-response",
+    badge: "پاسخ به سوال (Task Response)",
+    name: "استاد راهنمای ساختار و استدلال",
+    mentorTitle: "راهنمای منطق و شفافیت ایده",
+    themeColor: "#818cf8", // indigo-400
+    glowColor: "rgba(129, 140, 248, 0.15)",
+    lightBg: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
+    borderColor: "border-indigo-500/40",
+    icon: Compass,
+    summary:
+      "مطمئن می‌شود که دقیقا به صورت سوال پاسخ داده‌اید، پاراگراف‌ها با مثال‌های ملموس پشتیبانی شده‌اند و دیدگاه شما در سراسر متن شفاف و پایدار است.",
+    focusAreas: [
+      "بررسی تک‌تک بخش‌های سوال تسک ۲",
+      "پرهیز از کلی‌گویی و ارائه دلایل منسجم",
+      "شفافیت دیدگاه و نتیجه‌گیری روشن",
+    ],
+    feedbackExample: {
+      studentText:
+        "Many people believe technology makes life easier. However, I think it has negative sides too.",
+      highlightedPart: "However, I think it has negative sides too.",
+      suggestion:
+        "Nevertheless, its adverse ramifications on human interaction cannot be overlooked.",
+      mentorNote:
+        "موضع خود را از ابتدا با یک بیانیه شفاف (Clear Thesis Statement) بیان کنید تا ممتحن بداند چه روندی را قرار است اثبات کنید.",
+    },
+  },
+  {
+    id: "lexical-resource",
+    badge: "دایره واژگان (Lexical Resource)",
+    name: "مربی واژگان آکادمیک و کالوکیشن",
+    mentorTitle: "مشاور زبان طبیعی و لحن دانشگاهی",
+    themeColor: "#f472b6", // pink-400
+    glowColor: "rgba(244, 114, 182, 0.15)",
+    lightBg: "bg-pink-500/10 text-pink-300 border-pink-500/20",
+    borderColor: "border-pink-500/40",
+    icon: BookOpen,
+    summary:
+      "عبارات روزمره و تکراری را به ترکیب‌های طبیعی (Collocations) و اصطلاحات متناسب با مقالات آکادمیک ارتقا می‌دهد، بدون آنکه جمله مصنوعی یا ثقیل شود.",
+    focusAreas: [
+      "کالوکیشن‌های طبیعی به سبک افراد بومی (Native-like)",
+      "جلوگیری از تکرار چندباره کلمات کلیدی",
+      "دقت مفهومی در انتخاب صفت‌ها و افعال قوی",
+    ],
+    feedbackExample: {
+      studentText:
+        "Air pollution is a very serious problem that brings severe danger to health.",
+      highlightedPart: "very serious problem that brings severe danger",
+      suggestion:
+        "pressing dilemma that poses substantial threats to public well-being",
+      mentorNote:
+        "به جای صفت‌های عمومی مثل 'serious problem'، ترکیب 'pressing dilemma' و کالوکیشن 'poses threats' امتیاز شما را در این بخش تا نمره ۸ ارتقا می‌دهد.",
+    },
+  },
+  {
+    id: "cohesion-grammar",
+    badge: "دستور زبان و اتصال جملات (GRA & CC)",
+    name: "ویراستار گرامر و جریان پیوسته متن",
+    mentorTitle: "کنترل روانی خواندن و تنوع ساختاری",
+    themeColor: "#34d399", // emerald-400
+    glowColor: "rgba(52, 211, 153, 0.15)",
+    lightBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
+    borderColor: "border-emerald-500/40",
+    icon: SpellCheck,
+    summary:
+      "متن شما را از نظر روانی خوانش، تعادل میان جملات ساده و مرکب، و سلامت علائم نگارشی صیقل داده تا ایده شما نرم و بدون لکنت جریان یابد.",
+    focusAreas: [
+      "استفاده صحیح از حروف ربط و رابط‌های پیوستگی (Cohesive Devices)",
+      "ساختارهای پیچیده ایمن (Inversion, Conditionals, Relative clauses)",
+      "اصلاح نشانه‌گذاری و فاصله‌گذاری‌های نگارشی",
+    ],
+    feedbackExample: {
+      studentText:
+        "People drive cars every day. Therefore traffic increases and this makes delay.",
+      highlightedPart: "Therefore traffic increases and this makes delay.",
+      suggestion:
+        "Consequently, traffic congestion intensifies, leading to widespread commuting delays.",
+      mentorNote:
+        "با ترکیب دو جمله کوتاه به یک جمله مجهز به participle clause (leading to...)، مهارت خود را در ایجاد ساختارهای مرکب نشان می‌دهید.",
+    },
+  },
+];
+
+export function AgentArchitectureSection() {
+  const [activeAgent, setActiveAgent] = useState<Agent>(agents[0]);
+
+  return (
+    <section
+      dir="rtl"
+      className="w-full relative py-20 px-4 sm:px-6 md:px-12 bg-bg-dark font-vazirmatn overflow-hidden border-t border-white/5"
+    >
+      {/* Subtle academic ambient light */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 opacity-25"
+        style={{ backgroundColor: activeAgent.themeColor }}
+      />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-purple-400/20 bg-purple-900/20 text-purple-200 text-xs sm:text-sm font-medium backdrop-blur-sm"
+          >
+            <GraduationCap size={16} className="text-purple-300" />
+            <span>تیم منتورهای تخصصی برای هر معیار آیلتس</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl sm:text-4xl font-extrabold text-white leading-snug"
+          >
+            یک دستیار کلی‌گو نه، بلکه{" "}
+            <span className="bg-linear-to-r from-purple-300 via-pink-300 to-indigo-300 bg-clip-text text-transparent">
+              ۳ متخصص همراه
+            </span>{" "}
+            برای بازخورد به متن شما
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-sm sm:text-base text-neutral-300 leading-relaxed"
+          >
+            همانند میز تصحیح اساتید باسابقه، متن شما تفکیک شده و هر بخش بر اساس
+            معیارهای رسمی جدول نمره‌دهی ممتحن (IELTS Band Descriptors) تحلیل
+            آموزشی می‌شود.
+          </motion.p>
+        </div>
+
+        {/* 3 Academic Persona Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          {agents.map((agent) => {
+            const isSelected = activeAgent.id === agent.id;
+            const IconComponent = agent.icon;
+
+            return (
+              <motion.div
+                key={agent.id}
+                whileHover={{ y: -3 }}
+                onClick={() => setActiveAgent(agent)}
+                className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 backdrop-blur-sm border flex flex-col justify-between relative ${
+                  isSelected
+                    ? `${agent.borderColor} bg-white/[0.05] shadow-lg`
+                    : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.03]"
+                }`}
+                style={{
+                  boxShadow: isSelected
+                    ? `0 10px 30px -10px ${agent.glowColor}`
+                    : undefined,
+                }}
+              >
+                {/* Active Indicator Line */}
+                {isSelected && (
+                  <motion.div
+                    layoutId="cathovenActiveLine"
+                    className="absolute top-0 right-8 left-8 h-1 rounded-b-md"
+                    style={{ backgroundColor: agent.themeColor }}
+                  />
+                )}
+
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className="p-3 rounded-xl border flex items-center justify-center transition-colors"
+                      style={{
+                        backgroundColor: `${agent.themeColor}15`,
+                        borderColor: `${agent.themeColor}35`,
+                        color: agent.themeColor,
+                      }}
+                    >
+                      <IconComponent size={22} />
+                    </div>
+
+                    <span
+                      className={`text-[11px] px-2.5 py-0.5 rounded-full border font-medium ${agent.lightBg}`}
+                    >
+                      {agent.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-neutral-100 mb-1">
+                    {agent.name}
+                  </h3>
+                  <span className="text-xs text-neutral-400 font-normal block mb-3">
+                    {agent.mentorTitle}
+                  </span>
+
+                  <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                    {agent.summary}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 space-y-1.5">
+                  {agent.focusAreas.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs text-neutral-300"
+                    >
+                      <CheckCircle2
+                        size={13}
+                        style={{ color: agent.themeColor }}
+                        className="shrink-0"
+                      />
+                      <span className="truncate">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Cathoven-style Interactive Teaching Sandbox */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeAgent.id}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8"
+          >
+            {/* Box Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <Award size={20} style={{ color: activeAgent.themeColor }} />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  نمونه یادداشت آموزشی و اصلاحی {activeAgent.name}
+                </h4>
+              </div>
+              <span className="text-xs text-neutral-400">
+                بر اساس نمره‌دهی رسمی Cambridge IELTS
+              </span>
+            </div>
+
+            {/* Split Classroom View */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-start">
+              {/* Left Column (Student Text & Enhancement) */}
+              <div className="lg:col-span-7 space-y-4" dir="ltr">
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Original Draft
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                    {activeAgent.feedbackExample.studentText.replace(
+                      activeAgent.feedbackExample.highlightedPart,
+                      "",
+                    )}
+                    <span className="text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border-b-2 border-amber-400/60 font-medium">
+                      {activeAgent.feedbackExample.highlightedPart}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-2">
+                  <span
+                    className="text-[11px] uppercase tracking-wider font-mono flex items-center gap-1.5"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    <Sparkles size={13} />
+                    Academic Refinement
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-100 font-sans font-medium leading-relaxed">
+                    &quot;{activeAgent.feedbackExample.suggestion}&quot;
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column (Mentor Teaching Note) */}
+              <div
+                className="lg:col-span-5 flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-white/[0.015]"
+                dir="rtl"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Quote
+                      size={18}
+                      style={{ color: activeAgent.themeColor }}
+                    />
+                    <span className="text-xs font-bold text-neutral-200">
+                      چرا این تغییر نمره شما را بالاتر می‌برد؟
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    {activeAgent.feedbackExample.mentorNote}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
+                  <span>تأثیر در کارنامه آزمون</span>
+                  <span
+                    className="font-bold flex items-center gap-1"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    ارتقا به سطح Band 8+
+                    <ArrowLeft size={13} />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+````
+
+## File: features/landing/components/assesment-card.tsx
+````typescript
+"use client";
+
+import { motion } from "framer-motion";
+import { Target } from "lucide-react";
+
+export function AssessmentCard() {
+  const rubrics = [
+    "Task Response",
+    "Coherence & Cohesion",
+    "Lexical Resource",
+    "Grammatical Range",
+  ];
+
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#ea580c]/20 bg-gradient-to-br from-[#2a1d18] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow (Pinch of Orange) */}
+      <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#ea580c] opacity-15 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-4"
+      >
+        <div className="flex items-start gap-3">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ea580c]/20 text-orange-400">
+            <Target size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-base font-bold leading-relaxed text-neutral-100 font-vazirmatn">
+            ساختار، گرامر و دایره لغات خود را با استانداردهای واقعی آیلتس
+            بسنجید.
+          </h3>
+        </div>
+      </motion.div>
+
+      {/* Animated Rubrics Badges */}
+      <div className="relative z-10 mt-6 flex flex-wrap gap-2" dir="ltr">
+        {rubrics.map((rubric, index) => (
+          <motion.span
+            key={rubric}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.2, 1, 0.2] }}
+            transition={{
+              duration: 4,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: index * 0.7, // Staggers the fading effect between badges
+            }}
+            className="rounded-full border border-orange-500/30 bg-orange-950/40 px-3 py-1.5 text-xs font-medium tracking-wide text-orange-200"
+          >
+            {rubric}
+          </motion.span>
+        ))}
+      </div>
+    </div>
+  );
+}
+````
+
+## File: features/landing/components/hero-examiner-studio.tsx
+````typescript
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Award,
+  BookOpen,
+  SpellCheck,
+  Compass,
+  ArrowUpRight,
+  TrendingUp,
+} from "lucide-react";
+
+type ActiveCriterion = "tr" | "lr" | "gra";
+
+interface CriterionData {
+  id: ActiveCriterion;
+  titleFa: string;
+  nameEn: string;
+  score: string;
+  color: string;
+  borderClass: string;
+  bgBadgeClass: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  original: string;
+  enhanced: string;
+  examinerNote: string;
+}
+
+const criteriaList: CriterionData[] = [
+  {
+    id: "lr",
+    titleFa: "دایره واژگان آکادمیک",
+    nameEn: "Lexical Resource",
+    score: "8.5",
+    color: "#f472b6", // pink-400
+    borderClass: "border-pink-500/40",
+    bgBadgeClass: "bg-pink-500/10 text-pink-300 border-pink-500/30",
+    icon: BookOpen,
+    original: "is a very big issue for modern countries",
+    enhanced: "constitutes a formidable impediment to sustainable growth",
+    examinerNote:
+      "جایگزینی عبارت محاوره‌ای 'big issue' با کالوکیشن آکادمیک و ساختار دقیق.",
+  },
+  {
+    id: "tr",
+    titleFa: "استدلال و پاسخ به سوال",
+    nameEn: "Task Response",
+    score: "8.0",
+    color: "#818cf8", // indigo-400
+    borderClass: "border-indigo-500/40",
+    bgBadgeClass: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
+    icon: Compass,
+    original: "I think that both opinions have good points.",
+    enhanced:
+      "While merit exists in both perspectives, empirical evidence favors the latter.",
+    examinerNote:
+      "ارائه بیانیه تز شفاف (Clear Thesis) و پرهیز از لحن غیررسمی شخصی.",
+  },
+  {
+    id: "gra",
+    titleFa: "تنوع گرامر و صحت ساختاری",
+    nameEn: "Grammatical Range",
+    score: "8.0",
+    color: "#34d399", // emerald-400
+    borderClass: "border-emerald-500/40",
+    bgBadgeClass: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    icon: SpellCheck,
+    original: "Cities become crowded and people get late.",
+    enhanced:
+      "Urban centers become congested, precipitating extensive commuting delays.",
+    examinerNote:
+      "کاربرد ساختار مجهز به Participle Clause و پیوستگی بی‌نقص ایده.",
+  },
+];
+
+export function HeroExaminerStudio() {
+  const [selectedCriterion, setSelectedCriterion] =
+    useState<ActiveCriterion>("lr");
+  const current =
+    criteriaList.find((c) => c.id === selectedCriterion) ?? criteriaList[0];
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-4xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-vazirmatn text-right"
+    >
+      {/* Header bar / Window Chrome */}
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-white/[0.02]">
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 ml-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
+          </div>
+          <span className="text-xs font-semibold text-neutral-300 flex items-center gap-1.5">
+            <Sparkles size={14} className="text-purple-400" />
+            شبیه‌ساز ارزیابی زنده اگزمینر رسمی آیلتس
+          </span>
+        </div>
+
+        {/* Live Score Counter Card */}
+        <div className="flex items-center gap-2 bg-purple-500/15 border border-purple-500/30 px-3 py-1 rounded-full">
+          <TrendingUp size={13} className="text-purple-300" />
+          <span className="text-xs text-purple-200 font-medium">
+            نمره پیش‌بینی شده:
+          </span>
+          <span className="text-xs font-black font-mono text-white bg-purple-600 px-1.5 py-0.2 rounded">
+            Band 8.5
+          </span>
+        </div>
+      </div>
+
+      {/* Main Content: Split Studio */}
+      <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        {/* Left Side (Rubrics Controller) */}
+        <div className="lg:col-span-4 space-y-2.5">
+          <span className="text-[11px] font-semibold text-neutral-400 block mb-1">
+            معیارهای رسمی ارزیابی (کلیک کنید):
+          </span>
+          {criteriaList.map((criterion) => {
+            const isSelected = selectedCriterion === criterion.id;
+            const Icon = criterion.icon;
+
+            return (
+              <button
+                key={criterion.id}
+                type="button"
+                onClick={() => setSelectedCriterion(criterion.id)}
+                className={`w-full p-3 rounded-xl border text-right transition-colors cursor-pointer flex items-center justify-between ${
+                  isSelected
+                    ? "border-purple-500/50 bg-white/[0.06] shadow-sm"
+                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04] text-neutral-400"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center border"
+                    style={{
+                      backgroundColor: `${criterion.color}15`,
+                      borderColor: `${criterion.color}35`,
+                      color: criterion.color,
+                    }}
+                  >
+                    <Icon size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-100">
+                      {criterion.titleFa}
+                    </h4>
+                    <span className="text-[10px] text-neutral-400 font-mono block">
+                      {criterion.nameEn}
+                    </span>
+                  </div>
+                </div>
+
+                <span
+                  className="text-xs font-mono font-bold px-2 py-0.5 rounded border"
+                  style={{
+                    color: criterion.color,
+                    borderColor: `${criterion.color}35`,
+                    backgroundColor: `${criterion.color}10`,
+                  }}
+                >
+                  {criterion.score}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right Side (Active Inspection Box) */}
+        <div className="lg:col-span-8 flex flex-col gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+              className="space-y-3.5"
+            >
+              {/* English Essay Passage LTR */}
+              <div
+                dir="ltr"
+                className="p-4 sm:p-5 rounded-2xl bg-white/[0.025] border border-white/10 space-y-3 font-sans"
+              >
+                <div className="flex items-center justify-between text-xs pb-2 border-b border-white/5">
+                  <span className="font-mono text-neutral-400 text-[11px] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Student Submission (Task 2 Sample)
+                  </span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-md border font-mono ${current.bgBadgeClass}`}
+                  >
+                    {current.nameEn}
+                  </span>
+                </div>
+
+                <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <span>
+                    It is widely argued that environmental degradation{" "}
+                  </span>
+                  <span className="bg-red-500/20 text-red-300 px-1 py-0.5 rounded line-through decoration-red-400 font-normal">
+                    {current.original}
+                  </span>
+                  <span>.</span>
+                </div>
+
+                {/* Refined Band 8.5 Snippet */}
+                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-start gap-2">
+                  <Award
+                    size={16}
+                    className="text-purple-400 shrink-0 mt-0.5"
+                  />
+                  <div className="text-xs sm:text-[13px] text-purple-100 font-medium leading-relaxed">
+                    <span className="text-purple-300 text-[11px] uppercase tracking-wider block font-mono">
+                      Refined by Examiner Agent:
+                    </span>
+                    &ldquo;{current.enhanced}&rdquo;
+                  </div>
+                </div>
+              </div>
+
+              {/* Teaching Explanatory Note RTL */}
+              <div className="p-3 sm:p-3.5 rounded-xl border border-white/5 bg-white/[0.015] flex items-center justify-between text-xs text-neutral-300">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: current.color }}
+                  />
+                  <span>{current.examinerNote}</span>
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium">
+                  افزایش تراز
+                  <ArrowUpRight size={13} />
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+}
+````
+
+## File: features/landing/components/interactive-feedback-demo.tsx
+````typescript
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  CheckCheck,
+  Sparkles,
+  Zap,
+  Layers,
+  ArrowRightLeft,
+} from "lucide-react";
+
+type CriterionKey = "all" | "lexical" | "cohesion" | "grammar";
+
+export function InteractiveFeedbackDemo() {
+  const [activeCriterion, setActiveCriterion] = useState<CriterionKey>("all");
+
+  const criteriaFilters: { id: CriterionKey; label: string }[] = [
+    { id: "all", label: "تمام اصلاحات" },
+    { id: "lexical", label: "ارتقای واژگان (Band 8+)" },
+    { id: "cohesion", label: "انسجام و پیوستگی (Cohesion)" },
+    { id: "grammar", label: "ساختارهای پیچیده گرامری" },
+  ];
+
+  return (
+    <section
+      dir="rtl"
+      className="w-full py-20 px-4 sm:px-6 md:px-12 bg-linear-to-b from-bg to-bg-dark font-vazirmatn relative border-t border-white/5"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
+            <Sparkles size={14} />
+            <span>مشاهده زنده نحوه عملکرد ایجنت</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+            تبدیل رایتینگ Band 6 به شاهکار Band 8.5
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-400">
+            تغییرات هوشمند ایجنت را بر اساس فیلترهای استاندارد اگزمینر بررسی
+            کنید.
+          </p>
+        </div>
+
+        {/* Filter Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {criteriaFilters.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveCriterion(tab.id)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border ${
+                activeCriterion === tab.id
+                  ? "bg-primary-600 text-white border-primary-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-neutral-200 hover:border-white/20"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Before vs After Dual Pane */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" dir="ltr">
+          {/* Original Text Pane */}
+          <div className="rounded-2xl border border-red-500/20 bg-red-950/[0.06] p-6 backdrop-blur-md relative flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-red-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-red-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-400" />
+                  Original Submission (Estimated 6.0)
+                </span>
+                <span className="text-xs bg-red-500/10 text-red-300 px-2 py-0.5 rounded border border-red-500/20 font-mono">
+                  Repetitive Lexis
+                </span>
+              </div>
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base font-sans">
+                Nowadays, pollution is a{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  big problem
+                </span>{" "}
+                for big cities. Government{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  should make strict rules
+                </span>{" "}
+                because people keep driving their personal cars everywhere and
+                this{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  makes the air very dirty
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-neutral-400 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span>
+                ایرادات: واژگان عمومی، افعال ضعیف و عدم ترکیب‌های آکادمیک.
+              </span>
+            </div>
+          </div>
+
+          {/* AI Enhanced Pane */}
+          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/[0.08] p-6 backdrop-blur-md relative flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-emerald-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Agent Refactored (Estimated 8.5)
+                </span>
+                <span className="text-xs bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+                  Lexical Precision
+                </span>
+              </div>
+
+              <p className="text-neutral-100 leading-relaxed text-sm sm:text-base font-sans">
+                In the contemporary era, environmental degradation represents a{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "lexical"
+                      ? "bg-purple-500/30 text-purple-200 border border-purple-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  pressing dilemma
+                </span>{" "}
+                plaguing metropolitan hubs. Authorities must{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "grammar"
+                      ? "bg-emerald-500/30 text-emerald-200 border border-emerald-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  implement stringent statutory frameworks
+                </span>
+                , given that commuter dependence on private transit{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "cohesion"
+                      ? "bg-sky-500/30 text-sky-200 border border-sky-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  exacerbates atmospheric contamination exponentially
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-emerald-300 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span className="flex items-center gap-1">
+                <CheckCheck size={16} className="text-emerald-400" />
+                افزایش دامنه واژگان دانشگاهی و استفاده از افعال قوی
+                (Collocations).
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+````
+
+## File: features/landing/components/progress-card.tsx
+````typescript
+"use client";
+
+import { motion } from "framer-motion";
+import { Activity } from "lucide-react";
+
+export function ProgressCard() {
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#413185]/20 bg-gradient-to-br from-[#1b1633] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow */}
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#4f27ff] opacity-10 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-3"
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#413185]/30 text-indigo-300">
+            <Activity size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-xl font-bold text-neutral-100 font-vazirmatn">
+            گزارشات پیشرفت
+          </h3>
+        </div>
+        <p className="text-sm font-medium leading-relaxed text-neutral-400 font-vazirmatn">
+          روند پیشرفت خود را به صورت لحظه ای ببینید !
+        </p>
+      </motion.div>
+
+      {/* Animated Line Chart */}
+      <div className="relative z-10 mt-6 h-24 w-full">
+        <svg
+          className="h-full w-full overflow-visible"
+          viewBox="0 0 200 80"
+          preserveAspectRatio="none"
+        >
+          {/* Grid lines */}
+          <line
+            x1="0"
+            y1="20"
+            x2="200"
+            y2="20"
+            stroke="#ffffff08"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          <line
+            x1="0"
+            y1="60"
+            x2="200"
+            y2="60"
+            stroke="#ffffff08"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+
+          {/* Infinite Animated Line */}
+          <motion.path
+            d="M0 70 Q 30 70, 50 50 T 100 40 T 150 20 T 200 5"
+            fill="none"
+            stroke="#8b5cf6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0.5 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 2.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+
+          {/* Infinite Animated Data Point */}
+          <motion.circle
+            cx="200"
+            cy="5"
+            r="4"
+            fill="#c4b5fd"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              duration: 2.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+````
+
+## File: features/landing/components/progress-report-showcase.tsx
+````typescript
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  Flame,
+  BookOpen,
+  Sparkles,
+  TrendingUp,
+  Award,
+  CheckCircle2,
+  CalendarCheck,
+  Zap,
+} from "lucide-react";
+
+// Mock Progress Data across 6 consecutive evaluation essays
+const scoreHistoryData = [
+  { essay: "مقاله ۱", overall: 6.0, tr: 6.0, lr: 5.5, gra: 6.0, cc: 6.5 },
+  { essay: "مقاله ۲", overall: 6.5, tr: 6.5, lr: 6.0, gra: 6.5, cc: 6.5 },
+  { essay: "مقاله ۳", overall: 6.5, tr: 6.5, lr: 6.5, gra: 6.5, cc: 7.0 },
+  { essay: "مقاله ۴", overall: 7.0, tr: 7.0, lr: 7.0, gra: 7.0, cc: 7.0 },
+  { essay: "مقاله ۵", overall: 7.5, tr: 7.5, lr: 7.5, gra: 7.0, cc: 7.5 },
+  { essay: "مقاله ۶", overall: 8.0, tr: 8.0, lr: 8.5, gra: 7.5, cc: 8.0 },
+];
+
+const vocabularyGrowthData = [
+  { week: "هفته ۱", collocations: 18, c1Words: 12 },
+  { week: "هفته ۲", collocations: 34, c1Words: 26 },
+  { week: "هفته ۳", collocations: 58, c1Words: 44 },
+  { week: "هفته ۴", collocations: 89, c1Words: 72 },
+  { week: "هفته ۵", collocations: 124, c1Words: 98 },
+  { week: "هفته ۶", collocations: 168, c1Words: 135 },
+];
+
+const scoreChartConfig = {
+  overall: {
+    label: "نمره کلی (Overall Band)",
+    color: "#a855f7", // purple-500
+  },
+  lr: {
+    label: "واژگان (Lexical Resource)",
+    color: "#f472b6", // pink-400
+  },
+  tr: {
+    label: "استدلال (Task Response)",
+    color: "#818cf8", // indigo-400
+  },
+} satisfies ChartConfig;
+
+const vocabChartConfig = {
+  collocations: {
+    label: "کالوکیشن‌های فعال آکادمیک",
+    color: "#a855f7",
+  },
+  c1Words: {
+    label: "لغات سطح C1/C2 ثبت‌شده",
+    color: "#34d399", // emerald-400
+  },
+} satisfies ChartConfig;
+
+export function ProgressReportShowcase() {
+  const [metricView, setMetricView] = useState<"overall" | "criteria">(
+    "overall",
+  );
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-6xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 sm:p-8 space-y-8 font-vazirmatn text-right shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+    >
+      {/* Top Banner: Quick User Metric KPIs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        {/* Metric 1: Streak */}
+        <div className="p-4 rounded-2xl border border-amber-500/20 bg-amber-500/[0.04] backdrop-blur-sm relative overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-amber-200/80 font-medium">
+              استمرار تمرین
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <Flame size={17} className="animate-pulse" />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۲۱
+              </span>
+              <span className="text-xs text-amber-300">روز پیوسته</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رتبه برتر ۷٪ داوطلبان منظم
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 2: Mastered Collocations */}
+        <div className="p-4 rounded-2xl border border-purple-500/20 bg-purple-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-purple-200/80 font-medium">
+              کالوکیشن‌های ملکه شده
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <BookOpen size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۱۶۸
+              </span>
+              <span className="text-xs text-emerald-400 font-mono font-bold">
+                +۳۸ این هفته
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              استفاده طبیعی در ۴ مقاله اخیر
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 3: Score Progress */}
+        <div className="p-4 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-indigo-200/80 font-medium">
+              جهش نمره تخمینی
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <TrendingUp size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                8.0
+              </span>
+              <span className="text-xs text-purple-300 font-mono">
+                از 6.0 اولیه
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رشد +۲.۰ نمره در ۶ مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 4: Grammar Accuracy */}
+        <div className="p-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-emerald-200/80 font-medium">
+              کاهش خطاهای گرامری
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <Zap size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۸۲٪
+              </span>
+              <span className="text-xs text-emerald-300">دقت ساختاری</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              میانگین کمتر از ۲ خطا در هر تسک
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Visuals Grid: Area Chart + Bar Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Primary Chart: Score Progression Area Chart */}
+        <div className="lg:col-span-7 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/5">
+            <div>
+              <div className="flex items-center gap-2">
+                <Award size={18} className="text-purple-400" />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  تحلیل صعود نمره در طول زمان
+                </h4>
+              </div>
+              <p className="text-xs text-neutral-400 mt-0.5">
+                تغییرات مرحله‌به‌مرحله نمره بر اساس استانداردهای رسمی کمبریج
+              </p>
+            </div>
+
+            {/* Toggle Filters */}
+            <div className="flex items-center gap-1 p-1 bg-white/[0.04] rounded-lg border border-white/5 self-start sm:self-center">
+              <button
+                type="button"
+                onClick={() => setMetricView("overall")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "overall"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                نمره کل
+              </button>
+              <button
+                type="button"
+                onClick={() => setMetricView("criteria")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "criteria"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                معیارهای تفکیکی
+              </button>
+            </div>
+          </div>
+
+          {/* shadcn Area Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={scoreChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <AreaChart
+                data={scoreHistoryData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <defs>
+                  <linearGradient
+                    id="scoreOverallGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#a855f7" stopOpacity={0.45} />
+                    <stop offset="95%" stopColor="#a855f7" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreLrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#f472b6" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#f472b6" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreTrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#818cf8" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#818cf8" stopOpacity={0.0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="essay"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  domain={[5.0, 9.0]}
+                  ticks={[5.0, 6.0, 7.0, 8.0, 9.0]}
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+
+                {metricView === "overall" ? (
+                  <Area
+                    type="natural"
+                    dataKey="overall"
+                    stroke="#a855f7"
+                    strokeWidth={2.5}
+                    fillOpacity={1}
+                    fill="url(#scoreOverallGradient)"
+                    dot={{
+                      fill: "#a855f7",
+                      stroke: "#000",
+                      strokeWidth: 2,
+                      r: 4,
+                    }}
+                    activeDot={{ r: 6, fill: "#c084fc", stroke: "#fff" }}
+                  />
+                ) : (
+                  <>
+                    <Area
+                      type="natural"
+                      dataKey="lr"
+                      stroke="#f472b6"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreLrGradient)"
+                    />
+                    <Area
+                      type="natural"
+                      dataKey="tr"
+                      stroke="#818cf8"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreTrGradient)"
+                    />
+                  </>
+                )}
+              </AreaChart>
+            </ChartContainer>
+          </div>
+
+          <div className="pt-2 flex flex-wrap items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500" />
+              پیش‌بینی اگزمینر برای آزمون نهایی:{" "}
+              <strong className="text-white font-mono">Band 7.5 - 8.0</strong>
+            </span>
+            <span className="text-[11px] text-neutral-500">
+              به‌روزرسانی خودکار پس از هر ثبت مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Secondary Chart: Vocabulary & Collocation Accumulation */}
+        <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="pb-3 border-b border-white/5">
+            <div className="flex items-center gap-2">
+              <Sparkles size={18} className="text-pink-400" />
+              <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                گنجینه واژگان و کالوکیشن‌ها
+              </h4>
+            </div>
+            <p className="text-xs text-neutral-400 mt-0.5">
+              تعداد عبارات آکادمیک که به شکل فعال در رایتینگ‌ها به کار گرفته‌اید
+            </p>
+          </div>
+
+          {/* Bar Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={vocabChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <BarChart
+                data={vocabularyGrowthData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="week"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Bar
+                  dataKey="collocations"
+                  fill="#a855f7"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+                <Bar
+                  dataKey="c1Words"
+                  fill="#34d399"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+              </BarChart>
+            </ChartContainer>
+          </div>
+
+          {/* Legend */}
+          <div className="pt-2 flex items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-purple-500" />
+                کالوکیشن آکادمیک
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400" />
+                واژگان پیشرفته (C1/C2)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Insights Note */}
+      <div className="rounded-xl border border-purple-500/20 bg-purple-500/[0.05] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-300">
+        <div className="flex items-center gap-2.5">
+          <CalendarCheck size={18} className="text-purple-300 shrink-0" />
+          <span>
+            سیستم گزارش‌دهی هوشمند پس از هر مقاله، تکرار اشتباهات گذشته را رصد
+            کرده و برای تسک بعدی تمرین اختصاصی پیشنهاد می‌دهد.
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 text-purple-300 font-bold shrink-0">
+          <CheckCircle2 size={15} />
+          <span>هماهنگ با فرمت آزمون کامپیوتری و کاغذی</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+````
+
+## File: public/file.svg
+````xml
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+````
+
+## File: public/globe.svg
+````xml
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+````
+
+## File: public/next.svg
+````xml
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+````
+
+## File: public/vercel.svg
+````xml
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+````
+
+## File: public/window.svg
+````xml
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+````
+
+## File: .gitignore
+````
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+````
+
+## File: AGENTS.md
+````markdown
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+````
+
+## File: CLAUDE.md
+````markdown
+@AGENTS.md
+````
+
+## File: components.json
+````json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@magicui": "https://magicui.design/r/{name}",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+  }
+}
+````
+
+## File: eslint.config.mjs
+````javascript
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+````
+
+## File: next.config.ts
+````typescript
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+````
+
+## File: postcss.config.mjs
+````javascript
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+````
+
+## File: README.md
+````markdown
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+````
+
+## File: skills-lock.json
+````json
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+    }
+  }
+}
+````
+
+## File: tsconfig.json
+````json
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+````
+
+## File: components/ui/bento-grid.tsx
+````typescript
+import { cn } from "@/lib/utils";
+
+export const BentoGrid = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const BentoGridItem = ({
+  className,
+  title,
+  description,
+  header,
+  icon,
+}: {
+  className?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  header?: React.ReactNode;
+  icon?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none",
+        className,
+      )}
+    >
+      {header}
+      <div className="transition duration-200 group-hover/bento:translate-x-2">
+        {icon}
+        <div className="mt-2 mb-2 font-sans font-bold text-white dark:text-neutral-200">
+          {title}
+        </div>
+        <div className="font-sans text-xs font-normal text-white/80 dark:text-neutral-300">
+          {description}
+        </div>
+      </div>
+    </div>
+  );
+};
+````
+
+## File: features/auth/components/login-form.tsx
+````typescript
+"use client";
+
+import { useState } from "react";
+import { useForm } from "@tanstack/react-form";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Phone,
+  Lock,
+  User,
+  ArrowLeft,
+  Eye,
+  EyeOff,
+  CheckCircle2,
+  ShieldCheck,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { signIn } from "../api/auth-api";
+import { storeToken } from "../action/auth-actions";
+import Link from "next/link";
+
+type AuthMode = "login" | "signup";
+
+export default function LoginForm() {
+  const [mode, setMode] = useState<AuthMode>("login");
+  const [showPassword, setShowPassword] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const form = useForm({
+    defaultValues: {
+      fullName: "",
+      username: "",
+      password: "",
+    },
+    onSubmit: async ({ value }) => {
+      setApiError(null);
+      try {
+        const data = await signIn({
+          username: value.username,
+          password: value.password,
+        });
+
+        await storeToken(data.access_token);
+        router.push("/");
+      } catch {
+        setApiError(
+          mode === "login"
+            ? "شماره تلفن یا رمز عبور اشتباه است."
+            : "خطا در ثبت‌نام، لطفاً مجدداً تلاش کنید.",
+        );
+      }
+    },
+  });
+
+  return (
+    <div
+      dir="rtl"
+      className="relative w-full max-w-5xl mx-auto min-h-[620px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.6)] overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+    >
+      {/* Dynamic Background Light Accent */}
+      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-purple-600/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-indigo-600/20 blur-[100px] pointer-events-none" />
+
+      {/* -------------------- LEFT BRANDING / SHOWCASE (Tablet & Desktop) -------------------- */}
+      <div className="hidden lg:flex lg:col-span-5 flex-col justify-between p-10 border-l border-white/5 bg-gradient-to-br from-white/[0.04] via-transparent to-purple-950/20">
+        <div>
+          {/* Logo / Brand Header */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2.5 group mb-10"
+          >
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:scale-105 transition-transform duration-200">
+              <Sparkles size={20} className="text-white" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-black tracking-tight text-white">
+                AIelts
+              </span>
+              <span className="text-[10px] text-purple-300 font-mono">
+                NEXT-GEN EXAMINER
+              </span>
+            </div>
+          </Link>
+
+          {/* Value Prop */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-300 text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>ارزیابی استاندارد با دقت اگزمینر Band 9</span>
+            </div>
+
+            <h2 className="text-2xl xl:text-3xl font-black text-white leading-snug">
+              نوشته‌های خود را هوشمندانه بسنجید و به نمره دلخواه برسید.
+            </h2>
+
+            <p className="text-sm text-neutral-400 leading-relaxed">
+              دسترسی لحظه‌ای به فیدبک هوش مصنوعی، تحلیل خط‌به‌خط گرامر و افزایش
+              دامنه واژگان آکادمیک در چند ثانیه.
+            </p>
+          </div>
+        </div>
+
+        {/* Live Mini Preview Metric */}
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md space-y-3">
+          <div className="flex items-center justify-between text-xs">
+            <span className="text-neutral-400 flex items-center gap-1.5 font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              ایجنت‌های آنلاین
+            </span>
+            <span className="font-mono text-emerald-400">
+              99.4% دقت ارزیابی
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[11px] text-neutral-400">
+            <span>میانگین ارتقای نمره داوطلبان</span>
+            <span className="font-bold text-white font-mono">+1.5 Band</span>
+          </div>
+        </div>
+      </div>
+
+      {/* -------------------- RIGHT INTERACTIVE FORM CONTAINER -------------------- */}
+      <div className="col-span-1 lg:col-span-7 flex flex-col justify-center px-6 py-10 sm:px-12 md:px-16 z-10">
+        {/* Mobile Header */}
+        <div className="lg:hidden flex items-center justify-between mb-8">
+          <Link href="/" className="inline-flex items-center gap-2">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center">
+              <Sparkles size={16} className="text-white" />
+            </div>
+            <span className="text-base font-black text-white">AIelts</span>
+          </Link>
+          <span className="text-xs text-neutral-400 font-mono">
+            Band 8.5 Engine
+          </span>
+        </div>
+
+        {/* Segmented Mode Switcher */}
+        <div className="relative flex items-center p-1 bg-white/[0.04] border border-white/10 rounded-2xl mb-8">
+          <button
+            type="button"
+            onClick={() => {
+              setMode("login");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "login"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "login" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ورود به حساب</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMode("signup");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "signup"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "signup" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ثبت‌ نام جدید</span>
+          </button>
+        </div>
+
+        {/* Title & Subtitle */}
+        <div className="mb-6 space-y-1">
+          <h1 className="text-2xl sm:text-3xl font-black text-white">
+            {mode === "login" ? "خوش آمدید " : "شروع سفر تسلط بر رایتینگ "}
+          </h1>
+          <p className="text-xs sm:text-sm text-neutral-400">
+            {mode === "login"
+              ? "اطلاعات حساب خود را جهت ورود وارد کنید."
+              : "حساب کاربری خود را بسازید و اولین ارزیابی را رایگان بگیرید."}
+          </p>
+        </div>
+
+        {/* Form Container */}
+        <form
+          className="space-y-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            form.handleSubmit();
+          }}
+        >
+          <AnimatePresence mode="wait">
+            {/* Sign Up: Full Name Input */}
+            {mode === "signup" && (
+              <motion.div
+                key="name-field"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                <form.Field
+                  name="fullName"
+                  validators={{
+                    onChange: ({ value }) =>
+                      mode === "signup" && !value
+                        ? "نام و نام خانوادگی الزامی است"
+                        : undefined,
+                  }}
+                >
+                  {(field) => (
+                    <div className="space-y-1.5 pb-1">
+                      <label className="text-xs font-semibold text-neutral-300">
+                        نام و نام خانوادگی
+                      </label>
+                      <div className="relative flex items-center">
+                        <User
+                          className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                          size={18}
+                        />
+                        <input
+                          id={field.name}
+                          type="text"
+                          placeholder="مثلاً: علی رضایی"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                        />
+                      </div>
+                      {field.state.meta.errors.length > 0 && (
+                        <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                          <AlertCircle size={12} />
+                          {field.state.meta.errors.join("، ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </form.Field>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Phone Number Field */}
+          <form.Field
+            name="username"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "شماره همراه الزامی است";
+                if (!/^09\d{9}$/.test(value))
+                  return "شماره همراه باید ۱۱ رقم و با ۰۹ شروع شود";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-neutral-300">
+                  شماره موبایل
+                </label>
+                <div className="relative flex items-center">
+                  <Phone
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type="tel"
+                    dir="ltr"
+                    placeholder="09123456789"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm tracking-widest text-right focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* Password Field */}
+          <form.Field
+            name="password"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "رمز عبور الزامی است";
+                if (value.length < 6)
+                  return "رمز عبور باید حداقل ۶ کاراکتر باشد";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-neutral-300">
+                    رمز عبور
+                  </label>
+                  {mode === "login" && (
+                    <button
+                      type="button"
+                      className="text-[11px] text-purple-400 hover:text-purple-300 transition-colors cursor-pointer"
+                    >
+                      رمز عبور را فراموش کرده‌اید؟
+                    </button>
+                  )}
+                </div>
+                <div className="relative flex items-center">
+                  <Lock
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type={showPassword ? "text" : "password"}
+                    dir="ltr"
+                    placeholder="••••••••"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-11 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute left-3.5 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* API Server Error Display */}
+          {apiError && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center gap-2"
+            >
+              <AlertCircle size={16} className="shrink-0" />
+              <span>{apiError}</span>
+            </motion.div>
+          )}
+
+          {/* Submit Action */}
+          <form.Subscribe
+            selector={(state) => [state.canSubmit, state.isSubmitting]}
+          >
+            {([canSubmit, isSubmitting]) => (
+              <Button
+                type="submit"
+                disabled={!canSubmit || isSubmitting}
+                className="w-full h-11 mt-2 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>در حال پردازش...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      {mode === "login"
+                        ? "ورود به داشبورد"
+                        : "ایجاد حساب کاربری"}
+                    </span>
+                    <ArrowLeft size={16} />
+                  </>
+                )}
+              </Button>
+            )}
+          </form.Subscribe>
+        </form>
+
+        {/* Footer legal notes */}
+        <p className="mt-8 text-center text-[11px] text-neutral-500 leading-relaxed">
+          با ورود یا ثبت‌نام در سامانه،{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            قوانین و شرایط استفاده
+          </a>{" "}
+          و{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            حفظ حریم خصوصی
+          </a>{" "}
+          AIelts را می‌پذیرید.
+        </p>
+      </div>
+    </div>
+  );
+}
+````
+
+## File: features/landing/components/bento-grid.tsx
+````typescript
+import { cn } from "@/lib/utils";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+  IconArrowWaveRightUp,
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+  IconBallpen,
+} from "@tabler/icons-react";
+
+export function FeaturesBento() {
+  return (
+    <BentoGrid className="max-w-4xl mx-auto text-white ">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          header={item.header}
+          icon={item.icon}
+          className={`${i === 3 || i === 6 ? "md:col-span-3" : ""} bg-bg-light text-white`}
+        />
+      ))}
+    </BentoGrid>
+  );
+}
+
+interface GridImageProps {
+  src: string;
+  alt: string;
+  className?: string; // Allows passing additional classes to the wrapper
+  imageClassName?: string; // Allows passing additional classes to the img element
+}
+
+const GridImage = ({ src, alt, className, imageClassName }: GridImageProps) => (
+  <div
+    className={cn(
+      "flex flex-1 w-full h-full min-h-24 rounded-xl overflow-hidden dark:bg-neutral-900",
+      className,
+    )}
+  >
+    <img
+      src={src}
+      alt={alt}
+      // Changed "object-center" to "object-top" or custom percentages to shift the X/Y view
+      className={cn(
+        "w-full h-full object-cover object-[50%_50%] transition duration-200",
+        imageClassName,
+      )}
+    />
+  </div>
+);
+
+// Swap out the generic "/images/..." paths with your actual filenames inside the public folder
+const items = [
+  {
+    title: "دریافت نقاط قوت و ضعف",
+    description:
+      "نقاط ضعف و قوت خود را در هر چهار معیار اصلی آیلتس شناسایی کنید.",
+    header: (
+      <GridImage src="/images/writing_closeup.webp" alt="writing close up" />
+    ),
+    icon: <IconBallpen className="h-4 w-4 text-pink-300" />,
+  },
+  {
+    title: "دریافت نمره واقعی",
+    description: "نمره دهی writing شما توسط هوش مصنوعی",
+    header: <GridImage src="/images/ielts_score.webp" alt="Digital" />,
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "تحلیل نوشته شما بر اساس معیار های Ielts",
+    description: "بازخورد آنی و موشکافانه روی گرامر، لغت و ساختار رایتینگ شما",
+    header: <GridImage src="/images/rubrics.webp" alt="Ielts Rubrics" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: " ارتقای خط به خط نوشته‌های شما",
+    description:
+      "هوش مصنوعی نقاط ضعف متن شما را ردیابی کرده و به شما می‌آموزد چطور روان‌تر و حرفه‌ای‌تر بنویسید.",
+    header: (
+      <GridImage
+        src="/images/enhance.webp"
+        alt="Enhance"
+        imageClassName="object-[95%_5%]"
+      />
+    ),
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
+];
+````
+
+## File: features/landing/components/line-by-line-assessment.tsx
+````typescript
+"use client";
+
+import { motion } from "framer-motion";
+import { FileSearch } from "lucide-react";
+import React from "react";
+
+const CustomHighlight = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <span className="relative inline-block mx-1">
+      <motion.span
+        className="absolute inset-0 z-0 rounded-sm"
+        style={{ backgroundColor: color }}
+        initial={{ width: "0%", opacity: 0.3 }}
+        animate={{ width: "100%", opacity: 0.5 }}
+        transition={{
+          duration: 3,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+      <span className="relative z-10">{children}</span>
+    </span>
+  );
+};
+
+const CustomUnderline = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <span className="relative inline-block mx-1">
+      {children}
+      <motion.span
+        className="absolute -bottom-1 left-0 h-0.5 rounded-full"
+        style={{ backgroundColor: color }}
+        initial={{ width: "0%" }}
+        animate={{ width: "100%" }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+    </span>
+  );
+};
+
+export function LineByLineAssessmentCard() {
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2563eb]/20 bg-linear-to-br from-[#0f172a] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow (Dark Blue Tone) */}
+      <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#3b82f6] opacity-15 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-4"
+      >
+        <div className="flex items-start gap-3">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2563eb]/20 text-blue-400">
+            <FileSearch size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-base font-bold leading-relaxed text-neutral-100 font-vazirmatn">
+            ارزیابی خط‌به‌خط رایتینگ شما توسط دستیار هوشمند.
+          </h3>
+        </div>
+      </motion.div>
+
+      {/* Sample Writing Box */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="relative z-10 mt-6 rounded-xl border border-white/5 bg-white/5 p-4 text-[13px] leading-relaxed text-neutral-300 shadow-inner font-sans"
+        dir="ltr"
+      >
+        <p className="leading-loose">
+          The provided chart illustrates the
+          <CustomHighlight color="#16a34a">
+            substantial fluctuation
+          </CustomHighlight>
+          in global energy consumption over a decade. However, the data
+          <CustomUnderline color="#ef4444">don't demonstrate</CustomUnderline>
+          the underlying economic factors clearly.
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+````
+
+## File: lib/utils.ts
+````typescript
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export const BASE_URL = "http://127.0.0.1:8000/";
+````
+
+## File: repomix-output.xml
+````xml
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.agents/
+  skills/
+    frontend-design/
+      LICENSE.txt
+      SKILL.md
+app/
+  (root)/
+    layout.tsx
+    page.tsx
+  login/
+    layout.tsx
+    page.tsx
+  favicon.ico
+  globals.css
+components/
+  ui/
+    background-beams.tsx
+    bento-grid.tsx
+    button.tsx
+    canvas-text.tsx
+    chart.tsx
+    highlighter.tsx
+    input.tsx
+    label.tsx
+    modern-hero-background.tsx
+    tabs.tsx
+    twisted-arrow.tsx
+    typing-animation.tsx
+  bento-grid-demo.tsx
+features/
+  auth/
+    action/
+      auth-actions.tsx
+    api/
+      auth-api.tsx
+    components/
+      login-form.tsx
+  landing/
+    components/
+      agent-architecture-section.tsx
+      app-features-section.tsx
+      assesment-card.tsx
+      bento-grid.tsx
+      hero-examiner-studio.tsx
+      hero-section.tsx
+      interactive-feedback-demo.tsx
+      line-by-line-assessment.tsx
+      progress-card.tsx
+      progress-report-showcase.tsx
+lib/
+  utils.ts
+public/
+  fonts/
+    Vazirmatn-Black.woff2
+    Vazirmatn-Bold.woff2
+    Vazirmatn-ExtraBold.woff2
+    Vazirmatn-ExtraLight.woff2
+    Vazirmatn-Light.woff2
+    Vazirmatn-Medium.woff2
+    Vazirmatn-Regular.woff2
+    Vazirmatn-SemiBold.woff2
+    Vazirmatn-Thin.woff2
+    Vazirmatn[wght].woff2
+  images/
+    enhance.webp
+    ielts_score.webp
+    rubrics.webp
+    writing_closeup.webp
+  file.svg
+  globe.svg
+  next.svg
+  vercel.svg
+  window.svg
+.gitignore
+AGENTS.md
+CLAUDE.md
+components.json
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+skills-lock.json
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".agents/skills/frontend-design/LICENSE.txt">
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+</file>
+
+<file path=".agents/skills/frontend-design/SKILL.md">
+---
+name: frontend-design
+description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+license: Complete terms in LICENSE.txt
+---
+
+# Frontend Design
+
+Approach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejected proposals that felt cliché or templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take aesthetic risk if justified.
+
+## Ground your designs in the subject matter
+
+If the brief does not identify what the product or subject matter is, identify it yourself before designing, and confirm with the client. You can come up with one concrete subject, the design's audience, and the design's primary job, as a proposal. If there's any information in your memory about the client's preferences or context about what they're building, use that as a hint. The subject's industry, subject matter, materials, and vernacular are where distinctive visual choices come from — a design for a toy for girls aged 8–11 will be very aesthetically different from a dashboard for financial analysts. Build with the brief's real content and subject matter throughout.
+
+## Design principles
+
+For web designs, the hero is the first thing viewers will see. Open with the most characteristic thing in the subject's world, in the form that is most appropriate: a headline, an image, an animation, a live demo, an interactive moment, or other treatments. Be deliberate with your choice: a big number with a small label, supporting stats, and a gradient accent is the default treatment, so only use it if that's truly the best option.
+
+Typography carries the personality of the page. You don't need a different typeface for display or headline text and body content: use one family or two, and if two, make them clearly distinct.
+
+Choose your typefaces deliberately, not the default families you would reach for on any other project, and set a clear type scale following the default guidance of The Elements of Typographic Style with intentional weights, widths, and spacing. When type is used as a headline or visual element, use the type treatment itself as an active part of the design, not a neutral delivery vehicle for the content.
+
+Default to line lengths of less than 80 characters. Serif typefaces can have slightly longer line lengths; give serif body text slightly more line-height than a sans-serif.
+
+Avoid these default typographic treatments; they are the commonest tells of a generated page:
+- Accenting just a single word or phrase in a headline, like putting one word in italic/bold or a different color.
+- Using all caps for labels.
+- Adding unnecessary typographic labels above content.
+
+Visual structure is information. Structural devices like outlines, borders, numbering, eyebrows, dividers, labels, etc., encode useful information about the content rather than decorate it. Many generic designs use numbered markers (01 / 02 / 03), but that's only appropriate if the content actually is a sequence — like a stepped process or a timeline. Before adding numbered markers, check the content really is a sequence.
+
+Use non-user-triggered motion sparingly and deliberately, only to draw attention. A single orchestrated moment — one page-load sequence or one reveal — lands better than scattered effects; fade-and-slide-up entrances on each section and hover transitions on every card are the generic default and read as AI-generated. Motion that answers a person's action (opening, expanding, confirming) is welcome when it shows what changed.
+
+Consider written content carefully. Often a design brief may not contain real content, and it's up to you to come up with copy and placeholder content. Copy can make a design feel as templated as the design itself. See the below section on writing for more guidance.
+
+## Process: plan, review against the brief, build, critique
+
+For calibration, AI-generated design right now clusters around some traits:
+1. a warm cream background (near #F4F1EA) with a high-contrast serif display and a terracotta or warm-clay accent (often near #D97757 — Anthropic's own Claude-interaction accent, so on a user's brief it reads as a tell);
+2. a near-black background with a single bright acid-green or vermilion accent;
+3. a broadsheet-style layout with hairline rules, zero border-radius, and dense newspaper-like columns;
+4. the SaaS-card kit: content chopped into identical rounded cards, one border-radius on everything regardless of hierarchy, the same soft grey shadow (rgba(0,0,0,.1)) under each, and gradient washes as decoration;
+5. template chrome that appears whatever the subject: a tracked-out ALL-CAPS eyebrow label above every heading; meta strings joined with middle dots ('A · B · C'); labels built as 'WORD — fragment' with a spaced em dash; tinted near-black (#0B0B0B, #111) standing in for black; a monospace face for small data labels; a '→' appended to link and button text.
+
+All traits are legitimate for some briefs, but they are defaults rather than choices, and they appear regardless of subject. Where the brief pins down a visual direction, follow it exactly — the brief's own words always win, including when it asks for one of these looks. Where it leaves an axis free, don't spend that freedom on one of these defaults. As with a hired human designer, there's often a careful balance between doing what you're good at and taking each project as a chance to experiment and learn.
+
+Work in two passes. First, brainstorm a short design plan based on the client's design brief: create a compact token system with color, type, layout, and principles.
+- Color: describe the core base palette as 4–6 named hex values.
+- Type: the typefaces and their roles.
+- Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Include alignment guidance; should the content be left aligned, center aligned, justified?
+- Principles: the high-level guidance for what makes this page unique.
+
+Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan.
+
+When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections.
+
+## Restraint and self-critique
+
+Spend your boldness in one place. Let one element be the memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected, visually accessible, harmonious color palettes. Critique your own work as you build, taking screenshots to review if your environment supports it — a picture is worth 1000 tokens. Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creatives have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
+
+## More on writing in design
+
+Words appear in a design for one reason: to make it easier to understand and use. They are design content, not decoration. Bring the same intentionality and minimalism to copywriting that you would bring to spacing and color. Before writing anything, ask what the design needs to say, and how it can best be said to help the person navigate the experience.
+
+Write from the end user's perspective. Name things by what users will understand in simple language, not by how the system is built. A user manages notifications, not webhook config. Describe what something is or does in plain terms rather than selling it. Being specific and legible to new users is always better than being clever.
+
+Use active voice as default. A CTA says exactly what happens when it is used: "Save changes," not "Submit." An action keeps the same name through the whole flow, so the button that says "Publish" produces a toast that says "Published." The vocabulary of an interface is the signposting for someone navigating the product. Cohesion and consistency are how people learn their way around.
+
+Treat failure and emptiness as moments for direction, not mood. Explain what went wrong and how to fix it, in the interface's voice rather than a person's. Errors don't apologize, and they are never vague about what happened. An empty screen is an invitation to act.
+
+Keep the tone conversational: plain verbs, sentence case, no filler, with tone matched to the brand and the audience. Let each written element do exactly one job.
+</file>
+
+<file path="components/ui/background-beams.tsx">
+"use client";
+import React from "react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+
+export const BackgroundBeams = React.memo(
+  ({ className }: { className?: string }) => {
+    const paths = [
+      "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
+      "M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867",
+      "M-366 -205C-366 -205 -298 200 166 327C630 454 698 859 698 859",
+      "M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851",
+      "M-352 -221C-352 -221 -284 184 180 311C644 438 712 843 712 843",
+      "M-345 -229C-345 -229 -277 176 187 303C651 430 719 835 719 835",
+      "M-338 -237C-338 -237 -270 168 194 295C658 422 726 827 726 827",
+      "M-331 -245C-331 -245 -263 160 201 287C665 414 733 819 733 819",
+      "M-324 -253C-324 -253 -256 152 208 279C672 406 740 811 740 811",
+      "M-317 -261C-317 -261 -249 144 215 271C679 398 747 803 747 803",
+      "M-310 -269C-310 -269 -242 136 222 263C686 390 754 795 754 795",
+      "M-303 -277C-303 -277 -235 128 229 255C693 382 761 787 761 787",
+      "M-296 -285C-296 -285 -228 120 236 247C700 374 768 779 768 779",
+      "M-289 -293C-289 -293 -221 112 243 239C707 366 775 771 775 771",
+      "M-282 -301C-282 -301 -214 104 250 231C714 358 782 763 782 763",
+      "M-275 -309C-275 -309 -207 96 257 223C721 350 789 755 789 755",
+      "M-268 -317C-268 -317 -200 88 264 215C728 342 796 747 796 747",
+      "M-261 -325C-261 -325 -193 80 271 207C735 334 803 739 803 739",
+      "M-254 -333C-254 -333 -186 72 278 199C742 326 810 731 810 731",
+      "M-247 -341C-247 -341 -179 64 285 191C749 318 817 723 817 723",
+      "M-240 -349C-240 -349 -172 56 292 183C756 310 824 715 824 715",
+      "M-233 -357C-233 -357 -165 48 299 175C763 302 831 707 831 707",
+      "M-226 -365C-226 -365 -158 40 306 167C770 294 838 699 838 699",
+      "M-219 -373C-219 -373 -151 32 313 159C777 286 845 691 845 691",
+      "M-212 -381C-212 -381 -144 24 320 151C784 278 852 683 852 683",
+      "M-205 -389C-205 -389 -137 16 327 143C791 270 859 675 859 675",
+      "M-198 -397C-198 -397 -130 8 334 135C798 262 866 667 866 667",
+      "M-191 -405C-191 -405 -123 0 341 127C805 254 873 659 873 659",
+      "M-184 -413C-184 -413 -116 -8 348 119C812 246 880 651 880 651",
+      "M-177 -421C-177 -421 -109 -16 355 111C819 238 887 643 887 643",
+      "M-170 -429C-170 -429 -102 -24 362 103C826 230 894 635 894 635",
+      "M-163 -437C-163 -437 -95 -32 369 95C833 222 901 627 901 627",
+      "M-156 -445C-156 -445 -88 -40 376 87C840 214 908 619 908 619",
+      "M-149 -453C-149 -453 -81 -48 383 79C847 206 915 611 915 611",
+      "M-142 -461C-142 -461 -74 -56 390 71C854 198 922 603 922 603",
+      "M-135 -469C-135 -469 -67 -64 397 63C861 190 929 595 929 595",
+      "M-128 -477C-128 -477 -60 -72 404 55C868 182 936 587 936 587",
+      "M-121 -485C-121 -485 -53 -80 411 47C875 174 943 579 943 579",
+      "M-114 -493C-114 -493 -46 -88 418 39C882 166 950 571 950 571",
+      "M-107 -501C-107 -501 -39 -96 425 31C889 158 957 563 957 563",
+      "M-100 -509C-100 -509 -32 -104 432 23C896 150 964 555 964 555",
+      "M-93 -517C-93 -517 -25 -112 439 15C903 142 971 547 971 547",
+      "M-86 -525C-86 -525 -18 -120 446 7C910 134 978 539 978 539",
+      "M-79 -533C-79 -533 -11 -128 453 -1C917 126 985 531 985 531",
+      "M-72 -541C-72 -541 -4 -136 460 -9C924 118 992 523 992 523",
+      "M-65 -549C-65 -549 3 -144 467 -17C931 110 999 515 999 515",
+      "M-58 -557C-58 -557 10 -152 474 -25C938 102 1006 507 1006 507",
+      "M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499",
+      "M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491",
+      "M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483",
+    ];
+    return (
+      <div
+        className={cn(
+          "absolute inset-0 flex h-full w-full items-center justify-center [mask-repeat:no-repeat] [mask-size:40px]",
+          className,
+        )}
+      >
+        <svg
+          className="pointer-events-none absolute z-0 h-full w-full"
+          width="100%"
+          height="100%"
+          viewBox="0 0 696 316"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867M-366 -205C-366 -205 -298 200 166 327C630 454 698 859 698 859M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851M-352 -221C-352 -221 -284 184 180 311C644 438 712 843 712 843M-345 -229C-345 -229 -277 176 187 303C651 430 719 835 719 835M-338 -237C-338 -237 -270 168 194 295C658 422 726 827 726 827M-331 -245C-331 -245 -263 160 201 287C665 414 733 819 733 819M-324 -253C-324 -253 -256 152 208 279C672 406 740 811 740 811M-317 -261C-317 -261 -249 144 215 271C679 398 747 803 747 803M-310 -269C-310 -269 -242 136 222 263C686 390 754 795 754 795M-303 -277C-303 -277 -235 128 229 255C693 382 761 787 761 787M-296 -285C-296 -285 -228 120 236 247C700 374 768 779 768 779M-289 -293C-289 -293 -221 112 243 239C707 366 775 771 775 771M-282 -301C-282 -301 -214 104 250 231C714 358 782 763 782 763M-275 -309C-275 -309 -207 96 257 223C721 350 789 755 789 755M-268 -317C-268 -317 -200 88 264 215C728 342 796 747 796 747M-261 -325C-261 -325 -193 80 271 207C735 334 803 739 803 739M-254 -333C-254 -333 -186 72 278 199C742 326 810 731 810 731M-247 -341C-247 -341 -179 64 285 191C749 318 817 723 817 723M-240 -349C-240 -349 -172 56 292 183C756 310 824 715 824 715M-233 -357C-233 -357 -165 48 299 175C763 302 831 707 831 707M-226 -365C-226 -365 -158 40 306 167C770 294 838 699 838 699M-219 -373C-219 -373 -151 32 313 159C777 286 845 691 845 691M-212 -381C-212 -381 -144 24 320 151C784 278 852 683 852 683M-205 -389C-205 -389 -137 16 327 143C791 270 859 675 859 675M-198 -397C-198 -397 -130 8 334 135C798 262 866 667 866 667M-191 -405C-191 -405 -123 0 341 127C805 254 873 659 873 659M-184 -413C-184 -413 -116 -8 348 119C812 246 880 651 880 651M-177 -421C-177 -421 -109 -16 355 111C819 238 887 643 887 643M-170 -429C-170 -429 -102 -24 362 103C826 230 894 635 894 635M-163 -437C-163 -437 -95 -32 369 95C833 222 901 627 901 627M-156 -445C-156 -445 -88 -40 376 87C840 214 908 619 908 619M-149 -453C-149 -453 -81 -48 383 79C847 206 915 611 915 611M-142 -461C-142 -461 -74 -56 390 71C854 198 922 603 922 603M-135 -469C-135 -469 -67 -64 397 63C861 190 929 595 929 595M-128 -477C-128 -477 -60 -72 404 55C868 182 936 587 936 587M-121 -485C-121 -485 -53 -80 411 47C875 174 943 579 943 579M-114 -493C-114 -493 -46 -88 418 39C882 166 950 571 950 571M-107 -501C-107 -501 -39 -96 425 31C889 158 957 563 957 563M-100 -509C-100 -509 -32 -104 432 23C896 150 964 555 964 555M-93 -517C-93 -517 -25 -112 439 15C903 142 971 547 971 547M-86 -525C-86 -525 -18 -120 446 7C910 134 978 539 978 539M-79 -533C-79 -533 -11 -128 453 -1C917 126 985 531 985 531M-72 -541C-72 -541 -4 -136 460 -9C924 118 992 523 992 523M-65 -549C-65 -549 3 -144 467 -17C931 110 999 515 999 515M-58 -557C-58 -557 10 -152 474 -25C938 102 1006 507 1006 507M-51 -565C-51 -565 17 -160 481 -33C945 94 1013 499 1013 499M-44 -573C-44 -573 24 -168 488 -41C952 86 1020 491 1020 491M-37 -581C-37 -581 31 -176 495 -49C959 78 1027 483 1027 483M-30 -589C-30 -589 38 -184 502 -57C966 70 1034 475 1034 475M-23 -597C-23 -597 45 -192 509 -65C973 62 1041 467 1041 467M-16 -605C-16 -605 52 -200 516 -73C980 54 1048 459 1048 459M-9 -613C-9 -613 59 -208 523 -81C987 46 1055 451 1055 451M-2 -621C-2 -621 66 -216 530 -89C994 38 1062 443 1062 443M5 -629C5 -629 73 -224 537 -97C1001 30 1069 435 1069 435M12 -637C12 -637 80 -232 544 -105C1008 22 1076 427 1076 427M19 -645C19 -645 87 -240 551 -113C1015 14 1083 419 1083 419"
+            stroke="url(#paint0_radial_242_278)"
+            strokeOpacity="0.05"
+            strokeWidth="0.5"
+          ></path>
+
+          {paths.map((path, index) => (
+            <motion.path
+              key={`path-` + index}
+              d={path}
+              stroke={`url(#linearGradient-${index})`}
+              strokeOpacity="0.4"
+              strokeWidth="0.5"
+            ></motion.path>
+          ))}
+          <defs>
+            {paths.map((path, index) => (
+              <motion.linearGradient
+                id={`linearGradient-${index}`}
+                key={`gradient-${index}`}
+                initial={{
+                  x1: "0%",
+                  x2: "0%",
+                  y1: "0%",
+                  y2: "0%",
+                }}
+                animate={{
+                  x1: ["0%", "100%"],
+                  x2: ["0%", "95%"],
+                  y1: ["0%", "100%"],
+                  y2: ["0%", `${93 + Math.random() * 8}%`],
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 10,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  delay: Math.random() * 10,
+                }}
+              >
+                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
+                <stop stopColor="#18CCFC"></stop>
+                <stop offset="32.5%" stopColor="#6344F5"></stop>
+                <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+              </motion.linearGradient>
+            ))}
+
+            <radialGradient
+              id="paint0_radial_242_278"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(352 34) rotate(90) scale(555 1560.62)"
+            >
+              <stop offset="0.0666667" stopColor="#d4d4d4"></stop>
+              <stop offset="0.243243" stopColor="#d4d4d4"></stop>
+              <stop offset="0.43594" stopColor="white" stopOpacity="0"></stop>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    );
+  },
+);
+
+BackgroundBeams.displayName = "BackgroundBeams";
+</file>
+
+<file path="components/ui/button.tsx">
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        outline:
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
+
+export { Button, buttonVariants }
+</file>
+
+<file path="components/ui/canvas-text.tsx">
+"use client";
+import { cn } from "@/lib/utils";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+
+interface CanvasTextProps {
+  text: string;
+  className?: string;
+  backgroundClassName?: string;
+  colors?: string[];
+  animationDuration?: number;
+  lineWidth?: number;
+  lineGap?: number;
+  curveIntensity?: number;
+  overlay?: boolean;
+}
+
+function resolveColor(color: string): string {
+  if (color.startsWith("var(")) {
+    const varName = color.slice(4, -1).trim();
+    const resolved = getComputedStyle(document.documentElement)
+      .getPropertyValue(varName)
+      .trim();
+    return resolved || color;
+  }
+  return color;
+}
+
+export function CanvasText({
+  text,
+  className = "",
+  backgroundClassName = "bg-white dark:bg-neutral-950",
+  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7", "#dfe6e9"],
+  animationDuration = 5,
+  lineWidth = 1.5,
+  lineGap = 10,
+  curveIntensity = 60,
+  overlay = false,
+}: CanvasTextProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+  const bgRef = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<number>(0);
+  const startTimeRef = useRef<number>(0);
+  const [bgColor, setBgColor] = useState("#0a0a0a");
+  const [resolvedColors, setResolvedColors] = useState<string[]>([]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [font, setFont] = useState("");
+
+  const updateColors = useCallback(() => {
+    if (bgRef.current) {
+      const computed = window.getComputedStyle(bgRef.current);
+      setBgColor(computed.backgroundColor);
+    }
+    const resolved = colors.map(resolveColor);
+    setResolvedColors(resolved);
+  }, [colors]);
+
+  useEffect(() => {
+    updateColors();
+
+    const observer = new MutationObserver(updateColors);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [updateColors]);
+
+  useEffect(() => {
+    const textEl = textRef.current;
+    if (!textEl) return;
+
+    const updateDimensions = () => {
+      const rect = textEl.getBoundingClientRect();
+      const computed = window.getComputedStyle(textEl);
+      setDimensions({
+        width: Math.ceil(rect.width) || 400,
+        height: Math.ceil(rect.height) || 200,
+      });
+      setFont(
+        `${computed.fontWeight} ${computed.fontSize} ${computed.fontFamily}`,
+      );
+    };
+
+    updateDimensions();
+
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(textEl);
+
+    return () => resizeObserver.disconnect();
+  }, [text, className]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (
+      !canvas ||
+      resolvedColors.length === 0 ||
+      dimensions.width === 0 ||
+      !font
+    )
+      return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    const { width, height } = dimensions;
+    const dpr = window.devicePixelRatio || 1;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    ctx.font = font;
+    const metrics = ctx.measureText(text);
+    const ascent = metrics.actualBoundingBoxAscent;
+    const descent = metrics.actualBoundingBoxDescent;
+    const baselineY = (height + ascent - descent) / 2;
+
+    const numLines = Math.floor(height / lineGap) + 10;
+    startTimeRef.current = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = (currentTime - startTimeRef.current) / 1000;
+      const phase = (elapsed / animationDuration) * Math.PI * 2;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.font = font;
+      ctx.textBaseline = "alphabetic";
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#000";
+      ctx.fillText(text, 0, baselineY);
+
+      ctx.globalCompositeOperation = "source-in";
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "source-atop";
+      for (let i = 0; i < numLines; i++) {
+        const y = i * lineGap;
+
+        const curve1 = Math.sin(phase) * curveIntensity;
+        const curve2 = Math.sin(phase + 0.5) * curveIntensity * 0.6;
+
+        const colorIndex = i % resolvedColors.length;
+        ctx.strokeStyle = resolvedColors[colorIndex];
+        ctx.lineWidth = lineWidth;
+
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.bezierCurveTo(
+          width * 0.33,
+          y + curve1,
+          width * 0.66,
+          y + curve2,
+          width,
+          y,
+        );
+        ctx.stroke();
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [
+    text,
+    font,
+    bgColor,
+    resolvedColors,
+    animationDuration,
+    lineWidth,
+    lineGap,
+    curveIntensity,
+    dimensions,
+  ]);
+
+  return (
+    <span
+      className={cn(
+        "relative inline-block",
+        overlay && "absolute inset-0",
+        className,
+      )}
+    >
+      <span
+        ref={bgRef}
+        className={cn(
+          "pointer-events-none absolute h-0 w-0 opacity-0",
+          backgroundClassName,
+        )}
+        aria-hidden="true"
+      />
+      <span ref={textRef} className="invisible inline-block" aria-hidden="true">
+        {text}
+      </span>
+      <canvas
+        ref={canvasRef}
+        className="pointer-events-none absolute top-0 left-0"
+        style={{
+          width: dimensions.width || "auto",
+          height: dimensions.height || "auto",
+        }}
+        aria-label={text}
+        role="img"
+      />
+    </span>
+  );
+}
+</file>
+
+<file path="components/ui/chart.tsx">
+"use client"
+
+import * as React from "react"
+import { cn } from "cn"
+import * as RechartsPrimitive from "recharts"
+import type { TooltipValueType } from "recharts"
+
+// Format: { THEME_NAME: CSS_SELECTOR }
+const THEMES = { light: "", dark: ".dark" } as const
+
+const INITIAL_DIMENSION = { width: 320, height: 200 } as const
+type TooltipNameType = number | string
+
+export type ChartConfig = Record<
+  string,
+  {
+    label?: React.ReactNode
+    icon?: React.ComponentType
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<keyof typeof THEMES, string> }
+  )
+>
+
+type ChartContextProps = {
+  config: ChartConfig
+}
+
+const ChartContext = React.createContext<ChartContextProps | null>(null)
+
+function useChart() {
+  const context = React.useContext(ChartContext)
+
+  if (!context) {
+    throw new Error("useChart must be used within a <ChartContainer />")
+  }
+
+  return context
+}
+
+function ChartContainer({
+  id,
+  className,
+  children,
+  config,
+  initialDimension = INITIAL_DIMENSION,
+  ...props
+}: React.ComponentProps<"div"> & {
+  config: ChartConfig
+  children: React.ComponentProps<
+    typeof RechartsPrimitive.ResponsiveContainer
+  >["children"]
+  initialDimension?: {
+    width: number
+    height: number
+  }
+}) {
+  const uniqueId = React.useId()
+  const chartId = `chart-${id ?? uniqueId.replace(/:/g, "")}`
+
+  return (
+    <ChartContext.Provider value={{ config }}>
+      <div
+        data-slot="chart"
+        data-chart={chartId}
+        className={cn(
+          "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
+          className
+        )}
+        {...props}
+      >
+        <ChartStyle id={chartId} config={config} />
+        <RechartsPrimitive.ResponsiveContainer
+          initialDimension={initialDimension}
+        >
+          {children}
+        </RechartsPrimitive.ResponsiveContainer>
+      </div>
+    </ChartContext.Provider>
+  )
+}
+
+const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
+  const colorConfig = Object.entries(config).filter(
+    ([, config]) => config.theme ?? config.color
+  )
+
+  if (!colorConfig.length) {
+    return null
+  }
+
+  return (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: Object.entries(THEMES)
+          .map(
+            ([theme, prefix]) => `
+${prefix} [data-chart=${id}] {
+${colorConfig
+  .map(([key, itemConfig]) => {
+    const color =
+      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ??
+      itemConfig.color
+    return color ? `  --color-${key}: ${color};` : null
+  })
+  .join("\n")}
+}
+`
+          )
+          .join("\n"),
+      }}
+    />
+  )
+}
+
+const ChartTooltip = RechartsPrimitive.Tooltip
+
+function ChartTooltipContent({
+  active,
+  payload,
+  className,
+  indicator = "dot",
+  hideLabel = false,
+  hideIndicator = false,
+  label,
+  labelFormatter,
+  labelClassName,
+  formatter,
+  color,
+  nameKey,
+  labelKey,
+}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
+  React.ComponentProps<"div"> & {
+    hideLabel?: boolean
+    hideIndicator?: boolean
+    indicator?: "line" | "dot" | "dashed"
+    nameKey?: string
+    labelKey?: string
+  } & Omit<
+    RechartsPrimitive.DefaultTooltipContentProps<
+      TooltipValueType,
+      TooltipNameType
+    >,
+    "accessibilityLayer"
+  >) {
+  const { config } = useChart()
+
+  const tooltipLabel = React.useMemo(() => {
+    if (hideLabel || !payload?.length) {
+      return null
+    }
+
+    const [item] = payload
+    const key = `${labelKey ?? item?.dataKey ?? item?.name ?? "value"}`
+    const itemConfig = getPayloadConfigFromPayload(config, item, key)
+    const value =
+      !labelKey && typeof label === "string"
+        ? (config[label]?.label ?? label)
+        : itemConfig?.label
+
+    if (labelFormatter) {
+      return (
+        <div className={cn("font-medium", labelClassName)}>
+          {labelFormatter(value, payload)}
+        </div>
+      )
+    }
+
+    if (!value) {
+      return null
+    }
+
+    return <div className={cn("font-medium", labelClassName)}>{value}</div>
+  }, [
+    label,
+    labelFormatter,
+    payload,
+    hideLabel,
+    labelClassName,
+    config,
+    labelKey,
+  ])
+
+  if (!active || !payload?.length) {
+    return null
+  }
+
+  const nestLabel = payload.length === 1 && indicator !== "dot"
+
+  return (
+    <div
+      className={cn(
+        "grid min-w-32 items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+        className
+      )}
+    >
+      {!nestLabel ? tooltipLabel : null}
+      <div className="grid gap-1.5">
+        {payload
+          .filter((item) => item.type !== "none")
+          .map((item, index) => {
+            const key = `${nameKey ?? item.name ?? item.dataKey ?? "value"}`
+            const itemConfig = getPayloadConfigFromPayload(config, item, key)
+            const indicatorColor = color ?? item.payload?.fill ?? item.color
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground",
+                  indicator === "dot" && "items-center"
+                )}
+              >
+                {formatter && item?.value !== undefined && item.name ? (
+                  formatter(item.value, item.name, item, index, item.payload)
+                ) : (
+                  <>
+                    {itemConfig?.icon ? (
+                      <itemConfig.icon />
+                    ) : (
+                      !hideIndicator && (
+                        <div
+                          className={cn(
+                            "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+                            {
+                              "h-2.5 w-2.5": indicator === "dot",
+                              "w-1": indicator === "line",
+                              "w-0 border-[1.5px] border-dashed bg-transparent":
+                                indicator === "dashed",
+                              "my-0.5": nestLabel && indicator === "dashed",
+                            }
+                          )}
+                          style={
+                            {
+                              "--color-bg": indicatorColor,
+                              "--color-border": indicatorColor,
+                            } as React.CSSProperties
+                          }
+                        />
+                      )
+                    )}
+                    <div
+                      className={cn(
+                        "flex flex-1 justify-between leading-none",
+                        nestLabel ? "items-end" : "items-center"
+                      )}
+                    >
+                      <div className="grid gap-1.5">
+                        {nestLabel ? tooltipLabel : null}
+                        <span className="text-muted-foreground">
+                          {itemConfig?.label ?? item.name}
+                        </span>
+                      </div>
+                      {item.value != null && (
+                        <span className="font-mono font-medium text-foreground tabular-nums">
+                          {typeof item.value === "number"
+                            ? item.value.toLocaleString()
+                            : String(item.value)}
+                        </span>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            )
+          })}
+      </div>
+    </div>
+  )
+}
+
+const ChartLegend = RechartsPrimitive.Legend
+
+function ChartLegendContent({
+  className,
+  hideIcon = false,
+  payload,
+  verticalAlign = "bottom",
+  nameKey,
+}: React.ComponentProps<"div"> & {
+  hideIcon?: boolean
+  nameKey?: string
+} & RechartsPrimitive.DefaultLegendContentProps) {
+  const { config } = useChart()
+
+  if (!payload?.length) {
+    return null
+  }
+
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center gap-4",
+        verticalAlign === "top" ? "pb-3" : "pt-3",
+        className
+      )}
+    >
+      {payload
+        .filter((item) => item.type !== "none")
+        .map((item, index) => {
+          const key = `${nameKey ?? item.dataKey ?? "value"}`
+          const itemConfig = getPayloadConfigFromPayload(config, item, key)
+
+          return (
+            <div
+              key={index}
+              className={cn(
+                "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
+              )}
+            >
+              {itemConfig?.icon && !hideIcon ? (
+                <itemConfig.icon />
+              ) : (
+                <div
+                  className="h-2 w-2 shrink-0 rounded-[2px]"
+                  style={{
+                    backgroundColor: item.color,
+                  }}
+                />
+              )}
+              {itemConfig?.label}
+            </div>
+          )
+        })}
+    </div>
+  )
+}
+
+function getPayloadConfigFromPayload(
+  config: ChartConfig,
+  payload: unknown,
+  key: string
+) {
+  if (typeof payload !== "object" || payload === null) {
+    return undefined
+  }
+
+  const payloadPayload =
+    "payload" in payload &&
+    typeof payload.payload === "object" &&
+    payload.payload !== null
+      ? payload.payload
+      : undefined
+
+  let configLabelKey: string = key
+
+  if (
+    key in payload &&
+    typeof payload[key as keyof typeof payload] === "string"
+  ) {
+    configLabelKey = payload[key as keyof typeof payload] as string
+  } else if (
+    payloadPayload &&
+    key in payloadPayload &&
+    typeof payloadPayload[key as keyof typeof payloadPayload] === "string"
+  ) {
+    configLabelKey = payloadPayload[
+      key as keyof typeof payloadPayload
+    ] as string
+  }
+
+  return configLabelKey in config ? config[configLabelKey] : config[key]
+}
+
+export {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+}
+</file>
+
+<file path="components/ui/highlighter.tsx">
+"use client"
+
+import { useLayoutEffect, useRef } from "react"
+import type React from "react"
+import { useInView } from "motion/react"
+import { annotate } from "rough-notation"
+import { type RoughAnnotation } from "rough-notation/lib/model"
+
+type AnnotationAction =
+  | "highlight"
+  | "underline"
+  | "box"
+  | "circle"
+  | "strike-through"
+  | "crossed-off"
+  | "bracket"
+
+interface HighlighterProps {
+  children: React.ReactNode
+  action?: AnnotationAction
+  color?: string
+  strokeWidth?: number
+  animationDuration?: number
+  iterations?: number
+  padding?: number
+  multiline?: boolean
+  isView?: boolean
+}
+
+export function Highlighter({
+  children,
+  action = "highlight",
+  color = "#ffd1dc",
+  strokeWidth = 1.5,
+  animationDuration = 600,
+  iterations = 2,
+  padding = 2,
+  multiline = true,
+  isView = false,
+}: HighlighterProps) {
+  const elementRef = useRef<HTMLSpanElement>(null)
+
+  const isInView = useInView(elementRef, {
+    once: true,
+    margin: "-10%",
+  })
+
+  // If isView is false, always show. If isView is true, wait for inView
+  const shouldShow = !isView || isInView
+
+  useLayoutEffect(() => {
+    const element = elementRef.current
+    let annotation: RoughAnnotation | null = null
+    let resizeObserver: ResizeObserver | null = null
+
+    if (shouldShow && element) {
+      const annotationConfig = {
+        type: action,
+        color,
+        strokeWidth,
+        animationDuration,
+        iterations,
+        padding,
+        multiline,
+      }
+
+      const currentAnnotation = annotate(element, annotationConfig)
+      annotation = currentAnnotation
+      currentAnnotation.show()
+
+      resizeObserver = new ResizeObserver(() => {
+        currentAnnotation.hide()
+        currentAnnotation.show()
+      })
+
+      resizeObserver.observe(element)
+      resizeObserver.observe(document.body)
+    }
+
+    return () => {
+      annotation?.remove()
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+    }
+  }, [
+    shouldShow,
+    action,
+    color,
+    strokeWidth,
+    animationDuration,
+    iterations,
+    padding,
+    multiline,
+  ])
+
+  return (
+    <span ref={elementRef} className="relative inline-block bg-transparent">
+      {children}
+    </span>
+  )
+}
+</file>
+
+<file path="components/ui/input.tsx">
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Input }
+</file>
+
+<file path="components/ui/label.tsx">
+"use client"
+
+import * as React from "react"
+import { Label as LabelPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+function Label({
+  className,
+  ...props
+}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+  return (
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Label }
+</file>
+
+<file path="components/ui/modern-hero-background.tsx">
+"use client";
+
+import React from "react";
+import { motion } from "motion/react";
+
+export function ModernHeroBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden select-none -z-10">
+      {/* Subtle Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* Primary Hardware-Accelerated Ambient Glows */}
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.35, 0.5, 0.35],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-tr from-purple-600/30 via-indigo-600/25 to-pink-500/20 blur-[130px] transform-gpu will-change-transform"
+      />
+
+      {/* Secondary Dynamic Spotlight Accent */}
+      <motion.div
+        animate={{
+          x: [-20, 20, -20],
+          y: [-10, 15, -10],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -top-24 right-1/4 w-[450px] h-[300px] rounded-full bg-indigo-500/20 blur-[110px] transform-gpu will-change-transform"
+      />
+
+      {/* Bottom Fade to blend seamlessly with next section */}
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-dark to-transparent" />
+    </div>
+  );
+}
+</file>
+
+<file path="components/ui/tabs.tsx">
+"use client"
+
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Tabs as TabsPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+function Tabs({
+  className,
+  orientation = "horizontal",
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      data-orientation={orientation}
+      className={cn(
+        "group/tabs flex gap-2 data-horizontal:flex-col",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+const tabsListVariants = cva(
+  "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
+  {
+    variants: {
+      variant: {
+        default: "bg-muted",
+        line: "gap-1 bg-transparent",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+function TabsList({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.List> &
+  VariantProps<typeof tabsListVariants>) {
+  return (
+    <TabsPrimitive.List
+      data-slot="tabs-list"
+      data-variant={variant}
+      className={cn(tabsListVariants({ variant }), className)}
+      {...props}
+    />
+  )
+}
+
+function TabsTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(
+        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium whitespace-nowrap text-foreground/60 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 dark:text-muted-foreground dark:hover:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
+        "data-active:bg-background data-active:text-foreground dark:data-active:border-input dark:data-active:bg-input/30 dark:data-active:text-foreground",
+        "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+  return (
+    <TabsPrimitive.Content
+      data-slot="tabs-content"
+      className={cn("flex-1 text-sm outline-none", className)}
+      {...props}
+    />
+  )
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants }
+</file>
+
+<file path="components/ui/twisted-arrow.tsx">
+import { motion } from "framer-motion";
+
+interface TwistedArrowProps {
+  color?: string;
+  position?: { x: number; y: number };
+  rotation?: number;
+  seed?: number;
+}
+
+function randomOffset(seed: number, index: number, range: number): number {
+  const x = Math.sin(seed * 9301 + index * 49297) * 0.5 + 0.5;
+  return (x - 0.5) * range * 2;
+}
+
+export function TwistedArrow({
+  color = "#000",
+  position = { x: 0, y: 0 },
+  rotation = 0,
+  seed = 1,
+}: TwistedArrowProps) {
+  const r = (i: number, range = 6) => randomOffset(seed, i, range);
+
+  const d = `M${10 + r(0)} ${40 + r(1)} Q${25 + r(2)} ${20 + r(3)} ${40 + r(4)} ${40 + r(5)} Q${55 + r(6)} ${60 + r(7)} ${70 + r(8)} ${40 + r(9)}`;
+
+  return (
+    <motion.svg
+      viewBox="0 0 80 80"
+      width="80"
+      height="80"
+      fill="none"
+      style={{
+        position: "absolute",
+        left: position.x,
+        top: position.y,
+        transform: `rotate(${rotation}deg)`,
+        pointerEvents: "none",
+        zIndex: 10,
+      }}
+    >
+      <motion.path
+        d={d}
+        fill="none"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        animate={{ pathLength: [0, 1, 1] }}
+        transition={{
+          duration: 1.5,
+          times: [0, 0.666, 1],
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      />
+    </motion.svg>
+  );
+}
+</file>
+
+<file path="components/ui/typing-animation.tsx">
+"use client"
+
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ComponentType,
+  type RefAttributes,
+  type RefObject,
+} from "react"
+import {
+  motion,
+  useInView,
+  type DOMMotionComponents,
+  type HTMLMotionProps,
+  type MotionProps,
+} from "motion/react"
+
+import { cn } from "@/lib/utils"
+
+const motionElements = {
+  article: motion.article,
+  div: motion.div,
+  h1: motion.h1,
+  h2: motion.h2,
+  h3: motion.h3,
+  h4: motion.h4,
+  h5: motion.h5,
+  h6: motion.h6,
+  li: motion.li,
+  p: motion.p,
+  section: motion.section,
+  span: motion.span,
+} as const
+
+type MotionElementType = Extract<
+  keyof DOMMotionComponents,
+  keyof typeof motionElements
+>
+type TypingAnimationMotionComponent = ComponentType<
+  Omit<HTMLMotionProps<"span">, "ref"> & RefAttributes<HTMLElement>
+>
+
+interface TypingAnimationProps extends Omit<MotionProps, "children"> {
+  children?: string
+  words?: string[]
+  className?: string
+  duration?: number
+  typeSpeed?: number
+  deleteSpeed?: number
+  delay?: number
+  pauseDelay?: number
+  loop?: boolean
+  as?: MotionElementType
+  startOnView?: boolean
+  showCursor?: boolean
+  blinkCursor?: boolean
+  cursorStyle?: "line" | "block" | "underscore"
+}
+
+export function TypingAnimation({
+  children,
+  words,
+  className,
+  duration = 100,
+  typeSpeed,
+  deleteSpeed,
+  delay = 0,
+  pauseDelay = 1000,
+  loop = false,
+  as: Component = "span",
+  startOnView = true,
+  showCursor = true,
+  blinkCursor = true,
+  cursorStyle = "line",
+  ...props
+}: TypingAnimationProps) {
+  const MotionComponent = motionElements[
+    Component
+  ] as TypingAnimationMotionComponent
+
+  const [displayedText, setDisplayedText] = useState<string>("")
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentCharIndex, setCurrentCharIndex] = useState(0)
+  const [phase, setPhase] = useState<"typing" | "pause" | "deleting">("typing")
+  const elementRef = useRef<HTMLElement | null>(null)
+  const isInView = useInView(elementRef as RefObject<Element>, {
+    amount: 0.3,
+    once: true,
+  })
+
+  const wordsToAnimate = useMemo(
+    () => words ?? (children ? [children] : []),
+    [words, children]
+  )
+  const hasMultipleWords = wordsToAnimate.length > 1
+
+  const typingSpeed = typeSpeed ?? duration
+  const deletingSpeed = deleteSpeed ?? typingSpeed / 2
+
+  const shouldStart = startOnView ? isInView : true
+  const animationSourceKey = useMemo(
+    () => (words ? words.join("\u0000") : (children ?? "")),
+    [words, children]
+  )
+
+  useEffect(() => {
+    setDisplayedText("")
+    setCurrentWordIndex(0)
+    setCurrentCharIndex(0)
+    setPhase("typing")
+  }, [animationSourceKey])
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | null = null
+
+    if (shouldStart && wordsToAnimate.length > 0) {
+      const timeoutDelay =
+        delay > 0 && displayedText === ""
+          ? delay
+          : phase === "typing"
+            ? typingSpeed
+            : phase === "deleting"
+              ? deletingSpeed
+              : pauseDelay
+
+      timeout = setTimeout(() => {
+        const currentWord = wordsToAnimate[currentWordIndex] || ""
+        const graphemes = Array.from(currentWord)
+
+        switch (phase) {
+          case "typing":
+            if (currentCharIndex < graphemes.length) {
+              setDisplayedText(
+                graphemes.slice(0, currentCharIndex + 1).join("")
+              )
+              setCurrentCharIndex(currentCharIndex + 1)
+            } else {
+              if (hasMultipleWords || loop) {
+                const isLastWord =
+                  currentWordIndex === wordsToAnimate.length - 1
+                if (!isLastWord || loop) {
+                  setPhase("pause")
+                }
+              }
+            }
+            break
+
+          case "pause":
+            setPhase("deleting")
+            break
+
+          case "deleting":
+            if (currentCharIndex > 0) {
+              setDisplayedText(
+                graphemes.slice(0, currentCharIndex - 1).join("")
+              )
+              setCurrentCharIndex(currentCharIndex - 1)
+            } else {
+              const nextIndex = (currentWordIndex + 1) % wordsToAnimate.length
+              setCurrentWordIndex(nextIndex)
+              setPhase("typing")
+            }
+            break
+        }
+      }, timeoutDelay)
+    }
+
+    return () => {
+      if (timeout !== null) {
+        clearTimeout(timeout)
+      }
+    }
+  }, [
+    shouldStart,
+    phase,
+    currentCharIndex,
+    currentWordIndex,
+    displayedText,
+    wordsToAnimate,
+    hasMultipleWords,
+    loop,
+    typingSpeed,
+    deletingSpeed,
+    pauseDelay,
+    delay,
+  ])
+
+  const currentWordGraphemes = Array.from(
+    wordsToAnimate[currentWordIndex] || ""
+  )
+  const isComplete =
+    !loop &&
+    currentWordIndex === wordsToAnimate.length - 1 &&
+    currentCharIndex >= currentWordGraphemes.length &&
+    phase !== "deleting"
+
+  const shouldShowCursor =
+    showCursor &&
+    !isComplete &&
+    (hasMultipleWords || loop || currentCharIndex < currentWordGraphemes.length)
+
+  const getCursorChar = () => {
+    switch (cursorStyle) {
+      case "block":
+        return "▌"
+      case "underscore":
+        return "_"
+      case "line":
+      default:
+        return "|"
+    }
+  }
+
+  return (
+    <MotionComponent
+      ref={elementRef}
+      className={cn(
+        "leading-20 tracking-[-0.02em]",
+        Component === "span" && "inline-block",
+        className
+      )}
+      {...props}
+    >
+      {displayedText}
+      {shouldShowCursor && (
+        <span
+          className={cn("inline-block", blinkCursor && "animate-blink-cursor")}
+        >
+          {getCursorChar()}
+        </span>
+      )}
+    </MotionComponent>
+  )
+}
+</file>
+
+<file path="components/bento-grid-demo.tsx">
+import { cn } from "@/lib/utils";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+  IconArrowWaveRightUp,
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+} from "@tabler/icons-react";
+
+export default function BentoGridDemo() {
+  return (
+    <BentoGrid className="max-w-4xl mx-auto">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          header={item.header}
+          icon={item.icon}
+          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+        />
+      ))}
+    </BentoGrid>
+  );
+}
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
+);
+const items = [
+  {
+    title: "The Dawn of Innovation",
+    description: "Explore the birth of groundbreaking ideas and inventions.",
+    header: <Skeleton />,
+    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Digital Revolution",
+    description: "Dive into the transformative power of technology.",
+    header: <Skeleton />,
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Art of Design",
+    description: "Discover the beauty of thoughtful and functional design.",
+    header: <Skeleton />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Power of Communication",
+    description:
+      "Understand the impact of effective communication in our lives.",
+    header: <Skeleton />,
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Pursuit of Knowledge",
+    description: "Join the quest for understanding and enlightenment.",
+    header: <Skeleton />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Joy of Creation",
+    description: "Experience the thrill of bringing ideas to life.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Spirit of Adventure",
+    description: "Embark on exciting journeys and thrilling discoveries.",
+    header: <Skeleton />,
+    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+  },
+];
+</file>
+
+<file path="features/auth/action/auth-actions.tsx">
+"use server";
+
+import { cookies } from "next/headers";
+
+const TOKEN_KEY = "auth_token";
+
+export async function getToken(): Promise<string | null> {
+  const cookieStore = await cookies();
+  return cookieStore.get(TOKEN_KEY)?.value ?? null;
+}
+
+export async function storeToken(token: string): Promise<void> {
+  const cookieStore = await cookies();
+  cookieStore.set(TOKEN_KEY, token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
+}
+
+export async function removeToken(): Promise<void> {
+  const cookieStore = await cookies();
+  cookieStore.delete(TOKEN_KEY);
+}
+</file>
+
+<file path="features/auth/api/auth-api.tsx">
+import { BASE_URL } from "@/lib/utils";
+
+import axios from "axios";
+interface UserSignIn {
+  username: string;
+  password: string;
+}
+export const signIn = async (payload: UserSignIn) => {
+  const params = new URLSearchParams();
+  params.append("grant_type", "password");
+  params.append("username", payload.username);
+  params.append("password", payload.password);
+  params.append("scope", "");
+
+  const response = await axios.post<{
+    access_token: string;
+    token_type: string;
+  }>(`${BASE_URL}auth/sign-in`, params, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+
+  return response.data;
+};
+</file>
+
+<file path="features/landing/components/agent-architecture-section.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  GraduationCap,
+  BookOpen,
+  Sparkles,
+  CheckCircle2,
+  Compass,
+  SpellCheck,
+  Award,
+  ArrowLeft,
+  Quote,
+} from "lucide-react";
+
+interface Agent {
+  id: string;
+  badge: string;
+  name: string;
+  mentorTitle: string;
+  themeColor: string;
+  glowColor: string;
+  lightBg: string;
+  borderColor: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  summary: string;
+  focusAreas: string[];
+  feedbackExample: {
+    studentText: string;
+    highlightedPart: string;
+    suggestion: string;
+    mentorNote: string;
+  };
+}
+
+const agents: Agent[] = [
+  {
+    id: "task-response",
+    badge: "پاسخ به سوال (Task Response)",
+    name: "استاد راهنمای ساختار و استدلال",
+    mentorTitle: "راهنمای منطق و شفافیت ایده",
+    themeColor: "#818cf8", // indigo-400
+    glowColor: "rgba(129, 140, 248, 0.15)",
+    lightBg: "bg-indigo-500/10 text-indigo-300 border-indigo-500/20",
+    borderColor: "border-indigo-500/40",
+    icon: Compass,
+    summary:
+      "مطمئن می‌شود که دقیقا به صورت سوال پاسخ داده‌اید، پاراگراف‌ها با مثال‌های ملموس پشتیبانی شده‌اند و دیدگاه شما در سراسر متن شفاف و پایدار است.",
+    focusAreas: [
+      "بررسی تک‌تک بخش‌های سوال تسک ۲",
+      "پرهیز از کلی‌گویی و ارائه دلایل منسجم",
+      "شفافیت دیدگاه و نتیجه‌گیری روشن",
+    ],
+    feedbackExample: {
+      studentText:
+        "Many people believe technology makes life easier. However, I think it has negative sides too.",
+      highlightedPart: "However, I think it has negative sides too.",
+      suggestion:
+        "Nevertheless, its adverse ramifications on human interaction cannot be overlooked.",
+      mentorNote:
+        "موضع خود را از ابتدا با یک بیانیه شفاف (Clear Thesis Statement) بیان کنید تا ممتحن بداند چه روندی را قرار است اثبات کنید.",
+    },
+  },
+  {
+    id: "lexical-resource",
+    badge: "دایره واژگان (Lexical Resource)",
+    name: "مربی واژگان آکادمیک و کالوکیشن",
+    mentorTitle: "مشاور زبان طبیعی و لحن دانشگاهی",
+    themeColor: "#f472b6", // pink-400
+    glowColor: "rgba(244, 114, 182, 0.15)",
+    lightBg: "bg-pink-500/10 text-pink-300 border-pink-500/20",
+    borderColor: "border-pink-500/40",
+    icon: BookOpen,
+    summary:
+      "عبارات روزمره و تکراری را به ترکیب‌های طبیعی (Collocations) و اصطلاحات متناسب با مقالات آکادمیک ارتقا می‌دهد، بدون آنکه جمله مصنوعی یا ثقیل شود.",
+    focusAreas: [
+      "کالوکیشن‌های طبیعی به سبک افراد بومی (Native-like)",
+      "جلوگیری از تکرار چندباره کلمات کلیدی",
+      "دقت مفهومی در انتخاب صفت‌ها و افعال قوی",
+    ],
+    feedbackExample: {
+      studentText:
+        "Air pollution is a very serious problem that brings severe danger to health.",
+      highlightedPart: "very serious problem that brings severe danger",
+      suggestion:
+        "pressing dilemma that poses substantial threats to public well-being",
+      mentorNote:
+        "به جای صفت‌های عمومی مثل 'serious problem'، ترکیب 'pressing dilemma' و کالوکیشن 'poses threats' امتیاز شما را در این بخش تا نمره ۸ ارتقا می‌دهد.",
+    },
+  },
+  {
+    id: "cohesion-grammar",
+    badge: "دستور زبان و اتصال جملات (GRA & CC)",
+    name: "ویراستار گرامر و جریان پیوسته متن",
+    mentorTitle: "کنترل روانی خواندن و تنوع ساختاری",
+    themeColor: "#34d399", // emerald-400
+    glowColor: "rgba(52, 211, 153, 0.15)",
+    lightBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
+    borderColor: "border-emerald-500/40",
+    icon: SpellCheck,
+    summary:
+      "متن شما را از نظر روانی خوانش، تعادل میان جملات ساده و مرکب، و سلامت علائم نگارشی صیقل داده تا ایده شما نرم و بدون لکنت جریان یابد.",
+    focusAreas: [
+      "استفاده صحیح از حروف ربط و رابط‌های پیوستگی (Cohesive Devices)",
+      "ساختارهای پیچیده ایمن (Inversion, Conditionals, Relative clauses)",
+      "اصلاح نشانه‌گذاری و فاصله‌گذاری‌های نگارشی",
+    ],
+    feedbackExample: {
+      studentText:
+        "People drive cars every day. Therefore traffic increases and this makes delay.",
+      highlightedPart: "Therefore traffic increases and this makes delay.",
+      suggestion:
+        "Consequently, traffic congestion intensifies, leading to widespread commuting delays.",
+      mentorNote:
+        "با ترکیب دو جمله کوتاه به یک جمله مجهز به participle clause (leading to...)، مهارت خود را در ایجاد ساختارهای مرکب نشان می‌دهید.",
+    },
+  },
+];
+
+export function AgentArchitectureSection() {
+  const [activeAgent, setActiveAgent] = useState<Agent>(agents[0]);
+
+  return (
+    <section
+      dir="rtl"
+      className="w-full relative py-20 px-4 sm:px-6 md:px-12 bg-bg-dark font-vazirmatn overflow-hidden border-t border-white/5"
+    >
+      {/* Subtle academic ambient light */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 opacity-25"
+        style={{ backgroundColor: activeAgent.themeColor }}
+      />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-purple-400/20 bg-purple-900/20 text-purple-200 text-xs sm:text-sm font-medium backdrop-blur-sm"
+          >
+            <GraduationCap size={16} className="text-purple-300" />
+            <span>تیم منتورهای تخصصی برای هر معیار آیلتس</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl sm:text-4xl font-extrabold text-white leading-snug"
+          >
+            یک دستیار کلی‌گو نه، بلکه{" "}
+            <span className="bg-linear-to-r from-purple-300 via-pink-300 to-indigo-300 bg-clip-text text-transparent">
+              ۳ متخصص همراه
+            </span>{" "}
+            برای بازخورد به متن شما
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-sm sm:text-base text-neutral-300 leading-relaxed"
+          >
+            همانند میز تصحیح اساتید باسابقه، متن شما تفکیک شده و هر بخش بر اساس
+            معیارهای رسمی جدول نمره‌دهی ممتحن (IELTS Band Descriptors) تحلیل
+            آموزشی می‌شود.
+          </motion.p>
+        </div>
+
+        {/* 3 Academic Persona Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          {agents.map((agent) => {
+            const isSelected = activeAgent.id === agent.id;
+            const IconComponent = agent.icon;
+
+            return (
+              <motion.div
+                key={agent.id}
+                whileHover={{ y: -3 }}
+                onClick={() => setActiveAgent(agent)}
+                className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 backdrop-blur-sm border flex flex-col justify-between relative ${
+                  isSelected
+                    ? `${agent.borderColor} bg-white/[0.05] shadow-lg`
+                    : "border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.03]"
+                }`}
+                style={{
+                  boxShadow: isSelected
+                    ? `0 10px 30px -10px ${agent.glowColor}`
+                    : undefined,
+                }}
+              >
+                {/* Active Indicator Line */}
+                {isSelected && (
+                  <motion.div
+                    layoutId="cathovenActiveLine"
+                    className="absolute top-0 right-8 left-8 h-1 rounded-b-md"
+                    style={{ backgroundColor: agent.themeColor }}
+                  />
+                )}
+
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className="p-3 rounded-xl border flex items-center justify-center transition-colors"
+                      style={{
+                        backgroundColor: `${agent.themeColor}15`,
+                        borderColor: `${agent.themeColor}35`,
+                        color: agent.themeColor,
+                      }}
+                    >
+                      <IconComponent size={22} />
+                    </div>
+
+                    <span
+                      className={`text-[11px] px-2.5 py-0.5 rounded-full border font-medium ${agent.lightBg}`}
+                    >
+                      {agent.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-neutral-100 mb-1">
+                    {agent.name}
+                  </h3>
+                  <span className="text-xs text-neutral-400 font-normal block mb-3">
+                    {agent.mentorTitle}
+                  </span>
+
+                  <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                    {agent.summary}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 space-y-1.5">
+                  {agent.focusAreas.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs text-neutral-300"
+                    >
+                      <CheckCircle2
+                        size={13}
+                        style={{ color: agent.themeColor }}
+                        className="shrink-0"
+                      />
+                      <span className="truncate">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Cathoven-style Interactive Teaching Sandbox */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeAgent.id}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="w-full rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md p-6 sm:p-8"
+          >
+            {/* Box Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <Award size={20} style={{ color: activeAgent.themeColor }} />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  نمونه یادداشت آموزشی و اصلاحی {activeAgent.name}
+                </h4>
+              </div>
+              <span className="text-xs text-neutral-400">
+                بر اساس نمره‌دهی رسمی Cambridge IELTS
+              </span>
+            </div>
+
+            {/* Split Classroom View */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 items-start">
+              {/* Left Column (Student Text & Enhancement) */}
+              <div className="lg:col-span-7 space-y-4" dir="ltr">
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <span className="text-[11px] uppercase tracking-wider text-neutral-400 font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Original Draft
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-300 font-sans leading-relaxed">
+                    {activeAgent.feedbackExample.studentText.replace(
+                      activeAgent.feedbackExample.highlightedPart,
+                      "",
+                    )}
+                    <span className="text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border-b-2 border-amber-400/60 font-medium">
+                      {activeAgent.feedbackExample.highlightedPart}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-2">
+                  <span
+                    className="text-[11px] uppercase tracking-wider font-mono flex items-center gap-1.5"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    <Sparkles size={13} />
+                    Academic Refinement
+                  </span>
+                  <p className="text-sm sm:text-base text-neutral-100 font-sans font-medium leading-relaxed">
+                    &quot;{activeAgent.feedbackExample.suggestion}&quot;
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column (Mentor Teaching Note) */}
+              <div
+                className="lg:col-span-5 flex flex-col justify-between p-5 rounded-xl border border-white/10 bg-white/[0.015]"
+                dir="rtl"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Quote
+                      size={18}
+                      style={{ color: activeAgent.themeColor }}
+                    />
+                    <span className="text-xs font-bold text-neutral-200">
+                      چرا این تغییر نمره شما را بالاتر می‌برد؟
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    {activeAgent.feedbackExample.mentorNote}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-400">
+                  <span>تأثیر در کارنامه آزمون</span>
+                  <span
+                    className="font-bold flex items-center gap-1"
+                    style={{ color: activeAgent.themeColor }}
+                  >
+                    ارتقا به سطح Band 8+
+                    <ArrowLeft size={13} />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="features/landing/components/assesment-card.tsx">
+"use client";
+
+import { motion } from "framer-motion";
+import { Target } from "lucide-react";
+
+export function AssessmentCard() {
+  const rubrics = [
+    "Task Response",
+    "Coherence & Cohesion",
+    "Lexical Resource",
+    "Grammatical Range",
+  ];
+
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#ea580c]/20 bg-gradient-to-br from-[#2a1d18] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow (Pinch of Orange) */}
+      <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#ea580c] opacity-15 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-4"
+      >
+        <div className="flex items-start gap-3">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ea580c]/20 text-orange-400">
+            <Target size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-base font-bold leading-relaxed text-neutral-100 font-vazirmatn">
+            ساختار، گرامر و دایره لغات خود را با استانداردهای واقعی آیلتس
+            بسنجید.
+          </h3>
+        </div>
+      </motion.div>
+
+      {/* Animated Rubrics Badges */}
+      <div className="relative z-10 mt-6 flex flex-wrap gap-2" dir="ltr">
+        {rubrics.map((rubric, index) => (
+          <motion.span
+            key={rubric}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.2, 1, 0.2] }}
+            transition={{
+              duration: 4,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: index * 0.7, // Staggers the fading effect between badges
+            }}
+            className="rounded-full border border-orange-500/30 bg-orange-950/40 px-3 py-1.5 text-xs font-medium tracking-wide text-orange-200"
+          >
+            {rubric}
+          </motion.span>
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="features/landing/components/hero-examiner-studio.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Award,
+  BookOpen,
+  SpellCheck,
+  Compass,
+  ArrowUpRight,
+  TrendingUp,
+} from "lucide-react";
+
+type ActiveCriterion = "tr" | "lr" | "gra";
+
+interface CriterionData {
+  id: ActiveCriterion;
+  titleFa: string;
+  nameEn: string;
+  score: string;
+  color: string;
+  borderClass: string;
+  bgBadgeClass: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  original: string;
+  enhanced: string;
+  examinerNote: string;
+}
+
+const criteriaList: CriterionData[] = [
+  {
+    id: "lr",
+    titleFa: "دایره واژگان آکادمیک",
+    nameEn: "Lexical Resource",
+    score: "8.5",
+    color: "#f472b6", // pink-400
+    borderClass: "border-pink-500/40",
+    bgBadgeClass: "bg-pink-500/10 text-pink-300 border-pink-500/30",
+    icon: BookOpen,
+    original: "is a very big issue for modern countries",
+    enhanced: "constitutes a formidable impediment to sustainable growth",
+    examinerNote:
+      "جایگزینی عبارت محاوره‌ای 'big issue' با کالوکیشن آکادمیک و ساختار دقیق.",
+  },
+  {
+    id: "tr",
+    titleFa: "استدلال و پاسخ به سوال",
+    nameEn: "Task Response",
+    score: "8.0",
+    color: "#818cf8", // indigo-400
+    borderClass: "border-indigo-500/40",
+    bgBadgeClass: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30",
+    icon: Compass,
+    original: "I think that both opinions have good points.",
+    enhanced:
+      "While merit exists in both perspectives, empirical evidence favors the latter.",
+    examinerNote:
+      "ارائه بیانیه تز شفاف (Clear Thesis) و پرهیز از لحن غیررسمی شخصی.",
+  },
+  {
+    id: "gra",
+    titleFa: "تنوع گرامر و صحت ساختاری",
+    nameEn: "Grammatical Range",
+    score: "8.0",
+    color: "#34d399", // emerald-400
+    borderClass: "border-emerald-500/40",
+    bgBadgeClass: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    icon: SpellCheck,
+    original: "Cities become crowded and people get late.",
+    enhanced:
+      "Urban centers become congested, precipitating extensive commuting delays.",
+    examinerNote:
+      "کاربرد ساختار مجهز به Participle Clause و پیوستگی بی‌نقص ایده.",
+  },
+];
+
+export function HeroExaminerStudio() {
+  const [selectedCriterion, setSelectedCriterion] =
+    useState<ActiveCriterion>("lr");
+  const current =
+    criteriaList.find((c) => c.id === selectedCriterion) ?? criteriaList[0];
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-4xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-vazirmatn text-right"
+    >
+      {/* Header bar / Window Chrome */}
+      <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-white/10 bg-white/[0.02]">
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 ml-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
+          </div>
+          <span className="text-xs font-semibold text-neutral-300 flex items-center gap-1.5">
+            <Sparkles size={14} className="text-purple-400" />
+            شبیه‌ساز ارزیابی زنده اگزمینر رسمی آیلتس
+          </span>
+        </div>
+
+        {/* Live Score Counter Card */}
+        <div className="flex items-center gap-2 bg-purple-500/15 border border-purple-500/30 px-3 py-1 rounded-full">
+          <TrendingUp size={13} className="text-purple-300" />
+          <span className="text-xs text-purple-200 font-medium">
+            نمره پیش‌بینی شده:
+          </span>
+          <span className="text-xs font-black font-mono text-white bg-purple-600 px-1.5 py-0.2 rounded">
+            Band 8.5
+          </span>
+        </div>
+      </div>
+
+      {/* Main Content: Split Studio */}
+      <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        {/* Left Side (Rubrics Controller) */}
+        <div className="lg:col-span-4 space-y-2.5">
+          <span className="text-[11px] font-semibold text-neutral-400 block mb-1">
+            معیارهای رسمی ارزیابی (کلیک کنید):
+          </span>
+          {criteriaList.map((criterion) => {
+            const isSelected = selectedCriterion === criterion.id;
+            const Icon = criterion.icon;
+
+            return (
+              <button
+                key={criterion.id}
+                type="button"
+                onClick={() => setSelectedCriterion(criterion.id)}
+                className={`w-full p-3 rounded-xl border text-right transition-colors cursor-pointer flex items-center justify-between ${
+                  isSelected
+                    ? "border-purple-500/50 bg-white/[0.06] shadow-sm"
+                    : "border-white/5 bg-white/[0.02] hover:bg-white/[0.04] text-neutral-400"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center border"
+                    style={{
+                      backgroundColor: `${criterion.color}15`,
+                      borderColor: `${criterion.color}35`,
+                      color: criterion.color,
+                    }}
+                  >
+                    <Icon size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-neutral-100">
+                      {criterion.titleFa}
+                    </h4>
+                    <span className="text-[10px] text-neutral-400 font-mono block">
+                      {criterion.nameEn}
+                    </span>
+                  </div>
+                </div>
+
+                <span
+                  className="text-xs font-mono font-bold px-2 py-0.5 rounded border"
+                  style={{
+                    color: criterion.color,
+                    borderColor: `${criterion.color}35`,
+                    backgroundColor: `${criterion.color}10`,
+                  }}
+                >
+                  {criterion.score}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right Side (Active Inspection Box) */}
+        <div className="lg:col-span-8 flex flex-col gap-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+              className="space-y-3.5"
+            >
+              {/* English Essay Passage LTR */}
+              <div
+                dir="ltr"
+                className="p-4 sm:p-5 rounded-2xl bg-white/[0.025] border border-white/10 space-y-3 font-sans"
+              >
+                <div className="flex items-center justify-between text-xs pb-2 border-b border-white/5">
+                  <span className="font-mono text-neutral-400 text-[11px] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
+                    Student Submission (Task 2 Sample)
+                  </span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-md border font-mono ${current.bgBadgeClass}`}
+                  >
+                    {current.nameEn}
+                  </span>
+                </div>
+
+                <div className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                  <span>
+                    It is widely argued that environmental degradation{" "}
+                  </span>
+                  <span className="bg-red-500/20 text-red-300 px-1 py-0.5 rounded line-through decoration-red-400 font-normal">
+                    {current.original}
+                  </span>
+                  <span>.</span>
+                </div>
+
+                {/* Refined Band 8.5 Snippet */}
+                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-start gap-2">
+                  <Award
+                    size={16}
+                    className="text-purple-400 shrink-0 mt-0.5"
+                  />
+                  <div className="text-xs sm:text-[13px] text-purple-100 font-medium leading-relaxed">
+                    <span className="text-purple-300 text-[11px] uppercase tracking-wider block font-mono">
+                      Refined by Examiner Agent:
+                    </span>
+                    &ldquo;{current.enhanced}&rdquo;
+                  </div>
+                </div>
+              </div>
+
+              {/* Teaching Explanatory Note RTL */}
+              <div className="p-3 sm:p-3.5 rounded-xl border border-white/5 bg-white/[0.015] flex items-center justify-between text-xs text-neutral-300">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: current.color }}
+                  />
+                  <span>{current.examinerNote}</span>
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium">
+                  افزایش تراز
+                  <ArrowUpRight size={13} />
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="features/landing/components/interactive-feedback-demo.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  CheckCheck,
+  Sparkles,
+  Zap,
+  Layers,
+  ArrowRightLeft,
+} from "lucide-react";
+
+type CriterionKey = "all" | "lexical" | "cohesion" | "grammar";
+
+export function InteractiveFeedbackDemo() {
+  const [activeCriterion, setActiveCriterion] = useState<CriterionKey>("all");
+
+  const criteriaFilters: { id: CriterionKey; label: string }[] = [
+    { id: "all", label: "تمام اصلاحات" },
+    { id: "lexical", label: "ارتقای واژگان (Band 8+)" },
+    { id: "cohesion", label: "انسجام و پیوستگی (Cohesion)" },
+    { id: "grammar", label: "ساختارهای پیچیده گرامری" },
+  ];
+
+  return (
+    <section
+      dir="rtl"
+      className="w-full py-20 px-4 sm:px-6 md:px-12 bg-linear-to-b from-bg to-bg-dark font-vazirmatn relative border-t border-white/5"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-medium">
+            <Sparkles size={14} />
+            <span>مشاهده زنده نحوه عملکرد ایجنت</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+            تبدیل رایتینگ Band 6 به شاهکار Band 8.5
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-400">
+            تغییرات هوشمند ایجنت را بر اساس فیلترهای استاندارد اگزمینر بررسی
+            کنید.
+          </p>
+        </div>
+
+        {/* Filter Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          {criteriaFilters.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveCriterion(tab.id)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border ${
+                activeCriterion === tab.id
+                  ? "bg-primary-600 text-white border-primary-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-neutral-200 hover:border-white/20"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Before vs After Dual Pane */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" dir="ltr">
+          {/* Original Text Pane */}
+          <div className="rounded-2xl border border-red-500/20 bg-red-950/[0.06] p-6 backdrop-blur-md relative flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-red-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-red-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-400" />
+                  Original Submission (Estimated 6.0)
+                </span>
+                <span className="text-xs bg-red-500/10 text-red-300 px-2 py-0.5 rounded border border-red-500/20 font-mono">
+                  Repetitive Lexis
+                </span>
+              </div>
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base font-sans">
+                Nowadays, pollution is a{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  big problem
+                </span>{" "}
+                for big cities. Government{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  should make strict rules
+                </span>{" "}
+                because people keep driving their personal cars everywhere and
+                this{" "}
+                <span className="bg-red-500/20 text-red-300 px-1.5 py-0.5 rounded line-through decoration-red-400">
+                  makes the air very dirty
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-neutral-400 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span>
+                ایرادات: واژگان عمومی، افعال ضعیف و عدم ترکیب‌های آکادمیک.
+              </span>
+            </div>
+          </div>
+
+          {/* AI Enhanced Pane */}
+          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/[0.08] p-6 backdrop-blur-md relative flex flex-col justify-between shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-emerald-500/10 mb-4">
+                <span className="text-xs font-mono tracking-wider uppercase text-emerald-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Agent Refactored (Estimated 8.5)
+                </span>
+                <span className="text-xs bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+                  Lexical Precision
+                </span>
+              </div>
+
+              <p className="text-neutral-100 leading-relaxed text-sm sm:text-base font-sans">
+                In the contemporary era, environmental degradation represents a{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "lexical"
+                      ? "bg-purple-500/30 text-purple-200 border border-purple-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  pressing dilemma
+                </span>{" "}
+                plaguing metropolitan hubs. Authorities must{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "grammar"
+                      ? "bg-emerald-500/30 text-emerald-200 border border-emerald-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  implement stringent statutory frameworks
+                </span>
+                , given that commuter dependence on private transit{" "}
+                <span
+                  className={`transition-all duration-300 px-1.5 py-0.5 rounded font-semibold ${
+                    activeCriterion === "all" || activeCriterion === "cohesion"
+                      ? "bg-sky-500/30 text-sky-200 border border-sky-500/50 shadow-xs"
+                      : "text-neutral-100"
+                  }`}
+                >
+                  exacerbates atmospheric contamination exponentially
+                </span>
+                .
+              </p>
+            </div>
+
+            <div
+              className="mt-6 pt-4 border-t border-white/5 text-xs text-emerald-300 flex items-center justify-between"
+              dir="rtl"
+            >
+              <span className="flex items-center gap-1">
+                <CheckCheck size={16} className="text-emerald-400" />
+                افزایش دامنه واژگان دانشگاهی و استفاده از افعال قوی
+                (Collocations).
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="features/landing/components/progress-card.tsx">
+"use client";
+
+import { motion } from "framer-motion";
+import { Activity } from "lucide-react";
+
+export function ProgressCard() {
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#413185]/20 bg-gradient-to-br from-[#1b1633] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow */}
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#4f27ff] opacity-10 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-3"
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#413185]/30 text-indigo-300">
+            <Activity size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-xl font-bold text-neutral-100 font-vazirmatn">
+            گزارشات پیشرفت
+          </h3>
+        </div>
+        <p className="text-sm font-medium leading-relaxed text-neutral-400 font-vazirmatn">
+          روند پیشرفت خود را به صورت لحظه ای ببینید !
+        </p>
+      </motion.div>
+
+      {/* Animated Line Chart */}
+      <div className="relative z-10 mt-6 h-24 w-full">
+        <svg
+          className="h-full w-full overflow-visible"
+          viewBox="0 0 200 80"
+          preserveAspectRatio="none"
+        >
+          {/* Grid lines */}
+          <line
+            x1="0"
+            y1="20"
+            x2="200"
+            y2="20"
+            stroke="#ffffff08"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          <line
+            x1="0"
+            y1="60"
+            x2="200"
+            y2="60"
+            stroke="#ffffff08"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+
+          {/* Infinite Animated Line */}
+          <motion.path
+            d="M0 70 Q 30 70, 50 50 T 100 40 T 150 20 T 200 5"
+            fill="none"
+            stroke="#8b5cf6"
+            strokeWidth="3"
+            strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0.5 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 2.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+
+          {/* Infinite Animated Data Point */}
+          <motion.circle
+            cx="200"
+            cy="5"
+            r="4"
+            fill="#c4b5fd"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              duration: 2.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="features/landing/components/progress-report-showcase.tsx">
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  Flame,
+  BookOpen,
+  Sparkles,
+  TrendingUp,
+  Award,
+  CheckCircle2,
+  CalendarCheck,
+  Zap,
+} from "lucide-react";
+
+// Mock Progress Data across 6 consecutive evaluation essays
+const scoreHistoryData = [
+  { essay: "مقاله ۱", overall: 6.0, tr: 6.0, lr: 5.5, gra: 6.0, cc: 6.5 },
+  { essay: "مقاله ۲", overall: 6.5, tr: 6.5, lr: 6.0, gra: 6.5, cc: 6.5 },
+  { essay: "مقاله ۳", overall: 6.5, tr: 6.5, lr: 6.5, gra: 6.5, cc: 7.0 },
+  { essay: "مقاله ۴", overall: 7.0, tr: 7.0, lr: 7.0, gra: 7.0, cc: 7.0 },
+  { essay: "مقاله ۵", overall: 7.5, tr: 7.5, lr: 7.5, gra: 7.0, cc: 7.5 },
+  { essay: "مقاله ۶", overall: 8.0, tr: 8.0, lr: 8.5, gra: 7.5, cc: 8.0 },
+];
+
+const vocabularyGrowthData = [
+  { week: "هفته ۱", collocations: 18, c1Words: 12 },
+  { week: "هفته ۲", collocations: 34, c1Words: 26 },
+  { week: "هفته ۳", collocations: 58, c1Words: 44 },
+  { week: "هفته ۴", collocations: 89, c1Words: 72 },
+  { week: "هفته ۵", collocations: 124, c1Words: 98 },
+  { week: "هفته ۶", collocations: 168, c1Words: 135 },
+];
+
+const scoreChartConfig = {
+  overall: {
+    label: "نمره کلی (Overall Band)",
+    color: "#a855f7", // purple-500
+  },
+  lr: {
+    label: "واژگان (Lexical Resource)",
+    color: "#f472b6", // pink-400
+  },
+  tr: {
+    label: "استدلال (Task Response)",
+    color: "#818cf8", // indigo-400
+  },
+} satisfies ChartConfig;
+
+const vocabChartConfig = {
+  collocations: {
+    label: "کالوکیشن‌های فعال آکادمیک",
+    color: "#a855f7",
+  },
+  c1Words: {
+    label: "لغات سطح C1/C2 ثبت‌شده",
+    color: "#34d399", // emerald-400
+  },
+} satisfies ChartConfig;
+
+export function ProgressReportShowcase() {
+  const [metricView, setMetricView] = useState<"overall" | "criteria">(
+    "overall",
+  );
+
+  return (
+    <div
+      dir="rtl"
+      className="w-full max-w-6xl mx-auto rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 sm:p-8 space-y-8 font-vazirmatn text-right shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+    >
+      {/* Top Banner: Quick User Metric KPIs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        {/* Metric 1: Streak */}
+        <div className="p-4 rounded-2xl border border-amber-500/20 bg-amber-500/[0.04] backdrop-blur-sm relative overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-amber-200/80 font-medium">
+              استمرار تمرین
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <Flame size={17} className="animate-pulse" />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۲۱
+              </span>
+              <span className="text-xs text-amber-300">روز پیوسته</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رتبه برتر ۷٪ داوطلبان منظم
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 2: Mastered Collocations */}
+        <div className="p-4 rounded-2xl border border-purple-500/20 bg-purple-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-purple-200/80 font-medium">
+              کالوکیشن‌های ملکه شده
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <BookOpen size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۱۶۸
+              </span>
+              <span className="text-xs text-emerald-400 font-mono font-bold">
+                +۳۸ این هفته
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              استفاده طبیعی در ۴ مقاله اخیر
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 3: Score Progress */}
+        <div className="p-4 rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-indigo-200/80 font-medium">
+              جهش نمره تخمینی
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <TrendingUp size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                8.0
+              </span>
+              <span className="text-xs text-purple-300 font-mono">
+                از 6.0 اولیه
+              </span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              رشد +۲.۰ نمره در ۶ مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Metric 4: Grammar Accuracy */}
+        <div className="p-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] backdrop-blur-sm flex flex-col justify-between">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs text-emerald-200/80 font-medium">
+              کاهش خطاهای گرامری
+            </span>
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <Zap size={17} />
+            </div>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+                ۸۲٪
+              </span>
+              <span className="text-xs text-emerald-300">دقت ساختاری</span>
+            </div>
+            <span className="text-[11px] text-neutral-400 mt-1 block">
+              میانگین کمتر از ۲ خطا در هر تسک
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Visuals Grid: Area Chart + Bar Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Primary Chart: Score Progression Area Chart */}
+        <div className="lg:col-span-7 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/5">
+            <div>
+              <div className="flex items-center gap-2">
+                <Award size={18} className="text-purple-400" />
+                <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                  تحلیل صعود نمره در طول زمان
+                </h4>
+              </div>
+              <p className="text-xs text-neutral-400 mt-0.5">
+                تغییرات مرحله‌به‌مرحله نمره بر اساس استانداردهای رسمی کمبریج
+              </p>
+            </div>
+
+            {/* Toggle Filters */}
+            <div className="flex items-center gap-1 p-1 bg-white/[0.04] rounded-lg border border-white/5 self-start sm:self-center">
+              <button
+                type="button"
+                onClick={() => setMetricView("overall")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "overall"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                نمره کل
+              </button>
+              <button
+                type="button"
+                onClick={() => setMetricView("criteria")}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  metricView === "criteria"
+                    ? "bg-purple-600 text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                معیارهای تفکیکی
+              </button>
+            </div>
+          </div>
+
+          {/* shadcn Area Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={scoreChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <AreaChart
+                data={scoreHistoryData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <defs>
+                  <linearGradient
+                    id="scoreOverallGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#a855f7" stopOpacity={0.45} />
+                    <stop offset="95%" stopColor="#a855f7" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreLrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#f472b6" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#f472b6" stopOpacity={0.0} />
+                  </linearGradient>
+                  <linearGradient
+                    id="scoreTrGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="5%" stopColor="#818cf8" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="#818cf8" stopOpacity={0.0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="essay"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  domain={[5.0, 9.0]}
+                  ticks={[5.0, 6.0, 7.0, 8.0, 9.0]}
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+
+                {metricView === "overall" ? (
+                  <Area
+                    type="natural"
+                    dataKey="overall"
+                    stroke="#a855f7"
+                    strokeWidth={2.5}
+                    fillOpacity={1}
+                    fill="url(#scoreOverallGradient)"
+                    dot={{
+                      fill: "#a855f7",
+                      stroke: "#000",
+                      strokeWidth: 2,
+                      r: 4,
+                    }}
+                    activeDot={{ r: 6, fill: "#c084fc", stroke: "#fff" }}
+                  />
+                ) : (
+                  <>
+                    <Area
+                      type="natural"
+                      dataKey="lr"
+                      stroke="#f472b6"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreLrGradient)"
+                    />
+                    <Area
+                      type="natural"
+                      dataKey="tr"
+                      stroke="#818cf8"
+                      strokeWidth={2}
+                      fillOpacity={1}
+                      fill="url(#scoreTrGradient)"
+                    />
+                  </>
+                )}
+              </AreaChart>
+            </ChartContainer>
+          </div>
+
+          <div className="pt-2 flex flex-wrap items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500" />
+              پیش‌بینی اگزمینر برای آزمون نهایی:{" "}
+              <strong className="text-white font-mono">Band 7.5 - 8.0</strong>
+            </span>
+            <span className="text-[11px] text-neutral-500">
+              به‌روزرسانی خودکار پس از هر ثبت مقاله
+            </span>
+          </div>
+        </div>
+
+        {/* Secondary Chart: Vocabulary & Collocation Accumulation */}
+        <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 space-y-4">
+          <div className="pb-3 border-b border-white/5">
+            <div className="flex items-center gap-2">
+              <Sparkles size={18} className="text-pink-400" />
+              <h4 className="text-sm sm:text-base font-bold text-neutral-100">
+                گنجینه واژگان و کالوکیشن‌ها
+              </h4>
+            </div>
+            <p className="text-xs text-neutral-400 mt-0.5">
+              تعداد عبارات آکادمیک که به شکل فعال در رایتینگ‌ها به کار گرفته‌اید
+            </p>
+          </div>
+
+          {/* Bar Chart */}
+          <div className="w-full pt-2" dir="ltr">
+            <ChartContainer
+              config={vocabChartConfig}
+              className="h-64 sm:h-72 w-full"
+            >
+              <BarChart
+                data={vocabularyGrowthData}
+                margin={{ top: 12, right: 12, left: -20, bottom: 0 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="rgba(255,255,255,0.06)"
+                />
+                <XAxis
+                  dataKey="week"
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <YAxis
+                  tickLine={false}
+                  axisLine={false}
+                  stroke="#a3a3a3"
+                  fontSize={11}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Bar
+                  dataKey="collocations"
+                  fill="#a855f7"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+                <Bar
+                  dataKey="c1Words"
+                  fill="#34d399"
+                  radius={[4, 4, 0, 0]}
+                  barSize={14}
+                />
+              </BarChart>
+            </ChartContainer>
+          </div>
+
+          {/* Legend */}
+          <div className="pt-2 flex items-center justify-between text-xs text-neutral-400 border-t border-white/5">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-purple-500" />
+                کالوکیشن آکادمیک
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400" />
+                واژگان پیشرفته (C1/C2)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Insights Note */}
+      <div className="rounded-xl border border-purple-500/20 bg-purple-500/[0.05] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-300">
+        <div className="flex items-center gap-2.5">
+          <CalendarCheck size={18} className="text-purple-300 shrink-0" />
+          <span>
+            سیستم گزارش‌دهی هوشمند پس از هر مقاله، تکرار اشتباهات گذشته را رصد
+            کرده و برای تسک بعدی تمرین اختصاصی پیشنهاد می‌دهد.
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 text-purple-300 font-bold shrink-0">
+          <CheckCircle2 size={15} />
+          <span>هماهنگ با فرمت آزمون کامپیوتری و کاغذی</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="CLAUDE.md">
+@AGENTS.md
+</file>
+
+<file path="components.json">
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@magicui": "https://magicui.design/r/{name}",
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+  }
+}
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="skills-lock.json">
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "106acf230014cbb43ca34e6410371321b56ca742f9ee0442e8ec05bf02eb0384"
+    }
+  }
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="components/ui/bento-grid.tsx">
+import { cn } from "@/lib/utils";
+
+export const BentoGrid = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const BentoGridItem = ({
+  className,
+  title,
+  description,
+  header,
+  icon,
+}: {
+  className?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  header?: React.ReactNode;
+  icon?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none",
+        className,
+      )}
+    >
+      {header}
+      <div className="transition duration-200 group-hover/bento:translate-x-2">
+        {icon}
+        <div className="mt-2 mb-2 font-sans font-bold text-white dark:text-neutral-200">
+          {title}
+        </div>
+        <div className="font-sans text-xs font-normal text-white/80 dark:text-neutral-300">
+          {description}
+        </div>
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="features/auth/components/login-form.tsx">
+"use client";
+
+import { useState } from "react";
+import { useForm } from "@tanstack/react-form";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  Phone,
+  Lock,
+  User,
+  ArrowLeft,
+  Eye,
+  EyeOff,
+  CheckCircle2,
+  ShieldCheck,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { signIn } from "../api/auth-api";
+import { storeToken } from "../action/auth-actions";
+import Link from "next/link";
+
+type AuthMode = "login" | "signup";
+
+export default function LoginForm() {
+  const [mode, setMode] = useState<AuthMode>("login");
+  const [showPassword, setShowPassword] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const form = useForm({
+    defaultValues: {
+      fullName: "",
+      username: "",
+      password: "",
+    },
+    onSubmit: async ({ value }) => {
+      setApiError(null);
+      try {
+        const data = await signIn({
+          username: value.username,
+          password: value.password,
+        });
+
+        await storeToken(data.access_token);
+        router.push("/");
+      } catch {
+        setApiError(
+          mode === "login"
+            ? "شماره تلفن یا رمز عبور اشتباه است."
+            : "خطا در ثبت‌نام، لطفاً مجدداً تلاش کنید.",
+        );
+      }
+    },
+  });
+
+  return (
+    <div
+      dir="rtl"
+      className="relative w-full max-w-5xl mx-auto min-h-[620px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.6)] overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+    >
+      {/* Dynamic Background Light Accent */}
+      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-purple-600/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-indigo-600/20 blur-[100px] pointer-events-none" />
+
+      {/* -------------------- LEFT BRANDING / SHOWCASE (Tablet & Desktop) -------------------- */}
+      <div className="hidden lg:flex lg:col-span-5 flex-col justify-between p-10 border-l border-white/5 bg-gradient-to-br from-white/[0.04] via-transparent to-purple-950/20">
+        <div>
+          {/* Logo / Brand Header */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2.5 group mb-10"
+          >
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:scale-105 transition-transform duration-200">
+              <Sparkles size={20} className="text-white" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-black tracking-tight text-white">
+                AIelts
+              </span>
+              <span className="text-[10px] text-purple-300 font-mono">
+                NEXT-GEN EXAMINER
+              </span>
+            </div>
+          </Link>
+
+          {/* Value Prop */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-300 text-xs font-semibold">
+              <ShieldCheck size={14} />
+              <span>ارزیابی استاندارد با دقت اگزمینر Band 9</span>
+            </div>
+
+            <h2 className="text-2xl xl:text-3xl font-black text-white leading-snug">
+              نوشته‌های خود را هوشمندانه بسنجید و به نمره دلخواه برسید.
+            </h2>
+
+            <p className="text-sm text-neutral-400 leading-relaxed">
+              دسترسی لحظه‌ای به فیدبک هوش مصنوعی، تحلیل خط‌به‌خط گرامر و افزایش
+              دامنه واژگان آکادمیک در چند ثانیه.
+            </p>
+          </div>
+        </div>
+
+        {/* Live Mini Preview Metric */}
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md space-y-3">
+          <div className="flex items-center justify-between text-xs">
+            <span className="text-neutral-400 flex items-center gap-1.5 font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              ایجنت‌های آنلاین
+            </span>
+            <span className="font-mono text-emerald-400">
+              99.4% دقت ارزیابی
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[11px] text-neutral-400">
+            <span>میانگین ارتقای نمره داوطلبان</span>
+            <span className="font-bold text-white font-mono">+1.5 Band</span>
+          </div>
+        </div>
+      </div>
+
+      {/* -------------------- RIGHT INTERACTIVE FORM CONTAINER -------------------- */}
+      <div className="col-span-1 lg:col-span-7 flex flex-col justify-center px-6 py-10 sm:px-12 md:px-16 z-10">
+        {/* Mobile Header */}
+        <div className="lg:hidden flex items-center justify-between mb-8">
+          <Link href="/" className="inline-flex items-center gap-2">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center">
+              <Sparkles size={16} className="text-white" />
+            </div>
+            <span className="text-base font-black text-white">AIelts</span>
+          </Link>
+          <span className="text-xs text-neutral-400 font-mono">
+            Band 8.5 Engine
+          </span>
+        </div>
+
+        {/* Segmented Mode Switcher */}
+        <div className="relative flex items-center p-1 bg-white/[0.04] border border-white/10 rounded-2xl mb-8">
+          <button
+            type="button"
+            onClick={() => {
+              setMode("login");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "login"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "login" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ورود به حساب</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMode("signup");
+              setApiError(null);
+            }}
+            className={`relative flex-1 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+              mode === "signup"
+                ? "text-white"
+                : "text-neutral-400 hover:text-white"
+            }`}
+          >
+            {mode === "signup" && (
+              <motion.div
+                layoutId="activeTabBadge"
+                className="absolute inset-0 bg-purple-600 rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">ثبت‌ نام جدید</span>
+          </button>
+        </div>
+
+        {/* Title & Subtitle */}
+        <div className="mb-6 space-y-1">
+          <h1 className="text-2xl sm:text-3xl font-black text-white">
+            {mode === "login" ? "خوش آمدید " : "شروع سفر تسلط بر رایتینگ "}
+          </h1>
+          <p className="text-xs sm:text-sm text-neutral-400">
+            {mode === "login"
+              ? "اطلاعات حساب خود را جهت ورود وارد کنید."
+              : "حساب کاربری خود را بسازید و اولین ارزیابی را رایگان بگیرید."}
+          </p>
+        </div>
+
+        {/* Form Container */}
+        <form
+          className="space-y-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            form.handleSubmit();
+          }}
+        >
+          <AnimatePresence mode="wait">
+            {/* Sign Up: Full Name Input */}
+            {mode === "signup" && (
+              <motion.div
+                key="name-field"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                <form.Field
+                  name="fullName"
+                  validators={{
+                    onChange: ({ value }) =>
+                      mode === "signup" && !value
+                        ? "نام و نام خانوادگی الزامی است"
+                        : undefined,
+                  }}
+                >
+                  {(field) => (
+                    <div className="space-y-1.5 pb-1">
+                      <label className="text-xs font-semibold text-neutral-300">
+                        نام و نام خانوادگی
+                      </label>
+                      <div className="relative flex items-center">
+                        <User
+                          className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                          size={18}
+                        />
+                        <input
+                          id={field.name}
+                          type="text"
+                          placeholder="مثلاً: علی رضایی"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                        />
+                      </div>
+                      {field.state.meta.errors.length > 0 && (
+                        <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                          <AlertCircle size={12} />
+                          {field.state.meta.errors.join("، ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </form.Field>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Phone Number Field */}
+          <form.Field
+            name="username"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "شماره همراه الزامی است";
+                if (!/^09\d{9}$/.test(value))
+                  return "شماره همراه باید ۱۱ رقم و با ۰۹ شروع شود";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-neutral-300">
+                  شماره موبایل
+                </label>
+                <div className="relative flex items-center">
+                  <Phone
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type="tel"
+                    dir="ltr"
+                    placeholder="09123456789"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-4 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm tracking-widest text-right focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* Password Field */}
+          <form.Field
+            name="password"
+            validators={{
+              onChange: ({ value }) => {
+                if (!value) return "رمز عبور الزامی است";
+                if (value.length < 6)
+                  return "رمز عبور باید حداقل ۶ کاراکتر باشد";
+                return undefined;
+              },
+            }}
+          >
+            {(field) => (
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-neutral-300">
+                    رمز عبور
+                  </label>
+                  {mode === "login" && (
+                    <button
+                      type="button"
+                      className="text-[11px] text-purple-400 hover:text-purple-300 transition-colors cursor-pointer"
+                    >
+                      رمز عبور را فراموش کرده‌اید؟
+                    </button>
+                  )}
+                </div>
+                <div className="relative flex items-center">
+                  <Lock
+                    className="absolute right-3.5 text-neutral-500 pointer-events-none"
+                    size={18}
+                  />
+                  <input
+                    id={field.name}
+                    type={showPassword ? "text" : "password"}
+                    dir="ltr"
+                    placeholder="••••••••"
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="w-full h-11 pr-11 pl-11 rounded-xl bg-white/[0.05] border border-white/10 text-white placeholder:text-neutral-500 text-sm focus:border-purple-500 focus:bg-white/[0.08] focus:ring-2 focus:ring-purple-500/20 transition-all outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute left-3.5 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+                {field.state.meta.errors.length > 0 && (
+                  <p className="text-xs text-rose-400 flex items-center gap-1 mt-1">
+                    <AlertCircle size={12} />
+                    {field.state.meta.errors.join("، ")}
+                  </p>
+                )}
+              </div>
+            )}
+          </form.Field>
+
+          {/* API Server Error Display */}
+          {apiError && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center gap-2"
+            >
+              <AlertCircle size={16} className="shrink-0" />
+              <span>{apiError}</span>
+            </motion.div>
+          )}
+
+          {/* Submit Action */}
+          <form.Subscribe
+            selector={(state) => [state.canSubmit, state.isSubmitting]}
+          >
+            {([canSubmit, isSubmitting]) => (
+              <Button
+                type="submit"
+                disabled={!canSubmit || isSubmitting}
+                className="w-full h-11 mt-2 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>در حال پردازش...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      {mode === "login"
+                        ? "ورود به داشبورد"
+                        : "ایجاد حساب کاربری"}
+                    </span>
+                    <ArrowLeft size={16} />
+                  </>
+                )}
+              </Button>
+            )}
+          </form.Subscribe>
+        </form>
+
+        {/* Footer legal notes */}
+        <p className="mt-8 text-center text-[11px] text-neutral-500 leading-relaxed">
+          با ورود یا ثبت‌نام در سامانه،{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            قوانین و شرایط استفاده
+          </a>{" "}
+          و{" "}
+          <a href="#" className="underline text-neutral-400 hover:text-white">
+            حفظ حریم خصوصی
+          </a>{" "}
+          AIelts را می‌پذیرید.
+        </p>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="features/landing/components/bento-grid.tsx">
+import { cn } from "@/lib/utils";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import {
+  IconArrowWaveRightUp,
+  IconBoxAlignRightFilled,
+  IconBoxAlignTopLeft,
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+  IconBallpen,
+} from "@tabler/icons-react";
+
+export function FeaturesBento() {
+  return (
+    <BentoGrid className="max-w-4xl mx-auto text-white ">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          header={item.header}
+          icon={item.icon}
+          className={`${i === 3 || i === 6 ? "md:col-span-3" : ""} bg-bg-light text-white`}
+        />
+      ))}
+    </BentoGrid>
+  );
+}
+
+interface GridImageProps {
+  src: string;
+  alt: string;
+  className?: string; // Allows passing additional classes to the wrapper
+  imageClassName?: string; // Allows passing additional classes to the img element
+}
+
+const GridImage = ({ src, alt, className, imageClassName }: GridImageProps) => (
+  <div
+    className={cn(
+      "flex flex-1 w-full h-full min-h-24 rounded-xl overflow-hidden dark:bg-neutral-900",
+      className,
+    )}
+  >
+    <img
+      src={src}
+      alt={alt}
+      // Changed "object-center" to "object-top" or custom percentages to shift the X/Y view
+      className={cn(
+        "w-full h-full object-cover object-[50%_50%] transition duration-200",
+        imageClassName,
+      )}
+    />
+  </div>
+);
+
+// Swap out the generic "/images/..." paths with your actual filenames inside the public folder
+const items = [
+  {
+    title: "دریافت نقاط قوت و ضعف",
+    description:
+      "نقاط ضعف و قوت خود را در هر چهار معیار اصلی آیلتس شناسایی کنید.",
+    header: (
+      <GridImage src="/images/writing_closeup.webp" alt="writing close up" />
+    ),
+    icon: <IconBallpen className="h-4 w-4 text-pink-300" />,
+  },
+  {
+    title: "دریافت نمره واقعی",
+    description: "نمره دهی writing شما توسط هوش مصنوعی",
+    header: <GridImage src="/images/ielts_score.webp" alt="Digital" />,
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "تحلیل نوشته شما بر اساس معیار های Ielts",
+    description: "بازخورد آنی و موشکافانه روی گرامر، لغت و ساختار رایتینگ شما",
+    header: <GridImage src="/images/rubrics.webp" alt="Ielts Rubrics" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: " ارتقای خط به خط نوشته‌های شما",
+    description:
+      "هوش مصنوعی نقاط ضعف متن شما را ردیابی کرده و به شما می‌آموزد چطور روان‌تر و حرفه‌ای‌تر بنویسید.",
+    header: (
+      <GridImage
+        src="/images/enhance.webp"
+        alt="Enhance"
+        imageClassName="object-[95%_5%]"
+      />
+    ),
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
+];
+</file>
+
+<file path="features/landing/components/line-by-line-assessment.tsx">
+"use client";
+
+import { motion } from "framer-motion";
+import { FileSearch } from "lucide-react";
+import React from "react";
+
+const CustomHighlight = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <span className="relative inline-block mx-1">
+      <motion.span
+        className="absolute inset-0 z-0 rounded-sm"
+        style={{ backgroundColor: color }}
+        initial={{ width: "0%", opacity: 0.3 }}
+        animate={{ width: "100%", opacity: 0.5 }}
+        transition={{
+          duration: 3,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+      <span className="relative z-10">{children}</span>
+    </span>
+  );
+};
+
+const CustomUnderline = ({
+  children,
+  color,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <span className="relative inline-block mx-1">
+      {children}
+      <motion.span
+        className="absolute -bottom-1 left-0 h-0.5 rounded-full"
+        style={{ backgroundColor: color }}
+        initial={{ width: "0%" }}
+        animate={{ width: "100%" }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+    </span>
+  );
+};
+
+export function LineByLineAssessmentCard() {
+  return (
+    <div
+      className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2563eb]/20 bg-linear-to-br from-[#0f172a] to-zinc-950 p-6 shadow-xl backdrop-blur-sm"
+      dir="rtl"
+    >
+      {/* Decorative background glow (Dark Blue Tone) */}
+      <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#3b82f6] opacity-15 blur-3xl"></div>
+
+      {/* Header & Typography */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative z-10 flex flex-col gap-4"
+      >
+        <div className="flex items-start gap-3">
+          <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2563eb]/20 text-blue-400">
+            <FileSearch size={20} strokeWidth={2.5} />
+          </div>
+          <h3 className="text-base font-bold leading-relaxed text-neutral-100 font-vazirmatn">
+            ارزیابی خط‌به‌خط رایتینگ شما توسط دستیار هوشمند.
+          </h3>
+        </div>
+      </motion.div>
+
+      {/* Sample Writing Box */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="relative z-10 mt-6 rounded-xl border border-white/5 bg-white/5 p-4 text-[13px] leading-relaxed text-neutral-300 shadow-inner font-sans"
+        dir="ltr"
+      >
+        <p className="leading-loose">
+          The provided chart illustrates the
+          <CustomHighlight color="#16a34a">
+            substantial fluctuation
+          </CustomHighlight>
+          in global energy consumption over a decade. However, the data
+          <CustomUnderline color="#ef4444">don't demonstrate</CustomUnderline>
+          the underlying economic factors clearly.
+        </p>
+      </motion.div>
+    </div>
+  );
+}
+</file>
+
+<file path="lib/utils.ts">
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export const BASE_URL = "http://127.0.0.1:8000/";
+</file>
+
+<file path="app/(root)/layout.tsx">
+import type { Metadata } from "next";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={` h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-bg-dark">{children}</body>
+    </html>
+  );
+}
+</file>
+
+<file path="app/login/layout.tsx">
+import type { Metadata } from "next";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={` h-full antialiased`}>
+      <body className="min-h-full flex flex-column font-vazirmatn bg-bg-dark">
+        {children}
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="app/login/page.tsx">
+"use client";
+
+import LoginForm from "@/features/auth/components/login-form";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+
+export default function LoginPage() {
+  return (
+    <main className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-10 bg-bg-dark font-vazirmatn overflow-hidden">
+      {/* Interactive Form Card */}
+      <div className="relative z-10 w-full flex items-center justify-center">
+        <LoginForm />
+      </div>
+
+      {/* Ambient Neural Background Mesh */}
+      <BackgroundBeams className="bg-bg-dark opacity-40 pointer-events-none" />
+    </main>
+  );
+}
+</file>
+
+<file path="app/globals.css">
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Thin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-900: oklch(0.305 0.25 335.493);
+  --color-primary-800: oklch(0.405 0.25 335.493);
+  --color-primary-700: oklch(0.505 0.25 335.493);
+  --color-primary-600: oklch(0.555 0.25 335.493);
+  --color-primary-500: oklch(0.605 0.25 335.493);
+  --color-primary-400: oklch(0.7 0.25 335.493);
+  --color-primary-300: oklch(0.8 0.25 335.493);
+  --color-primary-200: oklch(0.9 0.25 335.493);
+  --color-primary-100: oklch(1 0.25 335.493);
+  --color-bg: var(--bg);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-light: var(--bg-light);
+  --color-primary: var(--primary);
+  --color-primary-main: var(--primary-main);
+  --color-primary-background: var(--primary-darkest);
+  --color-primary-container: var(--primary-container);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --primary-500: oklch(0.605 0.25 335.493);
+  --primary-400: oklch(0.7 0.25 335.493);
+  --primary-300: oklch(0.8 0.25 335.493);
+  --primary-200: oklch(0.9 0.25 335.493);
+  --primary-100: oklch(1 0.25 335.493);
+  --bg-dark: oklch(0.156 0.027 335.493);
+  --bg: oklch(0.225 0.027 335.493);
+  --bg-light: oklch(0.3 0.027 335.493);
+  --background: oklch(1 0 0);
+  --primary-darkest: oklch(20.77% 0.04 265.75);
+  --primary-container: oklch(29.46% 0.043 265.15);
+  --primary: oklch(63.36% 0.228 305.39);
+  --primary: oklch(63.36% 0.228 305.39);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+</file>
+
+<file path="app/(root)/page.tsx">
+import HeroSection from "@/features/landing/components/hero-section";
+import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section";
+import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
+import AppFeatures from "@/features/landing/components/app-features-section";
+
+export default function Home() {
+  return (
+    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
+      <HeroSection />
+      <AgentArchitectureSection />
+      <InteractiveFeedbackDemo />
+      <AppFeatures />
+    </main>
+  );
+}
+</file>
+
+<file path="features/landing/components/hero-section.tsx">
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModernHeroBackground } from "@/components/ui/modern-hero-background";
+import { HeroExaminerStudio } from "@/features/landing/components/hero-examiner-studio";
+
+export default function HeroSection() {
+  return (
+    <section
+      dir="rtl"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center font-vazirmatn bg-bg-dark overflow-hidden pt-20 pb-16 sm:py-24 px-4 sm:px-6 md:px-12"
+    >
+      {/* 60fps Hardware-Accelerated Modern Background */}
+      <ModernHeroBackground />
+
+      <div className="max-w-5xl mx-auto flex flex-col items-center z-10 relative text-center">
+        {/* Top Tagline Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-200 text-xs sm:text-sm backdrop-blur-md">
+          <Sparkles size={14} className="text-purple-400" />
+          <span>پلتفرم تخصصی تصحیح و شبیه‌سازی نمره رایتینگ آیلتس</span>
+        </div>
+
+        {/* Hero Title */}
+        <h1 className="font-extrabold tracking-tight text-3xl sm:text-5xl md:text-6xl text-white leading-tight sm:leading-snug max-w-4xl">
+          رایتینگ خود را با دقت ممتحن رسمی بسنجید و به{" "}
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300 bg-clip-text text-transparent">
+            Band 8.5
+          </span>{" "}
+          برسید
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 max-w-2xl text-sm sm:text-lg text-neutral-300 font-normal leading-relaxed">
+          تحلیل خط‌به‌خط مقالات Task 1 و Task 2، ارتقای واژگان عمومی به ترکیبات
+          آکادمیک و تصحیح ساختارهای گرامری بر پایه استانداردهای رسمی کمبریج.
+        </p>
+
+        {/* CTA & Trust Badges */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none">
+          <Link href="/login" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full sm:w-64 h-12 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>شروع ارزیابی رایگان مقاله</span>
+              <ArrowLeft size={18} />
+            </Button>
+          </Link>
+        </div>
+
+        {/* Micro-props List */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-neutral-400">
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck size={14} className="text-emerald-400" />
+            منطبق با جدول نمره‌دهی ممتحن
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 size={14} className="text-purple-400" />
+            تحلیل فوری در کمتر از ۳۰ ثانیه
+          </span>
+        </div>
+
+        {/* Modern Live Examiner Studio Preview */}
+        <div className="w-full mt-12 sm:mt-16">
+          <HeroExaminerStudio />
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "ielts-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tabler/icons-react": "^3.44.0",
+    "@tanstack/react-form": "^1.33.0",
+    "@tanstack/react-form-nextjs": "^1.33.0",
+    "axios": "^1.18.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cn": "^0.4.0",
+    "lucide-react": "^1.17.0",
+    "motion": "^12.40.0",
+    "next": "16.2.6",
+    "radix-ui": "^1.4.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.0",
+    "rough-notation": "^0.5.1",
+    "shadcn": "^4.8.2",
+    "tailwind-merge": "^3.6.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="features/landing/components/app-features-section.tsx">
+// features/landing/components/app-features-section.tsx
+import { BentoGrid } from "@/components/ui/bento-grid";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FeaturesBento } from "./bento-grid";
+import { ProgressReportShowcase } from "./progress-report-showcase";
+
+const AppFeatures = () => {
+  return (
+    <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h4
+          dir="rtl"
+          className="text-gray-100 font-black text-3xl sm:text-4xl text-center mb-3"
+        >
+          امکانات و ابزارهای هوشمند AIelts
+        </h4>
+        <p className="text-center text-neutral-400 text-sm max-w-xl mx-auto mb-8">
+          مسیر تحلیلی و گام‌به‌گام برای رسیدن به بالاترین نمره رایتینگ با
+          بازخورد تخصصی
+        </p>
+
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="mx-auto bg-bg-light gap-2 sm:gap-4 flex justify-center mb-8 p-1.5 rounded-2xl border border-white/5">
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="overview"
+            >
+              بازخورد هوشمند
+            </TabsTrigger>
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="reports"
+            >
+              گزارش پیشرفت
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent dir="rtl" value="overview" className="pb-10">
+            <FeaturesBento />
+          </TabsContent>
+
+          <TabsContent dir="rtl" value="reports" className="pb-10">
+            <ProgressReportShowcase />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default AppFeatures;
+</file>
+
+</files>
+````
+
+## File: app/(root)/layout.tsx
+````typescript
+import type { Metadata } from "next";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={` h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-bg-dark">{children}</body>
+    </html>
+  );
+}
+````
+
+## File: app/login/layout.tsx
+````typescript
+import type { Metadata } from "next";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={` h-full antialiased`}>
+      <body className="min-h-full flex flex-column font-vazirmatn bg-bg-dark">
+        {children}
+      </body>
+    </html>
+  );
+}
+````
+
+## File: app/login/page.tsx
+````typescript
+"use client";
+
+import LoginForm from "@/features/auth/components/login-form";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+
+export default function LoginPage() {
+  return (
+    <main className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-10 bg-bg-dark font-vazirmatn overflow-hidden">
+      {/* Interactive Form Card */}
+      <div className="relative z-10 w-full flex items-center justify-center">
+        <LoginForm />
+      </div>
+
+      {/* Ambient Neural Background Mesh */}
+      <BackgroundBeams className="bg-bg-dark opacity-40 pointer-events-none" />
+    </main>
+  );
+}
+````
+
+## File: app/globals.css
+````css
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/font/Vazirmatn-Thin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-900: oklch(0.305 0.25 335.493);
+  --color-primary-800: oklch(0.405 0.25 335.493);
+  --color-primary-700: oklch(0.505 0.25 335.493);
+  --color-primary-600: oklch(0.555 0.25 335.493);
+  --color-primary-500: oklch(0.605 0.25 335.493);
+  --color-primary-400: oklch(0.7 0.25 335.493);
+  --color-primary-300: oklch(0.8 0.25 335.493);
+  --color-primary-200: oklch(0.9 0.25 335.493);
+  --color-primary-100: oklch(1 0.25 335.493);
+  --color-bg: var(--bg);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-light: var(--bg-light);
+  --color-primary: var(--primary);
+  --color-primary-main: var(--primary-main);
+  --color-primary-background: var(--primary-darkest);
+  --color-primary-container: var(--primary-container);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --primary-500: oklch(0.605 0.25 335.493);
+  --primary-400: oklch(0.7 0.25 335.493);
+  --primary-300: oklch(0.8 0.25 335.493);
+  --primary-200: oklch(0.9 0.25 335.493);
+  --primary-100: oklch(1 0.25 335.493);
+  --bg-dark: oklch(0.156 0.027 335.493);
+  --bg: oklch(0.225 0.027 335.493);
+  --bg-light: oklch(0.3 0.027 335.493);
+  --background: oklch(1 0 0);
+  --primary-darkest: oklch(20.77% 0.04 265.75);
+  --primary-container: oklch(29.46% 0.043 265.15);
+  --primary: oklch(63.36% 0.228 305.39);
+  --primary: oklch(63.36% 0.228 305.39);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+````
+
+## File: app/(root)/page.tsx
+````typescript
+import HeroSection from "@/features/landing/components/hero-section";
+import { AgentArchitectureSection } from "@/features/landing/components/agent-architecture-section";
+import { InteractiveFeedbackDemo } from "@/features/landing/components/interactive-feedback-demo";
+import AppFeatures from "@/features/landing/components/app-features-section";
+
+export default function Home() {
+  return (
+    <main className="flex flex-col w-full min-h-screen bg-bg-dark text-white selection:bg-purple-500/30 selection:text-purple-200">
+      <HeroSection />
+      <AgentArchitectureSection />
+      <InteractiveFeedbackDemo />
+      <AppFeatures />
+    </main>
+  );
+}
+````
+
+## File: features/landing/components/hero-section.tsx
+````typescript
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { ArrowLeft, Sparkles, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ModernHeroBackground } from "@/components/ui/modern-hero-background";
+import { HeroExaminerStudio } from "@/features/landing/components/hero-examiner-studio";
+
+export default function HeroSection() {
+  return (
+    <section
+      dir="rtl"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center font-vazirmatn bg-bg-dark overflow-hidden pt-20 pb-16 sm:py-24 px-4 sm:px-6 md:px-12"
+    >
+      {/* 60fps Hardware-Accelerated Modern Background */}
+      <ModernHeroBackground />
+
+      <div className="max-w-5xl mx-auto flex flex-col items-center z-10 relative text-center">
+        {/* Top Tagline Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-200 text-xs sm:text-sm backdrop-blur-md">
+          <Sparkles size={14} className="text-purple-400" />
+          <span>پلتفرم تخصصی تصحیح و شبیه‌سازی نمره رایتینگ آیلتس</span>
+        </div>
+
+        {/* Hero Title */}
+        <h1 className="font-extrabold tracking-tight text-3xl sm:text-5xl md:text-6xl text-white leading-tight sm:leading-snug max-w-4xl">
+          رایتینگ خود را با دقت ممتحن رسمی بسنجید و به{" "}
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300 bg-clip-text text-transparent">
+            Band 8.5
+          </span>{" "}
+          برسید
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 max-w-2xl text-sm sm:text-lg text-neutral-300 font-normal leading-relaxed">
+          تحلیل خط‌به‌خط مقالات Task 1 و Task 2، ارتقای واژگان عمومی به ترکیبات
+          آکادمیک و تصحیح ساختارهای گرامری بر پایه استانداردهای رسمی کمبریج.
+        </p>
+
+        {/* CTA & Trust Badges */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none">
+          <Link href="/login" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full sm:w-64 h-12 bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>شروع ارزیابی رایگان مقاله</span>
+              <ArrowLeft size={18} />
+            </Button>
+          </Link>
+        </div>
+
+        {/* Micro-props List */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-neutral-400">
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck size={14} className="text-emerald-400" />
+            منطبق با جدول نمره‌دهی ممتحن
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 size={14} className="text-purple-400" />
+            تحلیل فوری در کمتر از ۳۰ ثانیه
+          </span>
+        </div>
+
+        {/* Modern Live Examiner Studio Preview */}
+        <div className="w-full mt-12 sm:mt-16">
+          <HeroExaminerStudio />
+        </div>
+      </div>
+    </section>
+  );
+}
+````
+
+## File: package.json
+````json
+{
+  "name": "ielts-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tabler/icons-react": "^3.44.0",
+    "@tanstack/react-form": "^1.33.0",
+    "@tanstack/react-form-nextjs": "^1.33.0",
+    "axios": "^1.18.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cn": "^0.4.0",
+    "lucide-react": "^1.17.0",
+    "motion": "^12.40.0",
+    "next": "16.2.6",
+    "radix-ui": "^1.4.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.0",
+    "rough-notation": "^0.5.1",
+    "shadcn": "^4.8.2",
+    "tailwind-merge": "^3.6.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+````
+
+## File: features/landing/components/app-features-section.tsx
+````typescript
+// features/landing/components/app-features-section.tsx
+import { BentoGrid } from "@/components/ui/bento-grid";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FeaturesBento } from "./bento-grid";
+import { ProgressReportShowcase } from "./progress-report-showcase";
+
+const AppFeatures = () => {
+  return (
+    <div className="bg-linear-to-b from-bg-dark font-vazirmatn to-bg w-full py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h4
+          dir="rtl"
+          className="text-gray-100 font-black text-3xl sm:text-4xl text-center mb-3"
+        >
+          امکانات و ابزارهای هوشمند AIelts
+        </h4>
+        <p className="text-center text-neutral-400 text-sm max-w-xl mx-auto mb-8">
+          مسیر تحلیلی و گام‌به‌گام برای رسیدن به بالاترین نمره رایتینگ با
+          بازخورد تخصصی
+        </p>
+
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="mx-auto bg-bg-light gap-2 sm:gap-4 flex justify-center mb-8 p-1.5 rounded-2xl border border-white/5">
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="overview"
+            >
+              بازخورد هوشمند
+            </TabsTrigger>
+            <TabsTrigger
+              className="cursor-pointer text-xs sm:text-sm px-4 py-2 rounded-xl data-[state=active]:bg-purple-600 data-[state=active]:text-white text-neutral-300 transition-all"
+              value="reports"
+            >
+              گزارش پیشرفت
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent dir="rtl" value="overview" className="pb-10">
+            <FeaturesBento />
+          </TabsContent>
+
+          <TabsContent dir="rtl" value="reports" className="pb-10">
+            <ProgressReportShowcase />
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default AppFeatures;
+````
