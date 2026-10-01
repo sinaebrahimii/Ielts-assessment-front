@@ -1,0 +1,45 @@
+/*
+ * Theme for the signed-in app shell (sidebar + pages).
+ *
+ * Applied via the `app-shell` class on <html> in app/profile/layout.tsx, NOT on
+ * a wrapper div: popovers, tooltips and the mobile sheet render in portals under
+ * <body>, so tokens scoped to a div would not reach them.
+ *
+ * Reuses the brand hues already defined in globals.css (--bg-dark, --bg,
+ * --primary) so the shell matches the landing/login pages.
+ * Import AFTER globals.css so these values win over the `.dark` defaults.
+ */
+.app-shell {
+  color-scheme: dark;
+
+  --background: var(--bg-dark);
+  --foreground: oklch(0.97 0.006 335);
+
+  --card: var(--bg);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.21 0.03 335.5);
+  --popover-foreground: var(--foreground);
+
+  --muted: oklch(0.26 0.03 335.5);
+  --muted-foreground: oklch(0.74 0.02 335);
+  --accent: oklch(0.3 0.035 335.5);
+  --accent-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.28 0.03 335.5);
+  --secondary-foreground: var(--foreground);
+
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: var(--primary);
+  --destructive: oklch(0.72 0.19 20);
+
+  --primary-foreground: oklch(0.99 0 0);
+
+  --sidebar: oklch(0.19 0.028 335.5);
+  --sidebar-foreground: oklch(0.95 0.01 335);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.27 0.033 335.5);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: var(--primary);
+}
