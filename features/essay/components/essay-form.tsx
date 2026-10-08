@@ -1,4 +1,3 @@
-// features/essay/components/essay-form.tsx
 "use client";
 
 import * as React from "react";
@@ -7,13 +6,18 @@ import {
   HelpCircle,
   Clock,
   Sparkles,
-  Send,
   AlertCircle,
   FileText,
   RotateCcw,
   BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  submitEssayForFeedback,
+  type EssayFeedbackResponse,
+  type EssaySubmissionPayload,
+} from "../api/essay-api";
+import { EssayFeedbackResult } from "./essay-feedback-result";
 
 const SAMPLE_PROMPTS = [
   "Some people believe that unpaid community service should be a compulsory part of high school programmes. To what extent do you agree or disagree?",
@@ -25,6 +29,11 @@ export function EssayForm() {
   const [selectedPromptIndex, setSelectedPromptIndex] = React.useState<
     number | null
   >(null);
+  const [feedbackResult, setFeedbackResult] =
+    React.useState<EssayFeedbackResponse | null>(null);
+  const [submittedInput, setSubmittedInput] =
+    React.useState<EssaySubmissionPayload | null>(null);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
 
   const form = useForm({
     defaultValues: {
@@ -32,11 +41,40 @@ export function EssayForm() {
       essay: "",
     },
     onSubmit: async ({ value }) => {
-      // Backend expects: { essay_prompt: string, essay: string } -> POST /feedback
-      console.log("Ready to post to /feedback:", value);
-      alert("مقاله با موفقیت آماده ارسال به سرویس تصحیح شد.");
+      setSubmitError(null);
+      try {
+        const payload: EssaySubmissionPayload = {
+          essay_prompt: value.essay_prompt.trim(),
+          essay: value.essay.trim(),
+        };
+        const response = await submitEssayForFeedback(payload);
+        setSubmittedInput(payload);
+        setFeedbackResult(response);
+      } catch (err: unknown) {
+        setSubmitError(
+          "خطا در برقراری ارتباط با سرویس ارزیابی. لطفاً مجدداً تلاش کنید.",
+        );
+      }
     },
   });
+
+  const handleReset = () => {
+    setFeedbackResult(null);
+    setSubmittedInput(null);
+    setSubmitError(null);
+    form.reset();
+  };
+
+  // When assessment result is received, render the result view
+  if (feedbackResult && submittedInput) {
+    return (
+      <EssayFeedbackResult
+        data={feedbackResult}
+        originalInput={submittedInput}
+        onReset={handleReset}
+      />
+    );
+  }
 
   return (
     <form
@@ -47,7 +85,14 @@ export function EssayForm() {
       }}
       className="space-y-6"
     >
-      {/* ---------------- PART 1: The Question / Prompt ---------------- */}
+      {submitError && (
+        <div className="flex items-center gap-2 rounded-xl border border-destructive/30 bg-destructive/10 p-3 text-xs text-destructive">
+          <AlertCircle className="size-4 shrink-0" />
+          <span>{submitError}</span>
+        </div>
+      )}
+
+      {/* Part 1: Question / Prompt */}
       <div className="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b pb-4">
           <div className="flex items-center gap-2.5">
@@ -71,7 +116,6 @@ export function EssayForm() {
           </div>
         </div>
 
-        {/* Quick Sample Prompts Picker */}
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
             <BookOpen className="size-3" />
@@ -96,7 +140,6 @@ export function EssayForm() {
           ))}
         </div>
 
-        {/* Prompt Input */}
         <form.Field
           name="essay_prompt"
           validators={{
@@ -121,7 +164,7 @@ export function EssayForm() {
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
-                  placeholder="Enter the official IELTS Task 2 prompt here (e.g. Some people believe that...)"
+                  placeholder="Enter the official IELTS Task 2 prompt here..."
                   className="w-full resize-y bg-transparent p-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none font-sans leading-relaxed"
                 />
               </div>
@@ -146,7 +189,7 @@ export function EssayForm() {
         </form.Field>
       </div>
 
-      {/* ---------------- PART 2: The Essay Answer ---------------- */}
+      {/* Part 2: The Essay Answer */}
       <div className="rounded-2xl border border-border bg-card p-4 sm:p-6 shadow-sm">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b pb-4">
           <div className="flex items-center gap-2.5">
@@ -155,11 +198,11 @@ export function EssayForm() {
             </span>
             <div>
               <h2 className="text-base font-bold text-foreground">
-                پاسخ و متن مقاله (Candidate's Essay)
+                پاسخ و متن مقاله (Candidate&apos;s Essay)
               </h2>
               <p className="text-xs text-muted-foreground">
-                متن رایتینگ خود را تایپ یا جای‌گذاری کنید. حداقل کلمات پیشنهادی
-                برای تسک دوم ۲۵۰ کلمه است.
+                متن رایتینگ خود را تایپ یا جای‌گذاری کنید (حداقل ۲۵۰ کلمه
+                پیشنهادی).
               </p>
             </div>
           </div>
@@ -191,7 +234,6 @@ export function EssayForm() {
 
             return (
               <div className="mt-4 space-y-3">
-                {/* Writing Statistics Dashboard Strip */}
                 <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/70 bg-muted/30 px-3.5 py-2.5 text-xs text-muted-foreground">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1.5 font-medium text-foreground">
@@ -204,9 +246,6 @@ export function EssayForm() {
                       >
                         {words}
                       </strong>
-                      <span className="text-[10px] text-muted-foreground">
-                        (هدف: +۲۵۰)
-                      </span>
                     </span>
 
                     <span className="hidden sm:inline-block h-3.5 w-px bg-border" />
@@ -227,7 +266,6 @@ export function EssayForm() {
                     <button
                       type="button"
                       onClick={() => field.handleChange("")}
-                      title="پاک کردن متن"
                       className="inline-flex items-center gap-1 text-[11px] hover:text-destructive transition-colors cursor-pointer"
                     >
                       <RotateCcw className="size-3" />
@@ -236,7 +274,6 @@ export function EssayForm() {
                   </div>
                 </div>
 
-                {/* Long Text Corpus Editor Area */}
                 <div className="relative rounded-2xl border border-input bg-background focus-within:border-primary focus-within:ring-3 focus-within:ring-primary/20 transition-all overflow-hidden">
                   <textarea
                     id={field.name}
@@ -245,12 +282,7 @@ export function EssayForm() {
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
-                    placeholder="Write your essay here... 
-
-Introduction: Paraphrase the prompt & state your thesis.
-Body Paragraph 1: First main argument with reasoning and example.
-Body Paragraph 2: Counterpoint or second key argument.
-Conclusion: Summary of findings and restated stance."
+                    placeholder="Write your essay here..."
                     className="w-full resize-y bg-transparent p-4 sm:p-5 text-sm sm:text-base leading-relaxed tracking-normal text-foreground placeholder:text-muted-foreground/40 outline-none font-sans"
                     style={{ minHeight: "320px", maxHeight: "700px" }}
                   />
@@ -258,19 +290,10 @@ Conclusion: Summary of findings and restated stance."
 
                 <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
                   <span>
-                    {field.state.meta.errors.length > 0 ? (
+                    {field.state.meta.errors.length > 0 && (
                       <span className="text-destructive flex items-center gap-1 font-medium">
                         <AlertCircle className="size-3.5" />
                         {field.state.meta.errors[0]}
-                      </span>
-                    ) : words < 250 ? (
-                      <span className="text-amber-400">
-                        برای تسک ۲ توصیه می‌شود حداقل ۲۵۰ کلمه بنویسید تا نمره
-                        Task Response کسر نشود.
-                      </span>
-                    ) : (
-                      <span className="text-emerald-400">
-                        تعداد کلمات در محدوده استاندارد تسک قرار دارد.
                       </span>
                     )}
                   </span>
@@ -284,14 +307,14 @@ Conclusion: Summary of findings and restated stance."
         </form.Field>
       </div>
 
-      {/* ---------------- Form Action Bar ---------------- */}
+      {/* Action Bar */}
       <form.Subscribe
         selector={(state) => [state.canSubmit, state.isSubmitting]}
       >
         {([canSubmit, isSubmitting]) => (
           <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 pt-2">
             <p className="text-xs text-muted-foreground">
-              ارزیابِ طبق ۴ معیار رسمی Task Response، Coherence & Cohesion،
+              ارزیابی بر اساس ۴ معیار Task Response، Coherence & Cohesion،
               Lexical Resource و Grammatical Range انجام می‌شود.
             </p>
 
@@ -299,15 +322,14 @@ Conclusion: Summary of findings and restated stance."
               type="submit"
               size="lg"
               disabled={!canSubmit || isSubmitting}
-              className="w-full sm:w-auto h-11 px-8 rounded-xl font-bold bg-primary text-purple-800 shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              className="w-full sm:w-auto h-11 px-8 rounded-xl font-bold bg-primary text-primary-foreground shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
             >
               {isSubmitting ? (
-                <span>در حال تحلیل...</span>
+                <span>در حال تحلیل و نمره‌دهی...</span>
               ) : (
                 <>
                   <Sparkles className="size-4" />
                   <span>ثبت و شروع ارزیابی اگزمینر</span>
-                  {/* <Send className="size-3.5 rotate-180" /> */}
                 </>
               )}
             </Button>
